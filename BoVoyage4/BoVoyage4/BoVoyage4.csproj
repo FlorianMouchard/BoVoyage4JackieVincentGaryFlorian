@@ -301,6 +301,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\BackOffice\BackOfficeAreaRegistration.cs" />
+    <Compile Include="Controllers\ParticipantsController.cs" />
     <Compile Include="Data\BoVoyage4DbContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -351,6 +352,11 @@
     <Content Include="Scripts\tinymce\langs\readme.md" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_LayoutForm.cshtml" />
+    <Content Include="Views\Participants\Create.cshtml" />
+    <Content Include="Views\Participants\Delete.cshtml" />
+    <Content Include="Views\Participants\Details.cshtml" />
+    <Content Include="Views\Participants\Edit.cshtml" />
+    <Content Include="Views\Participants\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -361,7 +367,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\BackOffice\Controllers\" />
-    <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201807251207012_Init.resx">
