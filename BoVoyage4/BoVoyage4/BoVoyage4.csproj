@@ -112,6 +112,7 @@
     <Compile Include="Models\Personne.cs" />
     <Compile Include="Models\RaisonAnnulationDossier.cs" />
     <Compile Include="Models\Voyage.cs" />
+    <Compile Include="Models\VoyageFile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
