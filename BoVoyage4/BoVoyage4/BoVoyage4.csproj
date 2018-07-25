@@ -322,7 +322,6 @@
     <Compile Include="Areas\BackOffice\Controllers\CommerciauxController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\DestinationsController.cs" />
     <Compile Include="Controllers\ClientsController.cs" />
-    <Compile Include="Controllers\ParticipantsController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\VoyagesController.cs" />
     <Compile Include="Data\BoVoyage4DbContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -394,7 +393,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201807251207012_Init.resx">
