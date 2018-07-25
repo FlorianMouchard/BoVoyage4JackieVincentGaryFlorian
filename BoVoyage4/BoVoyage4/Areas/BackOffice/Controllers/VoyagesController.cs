@@ -22,6 +22,31 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             return View(voyages.ToList());
         }
 
+        // GET: BackOffice/Vayages/Search?
+        [HttpGet]
+        public ActionResult Index(DateTime? dateMin, DateTime? dateMax, decimal prixMin, decimal prixMax, string destination)
+        {
+            ViewBag.dateMin = dateMin;
+            ViewBag.dateMax = dateMax;
+            ViewBag.prixMin = prixMin;
+            ViewBag.prixMax = prixMax;
+
+            IQueryable<Voyage> voyages = db.Voyages.Include(x => x.Destination);
+
+            if (destination != null)
+                voyages = voyages.Where(x => x.Destination.Region == destination);
+            if (dateMin.HasValue)
+                voyages = voyages.Where(x => x.DateAller >= dateMin);
+            if (dateMax.HasValue)
+                voyages = voyages.Where(x => x.DateAller <= dateMax);
+            if (prixMin != 0)
+                voyages = voyages.Where(x => x.TarifToutCompris >= prixMin);
+            if (prixMax != 0)
+                voyages = voyages.Where(x => x.TarifToutCompris <= prixMax);
+
+            return View(voyages.ToList());
+        }
+
         // GET: BackOffice/Voyages/Details/5
         public ActionResult Details(int? id)
         {
@@ -120,24 +145,7 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
-        // GET: BackOffice/Vayages/Search?
-        [HttpGet]
-        public IQueryable<Voyage> GetSearch(DateTime? dateAller = null, DateTime? dateRetour = null, int? destinationID = null)
-        {
-            var query = db.Voyages.Where(x => x.PlacesDisponibles > 0);
-
-            if (destinationID != null)
-                query = query.Where(x => x.DestinationID == destinationID);
-
-            if (dateAller != null)
-                query = query.Where(x => x.DateAller == dateAller);
-
-            if (dateRetour != null)
-                query = query.Where(x => x.DateRetour == dateRetour);
-
-            return query;
-        }
+       
         protected override void Dispose(bool disposing)
         {
             if (disposing)
