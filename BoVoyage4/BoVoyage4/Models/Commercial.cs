@@ -7,7 +7,7 @@ using System.Web;
 
 namespace BoVoyage4.Models
 {
-    public class Client : Personne
+    public class Commercial : Personne
     {
         [Display(Name = "Adresse Mail")]
         [Required(ErrorMessage = "Le champ Mail est obligatoire")]
@@ -19,7 +19,7 @@ namespace BoVoyage4.Models
 
         [Display(Name = "Mot de passe")]
         [Required(ErrorMessage = "Le champ {0} est obligatoire")]
-        [DataType(DataType.Password)]
+        [DataType(DataType.Password)]        
         public string Password { get; set; }
 
         [Display(Name = "Mot de passe")]
