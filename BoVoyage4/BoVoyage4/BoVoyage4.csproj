@@ -154,6 +154,11 @@
     <Content Include="Areas\BackOffice\Views\Destinations\Details.cshtml" />
     <Content Include="Areas\BackOffice\Views\Destinations\Edit.cshtml" />
     <Content Include="Areas\BackOffice\Views\Destinations\Index.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Commerciaux\Create.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Commerciaux\Delete.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Commerciaux\Details.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Commerciaux\Edit.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Commerciaux\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -321,6 +326,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\BackOffice\BackOfficeAreaRegistration.cs" />
+    <Compile Include="Areas\BackOffice\Controllers\CommerciauxController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\DestinationsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ClientsController.cs" />
@@ -334,6 +340,10 @@
     <Compile Include="Migrations\201807251207012_Init.Designer.cs">
       <DependentUpon>201807251207012_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807251542415_AjoutCivilite.cs" />
+    <Compile Include="Migrations\201807251542415_AjoutCivilite.Designer.cs">
+      <DependentUpon>201807251542415_AjoutCivilite.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AgenceVoyage.cs" />
     <Compile Include="Models\Assurance.cs" />
@@ -341,6 +351,7 @@
     <Compile Include="Models\AuthentificationClient.cs" />
     <Compile Include="Areas\BackOffice\Models\AuthentificationCommercial.cs" />
     <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\Civilite.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Areas\BackOffice\Models\Commercial.cs" />
     <Compile Include="Models\Destination.cs" />
@@ -375,6 +386,7 @@
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-mobile.woff" />
     <Content Include="Scripts\tinymce\langs\readme.md" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_LayoutForm.cshtml" />
     <Content Include="Views\Participants\Create.cshtml" />
     <Content Include="Views\Participants\Delete.cshtml" />
     <Content Include="Views\Participants\Details.cshtml" />
@@ -397,10 +409,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201807251207012_Init.resx">
       <DependentUpon>201807251207012_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807251542415_AjoutCivilite.resx">
+      <DependentUpon>201807251542415_AjoutCivilite.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

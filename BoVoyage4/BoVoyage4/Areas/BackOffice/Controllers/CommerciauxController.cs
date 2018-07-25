@@ -6,138 +6,116 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using BoVoyage4.Areas.BackOffice.Models;
 using BoVoyage4.Data;
-using BoVoyage4.Models;
 
 namespace BoVoyage4.Areas.BackOffice.Controllers
 {
-    public class VoyagesController : Controller
+    public class CommerciauxController : Controller
     {
         private BoVoyage4DbContext db = new BoVoyage4DbContext();
 
-        // GET: BackOffice/Voyages
+        // GET: BackOffice/Commerciaux
         public ActionResult Index()
         {
-            var voyages = db.Voyages.Include(v => v.Destination);
-            return View(voyages.ToList());
+            return View(db.Commerciaux.ToList());
         }
 
-        // GET: BackOffice/Voyages/Details/5
+        // GET: BackOffice/Commerciaux/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Voyage voyage = db.Voyages.Find(id);
-            if (voyage == null)
+            Commercial commercial = db.Commerciaux.Find(id);
+            if (commercial == null)
             {
                 return HttpNotFound();
             }
-            return View(voyage);
+            return View(commercial);
         }
 
-        // GET: BackOffice/Voyages/Create
+        // GET: BackOffice/Commerciaux/Create
         public ActionResult Create()
         {
-            ViewBag.DestinationID = new SelectList(db.Destinations, "ID", "Continent");
             return View();
         }
 
-        // POST: BackOffice/Voyages/Create
+        // POST: BackOffice/Commerciaux/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,DateAller,DateRetour,PlacesDisponibles,TarifToutCompris,DestinationID")] Voyage voyage)
+        public ActionResult Create([Bind(Include = "ID,Email,Password,Civilite,Nom,Prenom,Adresse,Telephone,DateNaissance")] Commercial commercial)
         {
             if (ModelState.IsValid)
             {
-                db.Voyages.Add(voyage);
+                db.Commerciaux.Add(commercial);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.DestinationID = new SelectList(db.Destinations, "ID", "Continent", voyage.DestinationID);
-            return View(voyage);
+            return View(commercial);
         }
 
-        // GET: BackOffice/Voyages/Edit/5
+        // GET: BackOffice/Commerciaux/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Voyage voyage = db.Voyages.Find(id);
-            if (voyage == null)
+            Commercial commercial = db.Commerciaux.Find(id);
+            if (commercial == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.DestinationID = new SelectList(db.Destinations, "ID", "Continent", voyage.DestinationID);
-            return View(voyage);
+            return View(commercial);
         }
 
-        // POST: BackOffice/Voyages/Edit/5
+        // POST: BackOffice/Commerciaux/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,DateAller,DateRetour,PlacesDisponibles,TarifToutCompris,DestinationID")] Voyage voyage)
+        public ActionResult Edit([Bind(Include = "ID,Email,Password,Civilite,Nom,Prenom,Adresse,Telephone,DateNaissance")] Commercial commercial)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(voyage).State = EntityState.Modified;
+                db.Entry(commercial).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.DestinationID = new SelectList(db.Destinations, "ID", "Continent", voyage.DestinationID);
-            return View(voyage);
+            return View(commercial);
         }
 
-        // GET: BackOffice/Voyages/Delete/5
+        // GET: BackOffice/Commerciaux/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Voyage voyage = db.Voyages.Find(id);
-            if (voyage == null)
+            Commercial commercial = db.Commerciaux.Find(id);
+            if (commercial == null)
             {
                 return HttpNotFound();
             }
-            return View(voyage);
+            return View(commercial);
         }
 
-        // POST: BackOffice/Voyages/Delete/5
+        // POST: BackOffice/Commerciaux/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Voyage voyage = db.Voyages.Find(id);
-            db.Voyages.Remove(voyage);
+            Commercial commercial = db.Commerciaux.Find(id);
+            db.Commerciaux.Remove(commercial);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
 
-        // GET: BackOffice/Vayages/Search?
-        [HttpGet]
-        public IQueryable<Voyage> GetSearch(DateTime? dateAller = null, DateTime? dateRetour = null, int? destinationID = null)
-        {
-            var query = db.Voyages.Where(x => x.PlacesDisponibles > 0);
-
-            if (destinationID != null)
-                query = query.Where(x => x.DestinationID == destinationID);
-
-            if (dateAller != null)
-                query = query.Where(x => x.DateAller == dateAller);
-
-            if (dateRetour != null)
-                query = query.Where(x => x.DateRetour == dateRetour);
-
-            return query;
-        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -146,7 +124,5 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             }
             base.Dispose(disposing);
         }
-
-
     }
 }

@@ -32,5 +32,7 @@ namespace BoVoyage4.Data
 
         public DbSet<AssuranceAnnulation> AssuranceAnnulations { get; set; }
 
+        public DbSet<Civilite> Civilites { get; set; }
+
     }
 }
