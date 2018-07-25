@@ -5,10 +5,10 @@
     Layout = "~/Areas/BackOffice/Views/Shared/_LayoutBO.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Liste des destinations</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Création d'une destination", "Create")
 </p>
 <table class="table">
     <tr>
@@ -42,9 +42,10 @@
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            <a href="@Url.Action("Edit", new { id=item.ID})"><i class="fa fa-edit"> | </i></a>
+            <a href="@Url.Action("Details", new { id=item.ID})"><i class="fa fa-eye"></i></a>
+
+
         </td>
     </tr>
 }

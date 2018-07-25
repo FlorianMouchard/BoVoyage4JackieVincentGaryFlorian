@@ -1,7 +1,7 @@
 ﻿
 @{
     Layout = null;
-    //var user = Session["USER_BO"] as BoVoyage4.Models.User;
+    
 }
 
 <!DOCTYPE html>
@@ -35,22 +35,22 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Salle
+                            Voyages
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Voir les salles</a>
-                            <a class="dropdown-item" href="#">Ajouter</a>
+                            <a class="dropdown-item" href="@Url.Action("Index","Voyages")">Voir les voyages</a>
+                            <a class="dropdown-item" href="@Url.Action("Create","Voyages")">Ajouter</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Something else here</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Catégories
+                            Clients
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Voir les catégories</a>
-                            <a class="dropdown-item" href="#)">Ajouter</a>
+                            <a class="dropdown-item" href="@Url.Action("Index","Clients")">Voir les clients</a>
+                            <a class="dropdown-item" href="@Url.Action("Create","Clients")">Ajouter</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Something else here</a>
                         </div>

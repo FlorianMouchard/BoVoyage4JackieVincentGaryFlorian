@@ -85,10 +85,10 @@ namespace BoVoyage4.Migrations
                         AssuranceID = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.ID)
-                .ForeignKey("dbo.Assurances", t => t.AssuranceID, cascadeDelete: true)
-                .ForeignKey("dbo.Clients", t => t.ClientID, cascadeDelete: true)
-                .ForeignKey("dbo.Participants", t => t.ParticipantID, cascadeDelete: true)
-                .ForeignKey("dbo.Voyages", t => t.VoyageID, cascadeDelete: true)
+                .ForeignKey("dbo.Assurances", t => t.AssuranceID, cascadeDelete: false)
+                .ForeignKey("dbo.Clients", t => t.ClientID, cascadeDelete: false)
+                .ForeignKey("dbo.Participants", t => t.ParticipantID, cascadeDelete: false)
+                .ForeignKey("dbo.Voyages", t => t.VoyageID, cascadeDelete: false)
                 .Index(t => t.VoyageID)
                 .Index(t => t.ClientID)
                 .Index(t => t.ParticipantID)
@@ -121,7 +121,7 @@ namespace BoVoyage4.Migrations
                         DestinationID = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.ID)
-                .ForeignKey("dbo.Destinations", t => t.DestinationID, cascadeDelete: true)
+                .ForeignKey("dbo.Destinations", t => t.DestinationID, cascadeDelete: false)
                 .Index(t => t.DestinationID);
             
             CreateTable(
@@ -135,7 +135,7 @@ namespace BoVoyage4.Migrations
                         VoyageID = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.ID)
-                .ForeignKey("dbo.Voyages", t => t.VoyageID, cascadeDelete: true)
+                .ForeignKey("dbo.Voyages", t => t.VoyageID, cascadeDelete: false)
                 .Index(t => t.VoyageID);
             
         }
