@@ -8,5 +8,6 @@ namespace BoVoyage4.Models
     public class Participant : Personne
     {
         public float Reduction { get; set; }
+
     }
 }

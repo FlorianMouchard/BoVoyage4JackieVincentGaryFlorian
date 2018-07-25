@@ -20,14 +20,22 @@ namespace BoVoyage4.Models
         public EtatDossierReservation EtatDossier { get; set; }
 
         [Required(ErrorMessage = "Le champ nom est obligatoire")]
-        public int VoyageID { get; set; }
 
+        public int VoyageID { get; set; }
         [ForeignKey("VoyageID")]
         public Voyage Voyage { get; set; }
 
         public int ClientID { get; set; }
         [ForeignKey("ClientID")]
         public Client Client { get; set; }
+
+        public int ParticipantID { get; set; }
+        [ForeignKey("ParticipantID")]
+        public Participant Participant { get; set; }
+
+        public int AssuranceID { get; set; }
+        [ForeignKey("AssuranceID")]
+        public Assurance Assurance { get; set; }
 
     }
 }

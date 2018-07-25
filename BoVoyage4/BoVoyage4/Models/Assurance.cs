@@ -5,7 +5,7 @@ using System.Web;
 
 namespace BoVoyage4.Models
 {
-    public class Assurance : BaseModel
+    public abstract class Assurance : BaseModel
     {
     }
 }

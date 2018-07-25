@@ -9,6 +9,5 @@ namespace BoVoyage4.Models
     {
         public string Nom { get; set; }
 
-
     }
 }

@@ -7,8 +7,7 @@ namespace BoVoyage4.Models
 {
     public class AssuranceAnnulation : Assurance
     {
-       
-            public string Nom { get; set; }
-        
+        public string Nom { get; set; }
+        public decimal Prix { get; set; }
     }
 }
