@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Liste des participants</h2>
+<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -13,10 +13,10 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Reduction)
+            @Html.DisplayNameFor(model => model.Civilite.Libelle)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Civilite)
+            @Html.DisplayNameFor(model => model.Reduction)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Nom)
@@ -39,10 +39,10 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Reduction)
+            @Html.DisplayFor(modelItem => item.Civilite.Libelle)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Civilite)
+            @Html.DisplayFor(modelItem => item.Reduction)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Nom)
@@ -59,10 +59,10 @@
         <td>
             @Html.DisplayFor(modelItem => item.DateNaissance)
         </td>
-        <td>                      
-            <a href="@Url.Action("Edit", new { id=item.ID })"><i class="fa fa-edit"></i>|</a>
-            <a href="@Url.Action("Details", new { id=item.ID })"><i class="fa fa-eye"></i>|</a>
-            <a href="@Url.Action("Delete", new { id=item.ID })"><i class="fa fa-trash text-danger"></i></a>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
         </td>
     </tr>
 }
