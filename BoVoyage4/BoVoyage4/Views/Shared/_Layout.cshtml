@@ -15,6 +15,12 @@
 </head>
 <body>
     <div class="container">
+
+        @if (TempData["Message"] != null && !string.IsNullOrWhiteSpace(TempData["Message"].ToString()))
+        {
+            <div class=" alert alert-@TempData["MessageType"].ToString()">@TempData["Message"].ToString()</div>
+        }
+
         <nav class="navbar navbar-expand-lg navbar-light bg-info">
             <a class="navbar-brand" href="#"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,24 +30,29 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="~/">Accueil <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="@Url.Action("Index","Home", new { area = "" })">App<span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="@Url.RouteUrl("AboutRoute")">A propos de</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Create","Users")">Ajouter un utilisateur</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Index","Dashboard", new { area = "BackOffice" })">Backoffice</a>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="@Url.Action("Index","Dashboard")">BackOffice<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Dropdown
+                            Voyages
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="@Url.Action("Index","Voyages")">Voir les voyages</a>
+                            <a class="dropdown-item" href="@Url.Action("Create","Voyages")">Ajouter</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Clients
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="@Url.Action("Index","Clients")">Voir les clients</a>
+                            <a class="dropdown-item" href="@Url.Action("Create","Clients")">Ajouter</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Something else here</a>
                         </div>
@@ -49,20 +60,17 @@
                     <li class="nav-item">
                         <a class="nav-link disabled" href="#">Disabled</a>
                     </li>
-                    <li class="form-group">
-                        <span class="col-md-offset-2 col-md-10">
-                            <a href="@Url.Action("Login","Authentication", new { area = "BackOffice" })" class="col-2 text-white">Connexion</a>
+                    <li>
+                        <span class="navbar-text">
+
                         </span>
                     </li>
                 </ul>
             </div>
         </nav>
-
         @RenderBody()
         <footer class="bg-light">
-            &copy; POEC Rouen 2018
-            @* @Html.Partial("_TopFive", )*@
-            @Html.Action("TopFive", "Shared")
+            &copy; Projet de l'année !
         </footer>
     </div>
     <script src="~/Scripts/jquery-3.0.0.min.js"></script>

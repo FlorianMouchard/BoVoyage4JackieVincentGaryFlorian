@@ -1,4 +1,4 @@
-﻿@model BoVoyage4.Models.Participant
+﻿@model BoVoyage4.Models.Client
 
 @{
     ViewBag.Title = "Delete";
@@ -7,17 +7,33 @@
 
 <h2>Supprimer</h2>
 
-<h3>Êtes-vous sûr de vouloir supprimer ce participant ?</h3>
+<h3>Êtes-vous sûr de vouloir supprimer ce client ?</h3>
 <div>
-    <h4>Supprimer un participant</h4>
+    <h4>Client</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Reduction)
+            @Html.DisplayNameFor(model => model.Email)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Reduction)
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Historique)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Historique)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Password)
         </dd>
 
         <dt>
@@ -74,7 +90,7 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" onclick="return confirm('Confirmer ?');" class="btn btn-default" /> |
+            <input type="submit" value="Supprimer" onclick="return confirm('Confirmer ?');" class="btn btn-default" /> |
             @Html.ActionLink("Back to List", "Index")
         </div>
     }
