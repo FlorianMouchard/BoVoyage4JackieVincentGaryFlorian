@@ -329,7 +329,6 @@
     <Compile Include="Areas\BackOffice\Controllers\DestinationsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ClientsController.cs" />
-    <Compile Include="Controllers\ParticipantsController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\VoyagesController.cs" />
     <Compile Include="Data\BoVoyage4DbContext.cs" />
     <Compile Include="Global.asax.cs">
