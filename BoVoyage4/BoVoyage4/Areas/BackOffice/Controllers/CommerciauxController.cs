@@ -18,6 +18,7 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
         // GET: BackOffice/Commerciaux
         public ActionResult Index()
         {
+            ViewBag.Civilites = db.Civilites.ToList();
             return View(db.Commerciaux.ToList());
         }
 
@@ -39,6 +40,7 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
         // GET: BackOffice/Commerciaux/Create
         public ActionResult Create()
         {
+            ViewBag.Civilites = db.Civilites.ToList();
             return View();
         }
 
@@ -55,7 +57,7 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            ViewBag.Civilites = db.Civilites.ToList();
             return View(commercial);
         }
 
