@@ -24,5 +24,10 @@ namespace BoVoyage4.Models
 
         [ForeignKey("VoyageID")]
         public Voyage Voyage { get; set; }
+
+        public int ClientID { get; set; }
+        [ForeignKey("ClientID")]
+        public Client Client { get; set; }
+
     }
 }

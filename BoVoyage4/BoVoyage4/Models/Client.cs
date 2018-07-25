@@ -17,6 +17,8 @@ namespace BoVoyage4.Models
         ErrorMessage = "L'adresse mail n'est pas au bon format")]
         public string Email { get; set; }
 
+        public string Historique { get; set; }
+
         [Display(Name = "Mot de passe")]
         [Required(ErrorMessage = "Le champ {0} est obligatoire")]
         [RegularExpression("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\\W).{6,}$", ErrorMessage = "Le mot de passe doit contenir au moins 6 caractères dont au moins une majuscule, une minuscule, un chiffre et un caractère spécial")]
