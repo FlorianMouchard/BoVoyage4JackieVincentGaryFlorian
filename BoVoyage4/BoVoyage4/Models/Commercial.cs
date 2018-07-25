@@ -10,7 +10,7 @@ namespace BoVoyage4.Models
     public class Commercial : Personne
     {
         [Display(Name = "Adresse Mail")]
-        [Required(ErrorMessage = "Le champ Mail est obligatoire")]
+        [Required(ErrorMessage = "Le champ {0} est obligatoire")]
         [RegularExpression(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}" +
                            @"\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\" +
                            @".)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$",
