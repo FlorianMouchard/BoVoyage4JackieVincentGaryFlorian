@@ -143,6 +143,10 @@
     <Content Include="Areas\BackOffice\Views\Voyages\Details.cshtml" />
     <Content Include="Areas\BackOffice\Views\Voyages\Edit.cshtml" />
     <Content Include="Areas\BackOffice\Views\Voyages\Index.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Destinations\Create.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Destinations\Details.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Destinations\Edit.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Destinations\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -310,6 +314,8 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\BackOffice\BackOfficeAreaRegistration.cs" />
+    <Compile Include="Areas\BackOffice\Controllers\DestinationsController.cs" />
+    <Compile Include="Controllers\ParticipantsController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\VoyagesController.cs" />
     <Compile Include="Data\BoVoyage4DbContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -361,6 +367,11 @@
     <Content Include="Scripts\tinymce\langs\readme.md" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_LayoutForm.cshtml" />
+    <Content Include="Views\Participants\Create.cshtml" />
+    <Content Include="Views\Participants\Delete.cshtml" />
+    <Content Include="Views\Participants\Details.cshtml" />
+    <Content Include="Views\Participants\Edit.cshtml" />
+    <Content Include="Views\Participants\Index.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -371,6 +382,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\BackOffice\Controllers\" />
     <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
