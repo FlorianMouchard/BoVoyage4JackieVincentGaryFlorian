@@ -27,13 +27,13 @@
                         <a class="nav-link" href="~/">Accueil <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="@Url.RouteUrl("AboutRoute")">A propos de</a>
+                        <a class="nav-link" href="#">A propos de</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Create","Users")">Ajouter un utilisateur</a>
+                        <a class="nav-link" href="#">Ajouter un utilisateur</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Index","Dashboard", new { area = "BackOffice" })">Backoffice</a>
+                        <a class="nav-link" href="#">Backoffice</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -51,24 +51,24 @@
                     </li>
                     <li class="form-group">
                         <span class="col-md-offset-2 col-md-10">
-                            <a href="@Url.Action("Login","Authentication", new { area = "BackOffice" })" class="col-2 text-white">Connexion</a>
+                            <a href="#" class="col-2 text-white">Connexion</a>
                         </span>
                     </li>
                 </ul>
             </div>
         </nav>
 
-        @RenderBody()
+       
         <footer class="bg-light">
             &copy; POEC Rouen 2018
             @* @Html.Partial("_TopFive", )*@
-            @Html.Action("TopFive", "Shared")
+       
         </footer>
     </div>
     <script src="~/Scripts/jquery-3.0.0.min.js"></script>
     <script src="~/Scripts/umd/popper.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
-    @RenderSection("SectionScripts", false)
+  
 
 </body>
 </html>
