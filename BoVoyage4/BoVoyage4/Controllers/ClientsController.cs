@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using BoVoyage4.Data;
 using BoVoyage4.Models;
+using BoVoyage4.Utils;
 
 namespace BoVoyage4.Controllers
 {
@@ -74,6 +75,8 @@ namespace BoVoyage4.Controllers
         {
             if (ModelState.IsValid)
             {
+                db.Configuration.ValidateOnSaveEnabled = false;
+                client.Password = client.Password.HashMD5();
                 db.Clients.Add(client);
                 db.SaveChanges();
                 return RedirectToAction("Index");
