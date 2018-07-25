@@ -31,7 +31,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="@Url.Action("Index","Home", new { area = "" })">App<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="@Url.Action("Index","Home")">App<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="@Url.Action("Index","Dashboard")">BackOffice<span class="sr-only">(current)</span></a>
@@ -54,8 +54,7 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="@Url.Action("Index","Clients")">Voir les clients</a>
                             <a class="dropdown-item" href="@Url.Action("Create","Clients")">Ajouter</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            <div class="dropdown-divider"></div>                           
                         </div>
                     </li>
                     <li class="nav-item">
@@ -63,7 +62,6 @@
                     </li>
                     <li>
                         <span class="navbar-text">
-
                         </span>
                     </li>
                 </ul>

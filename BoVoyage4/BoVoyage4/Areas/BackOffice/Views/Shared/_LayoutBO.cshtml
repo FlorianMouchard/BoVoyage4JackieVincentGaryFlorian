@@ -18,7 +18,7 @@
 
     <div class="container">
 
-       
+
         <nav class="navbar navbar-expand-lg navbar-light bg-info">
             <a class="navbar-brand" href="#"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,7 +52,7 @@
                             <a class="dropdown-item" href="@Url.Action("Index","Clients")">Voir les clients</a>
                             <a class="dropdown-item" href="@Url.Action("Create","Clients")">Ajouter</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                         
                         </div>
                     </li>
                     <li class="nav-item">
@@ -60,13 +60,13 @@
                     </li>
                     <li>
                         <span class="navbar-text">
-                            <a href="#" class="col-2 text-white">Déconnexion</a>#
+                            <a href="#" class="col-2 text-white">Déconnexion</a>
                         </span>
                     </li>
                 </ul>
             </div>
         </nav>
-       
+       @RenderBody()
         <footer class="bg-light">
             &copy; Projet de l'année !
         </footer>
@@ -77,8 +77,6 @@
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-   
-
-
+  
 </body>
 </html>
