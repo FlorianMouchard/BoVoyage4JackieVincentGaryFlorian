@@ -11,7 +11,9 @@ namespace BoVoyage4.Models
     {
         [Display(Name = "Civilité")]
         [Required(ErrorMessage = "Le champ {0} est obligatoire")]
-        public string Civilite { get; set; }
+        public int CiviliteID { get; set; }
+        [ForeignKey("CiviliteID")]
+        public Civilite Civilite { get; set; }
 
         [Display(Name = "Nom")]
         [Required(ErrorMessage = "Le champ {0} est obligatoire")]
