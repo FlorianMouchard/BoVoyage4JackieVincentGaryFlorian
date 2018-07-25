@@ -18,6 +18,28 @@ namespace BoVoyage4.Controllers
         // GET: Clients
         public ActionResult Index()
         {
+            ViewBag.Civilites = db.Civilites.ToList();
+            return View(db.Clients.ToList());
+        }
+
+        // GET: Clients/Search?
+        [HttpGet]
+        public ActionResult Index(string nom, string prenom, DateTime? neAvantLe, DateTime? neApresLe)
+        {
+            ViewBag.neAvantLe = neAvantLe;
+            ViewBag.neApresLe = neApresLe;
+
+            IQueryable<Client> clients = db.Clients;
+
+            if (nom != null)
+                clients = clients.Where(x => x.Nom.Contains(nom));
+            if (prenom != null)
+                clients = clients.Where(x => x.Nom.Contains(prenom));
+            if (neAvantLe.HasValue)
+                clients = clients.Where(x => x.DateNaissance <= neAvantLe.Value);
+            if (neApresLe.HasValue)
+                clients = clients.Where(x => x.DateNaissance >= neApresLe.Value);
+
             return View(db.Clients.ToList());
         }
 

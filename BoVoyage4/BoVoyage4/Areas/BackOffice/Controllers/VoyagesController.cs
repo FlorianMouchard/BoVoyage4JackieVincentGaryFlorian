@@ -36,9 +36,9 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             if (destination != null)
                 voyages = voyages.Where(x => x.Destination.Region == destination);
             if (dateMin.HasValue)
-                voyages = voyages.Where(x => x.DateAller >= dateMin);
+                voyages = voyages.Where(x => x.DateAller >= dateMin.Value);
             if (dateMax.HasValue)
-                voyages = voyages.Where(x => x.DateAller <= dateMax);
+                voyages = voyages.Where(x => x.DateAller <= dateMax.Value);
             if (prixMin != 0)
                 voyages = voyages.Where(x => x.TarifToutCompris >= prixMin);
             if (prixMax != 0)
