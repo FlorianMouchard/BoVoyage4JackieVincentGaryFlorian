@@ -105,6 +105,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\Site.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -135,6 +136,13 @@
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
     <Content Include="Areas\BackOffice\Views\Shared\_LayoutBO.cshtml" />
+    <Content Include="Areas\BackOffice\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Voyages\Create.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Voyages\Delete.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Voyages\Details.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Voyages\Edit.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Voyages\Index.cshtml" />
     <Content Include="Areas\BackOffice\Views\Destinations\Create.cshtml" />
     <Content Include="Areas\BackOffice\Views\Destinations\Details.cshtml" />
     <Content Include="Areas\BackOffice\Views\Destinations\Edit.cshtml" />
@@ -151,6 +159,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
@@ -307,6 +316,7 @@
     <Compile Include="Areas\BackOffice\BackOfficeAreaRegistration.cs" />
     <Compile Include="Areas\BackOffice\Controllers\DestinationsController.cs" />
     <Compile Include="Controllers\ParticipantsController.cs" />
+    <Compile Include="Areas\BackOffice\Controllers\VoyagesController.cs" />
     <Compile Include="Data\BoVoyage4DbContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -362,6 +372,7 @@
     <Content Include="Views\Participants\Details.cshtml" />
     <Content Include="Views\Participants\Edit.cshtml" />
     <Content Include="Views\Participants\Index.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
