@@ -94,6 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\BackOffice\BackOfficeAreaRegistration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -101,10 +102,10 @@
     <Compile Include="Models\Assurance.cs" />
     <Compile Include="Models\AssuranceAnnulation.cs" />
     <Compile Include="Models\AuthentificationClient.cs" />
-    <Compile Include="Models\AuthentificationCommercial.cs" />
+    <Compile Include="Areas\BackOffice\Models\AuthentificationCommercial.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\Client.cs" />
-    <Compile Include="Models\Commercial.cs" />
+    <Compile Include="Areas\BackOffice\Models\Commercial.cs" />
     <Compile Include="Models\Destination.cs" />
     <Compile Include="Models\DossierReservation.cs" />
     <Compile Include="Models\EtatDossierReservation.cs" />
@@ -117,6 +118,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
+    <Content Include="Areas\BackOffice\Views\web.config" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -127,6 +129,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\BackOffice\Controllers\" />
+    <Folder Include="Areas\BackOffice\Views\Shared\" />
     <Folder Include="Controllers\" />
   </ItemGroup>
   <PropertyGroup>

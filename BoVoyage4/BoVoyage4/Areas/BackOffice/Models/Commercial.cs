@@ -1,11 +1,12 @@
-﻿using System;
+﻿using BoVoyage4.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace BoVoyage4.Models
+namespace BoVoyage4.Areas.BackOffice.Models
 {
     public class Commercial : Personne
     {
