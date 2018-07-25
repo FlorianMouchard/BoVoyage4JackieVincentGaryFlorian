@@ -24,7 +24,7 @@ namespace BoVoyage4.Areas.BackOffice.Models
         [DataType(DataType.Password)]        
         public string Password { get; set; }
 
-        [Display(Name = "Mot de passe")]
+        [Display(Name = "Confirmation du mot de passe")]
         [Required(ErrorMessage = "Le champ {0} est obligatoire")]
         [DataType(DataType.Password)]
         [NotMapped]
