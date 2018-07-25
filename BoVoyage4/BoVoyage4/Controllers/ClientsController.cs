@@ -39,6 +39,7 @@ namespace BoVoyage4.Controllers
         // GET: Clients/Create
         public ActionResult Create()
         {
+            ViewBag.Civilites = db.Civilites.ToList();
             return View();
         }
 
@@ -55,7 +56,7 @@ namespace BoVoyage4.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            ViewBag.Civilites = db.Civilites.ToList();
             return View(client);
         }
 
