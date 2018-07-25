@@ -28,18 +28,18 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">App<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="@Url.Action("Index","Home", new { area = "" })">Home<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">BackOffice<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="@Url.Action("Index","Dashboard")">BackOffice<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Voyages
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="@Url.Action("Index","Voyages")">Voir les voyages</a>
-                            <a class="dropdown-item" href="@Url.Action("Create","Voyages")">Ajouter</a>
+                            <a class="dropdown-item" href="@Url.Action("Index","Voyages", new { area = "BackOffice" })">Voir les voyages</a>
+                            <a class="dropdown-item" href="@Url.Action("Create","Voyages", new { area = "BackOffice" })">Ajouter</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Something else here</a>
                         </div>
@@ -49,14 +49,22 @@
                             Clients
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="@Url.Action("Index","Clients")">Voir les clients</a>
-                            <a class="dropdown-item" href="@Url.Action("Create","Clients")">Ajouter</a>
+                            <a class="dropdown-item" href="@Url.Action("Index","Clients", new { area = "" })">Voir les clients</a>
+                            <a class="dropdown-item" href="@Url.Action("Create","Clients", new { area = "" })">Ajouter</a>
                             <div class="dropdown-divider"></div>
-                         
+
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Disabled</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Commerciaux
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="@Url.Action("Index","Commerciaux")">Voir les commerciaux</a>
+                            <a class="dropdown-item" href="@Url.Action("Create","Commerciaux")">Ajouter</a>
+                            <div class="dropdown-divider"></div>
+
+                        </div>
                     </li>
                     <li>
                         <span class="navbar-text">
@@ -64,6 +72,9 @@
                         </span>
                     </li>
                 </ul>
+                <span class="navbar-text">
+                    Bonjour <a href="@Url.Action("Logout","Authentication")" class="btn btn-danger"><i class="fa fa-eject"></i></a>
+                </span>
             </div>
         </nav>
        @RenderBody()
