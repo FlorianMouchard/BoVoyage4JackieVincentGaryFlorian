@@ -30,20 +30,14 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Password)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Historique)
-        </th>
+        </th>       
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Civilite)
+            @Html.DisplayFor(modelItem => item.Civilite.Libelle)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Nom)
@@ -62,13 +56,8 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Password)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Historique)
-        </td>
+        </td>      
+
         <td>
             <a href="@Url.Action("Edit", new { id = item.ID })"><i class="fa fa-edit"></i>|</a>
             <a href="@Url.Action("Details", new { id=item.ID })"><i class="fa fa-eye"></i>|</a>
