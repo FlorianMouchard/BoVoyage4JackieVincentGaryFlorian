@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Areas/BackOffice/Views/Shared/_LayoutBO.cshtml";
 }
 
 <h2>Details</h2>
@@ -11,15 +11,14 @@
     <h4>Client</h4>
     <hr />
     <dl class="dl-horizontal">
-
         <dt>
-            @Html.DisplayNameFor(model => model.Civilite)
+            @Html.DisplayNameFor(model => model.Civilite.Libelle)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Civilite)
+            @Html.DisplayFor(model => model.Civilite.Libelle)
         </dd>
-
+        
         <dt>
             @Html.DisplayNameFor(model => model.Nom)
         </dt>
@@ -66,7 +65,7 @@
         <dd>
             @Html.DisplayFor(model => model.Email)
         </dd>
-
+        
         <dt>
             @Html.DisplayNameFor(model => model.Password)
         </dt>
@@ -74,7 +73,6 @@
         <dd>
             @Html.DisplayFor(model => model.Password)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.Historique)
         </dt>
@@ -82,9 +80,9 @@
         <dd>
             @Html.DisplayFor(model => model.Historique)
         </dd>
-
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID })   
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Revenir à la liste des clients", "Index")
 </p>
