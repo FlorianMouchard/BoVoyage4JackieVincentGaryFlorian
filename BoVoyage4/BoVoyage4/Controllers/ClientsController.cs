@@ -49,7 +49,7 @@ namespace BoVoyage4.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Email,Historique,Password,Civilite,Nom,Prenom,Adresse,Telephone,DateNaissance")] Client client)
+        public ActionResult Create([Bind(Include = "ID,Email,Historique,Password,PasswordConfirmation,Civilite,Nom,Prenom,Adresse,Telephone,DateNaissance")] Client client)
         {
             if (ModelState.IsValid)
             {

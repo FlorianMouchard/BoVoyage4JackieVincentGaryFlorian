@@ -333,6 +333,7 @@
     <Compile Include="Areas\BackOffice\Controllers\CommerciauxController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\DashboardController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\DestinationsController.cs" />
+    <Compile Include="Controllers\AuthentificationClientsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ClientsController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\VoyagesController.cs" />
@@ -354,8 +355,8 @@
     <Compile Include="Models\AgenceVoyage.cs" />
     <Compile Include="Models\Assurance.cs" />
     <Compile Include="Models\AssuranceAnnulation.cs" />
-    <Compile Include="Models\AuthentificationClient.cs" />
-    <Compile Include="Areas\BackOffice\Models\AuthentificationCommercial.cs" />
+    <Compile Include="Models\AuthentificationClientViewModels.cs" />
+    <Compile Include="Areas\BackOffice\Models\AuthentificationCommercialViewModels.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\Civilite.cs" />
     <Compile Include="Models\Client.cs" />
@@ -406,6 +407,7 @@
     <Content Include="Views\Clients\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\AuthentificationClients\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

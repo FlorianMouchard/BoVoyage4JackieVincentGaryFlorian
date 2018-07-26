@@ -1,5 +1,4 @@
-﻿using BoVoyage4.Areas.BackOffice.Models;
-using BoVoyage4.Data;
+﻿using BoVoyage4.Areas.BackOffice.Controllers;
 using BoVoyage4.Filters;
 using BoVoyage4.Models;
 using BoVoyage4.Utils;
@@ -9,11 +8,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace BoVoyage4.Areas.BackOffice.Controllers
+namespace BoVoyage4.Controllers
 {
-    public class AuthentificationCommerciauxController : BaseController
-    {       
-        
+    public class AuthentificationClientsController : BaseController
+    {
+      
         public ActionResult Login()
         {
             return View();
@@ -23,14 +22,14 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
         [ValidateAntiForgeryToken]
         [HttpPost]
 
-        public ActionResult Login(AuthentificationCommercialViewModels model)
+        public ActionResult Login(AuthentificationClientViewModels model)
 
         {
             if (ModelState.IsValid)
             {
                 var passwordHash = model.Password.HashMD5();
-                var commercial = db.Commerciaux.SingleOrDefault(x => x.Email == model.Login && x.Password == passwordHash);
-                if (commercial == null)
+                var client = db.Clients.SingleOrDefault(x => x.Email == model.Login && x.Password == passwordHash);
+                if (client == null)
                 {
 
                     ModelState.AddModelError("", "Utilisateur ou mot de passe incorrect");
@@ -38,17 +37,17 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
                 }
                 else
                 {
-                    Session.Add("COMMERCIAL_BO", commercial);
-                    Session.Add("COMMERCIAL_NAME", commercial.Prenom);
+                    Session.Add("CLIENT_BO", client);
+                    Session.Add("CLIENT_NAME", client.Prenom);
                     TempData["Message"] = "Login complété";
-                    return RedirectToAction("Index", "Dashboard", new { area = "BackOffice" });
+                    return RedirectToAction("Index", "Dashboard", new { area = "" });
                 }
             }
             return View(model);
 
         }
 
-        
+        // Get: BackOffice/Authentication/logout
         [AuthentificationFilter]
         public ActionResult Logout()
         {

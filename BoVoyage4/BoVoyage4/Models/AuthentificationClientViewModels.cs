@@ -6,7 +6,7 @@ using System.Web;
 
 namespace BoVoyage4.Models
 {
-    public class AuthentificationClient : BaseModel
+    public class AuthentificationClientViewModels
     {
         [Display(Name = "Adresse Mail")]
         [Required(ErrorMessage = "Le champ Mail est obligatoire")]
