@@ -18,7 +18,7 @@ namespace BoVoyage4.Data
 
         public DbSet<Voyage> Voyages { get; set; }    
 
-        public DbSet<VoyageFile> VoyageFiles { get; set; }
+        public DbSet<DestinationFile> DestinationFiles { get; set; }
 
         public DbSet<AgenceVoyage> AgenceVoyages { get; set; }
 

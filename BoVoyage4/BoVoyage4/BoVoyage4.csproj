@@ -367,6 +367,10 @@
     <Compile Include="Migrations\201807251542415_AjoutCivilite.Designer.cs">
       <DependentUpon>201807251542415_AjoutCivilite.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807261344508_DestinationFile.cs" />
+    <Compile Include="Migrations\201807261344508_DestinationFile.Designer.cs">
+      <DependentUpon>201807261344508_DestinationFile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AgenceVoyage.cs" />
     <Compile Include="Models\Assurance.cs" />
@@ -376,7 +380,7 @@
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\Civilite.cs" />
     <Compile Include="Models\Client.cs" />
-    <Compile Include="Areas\BackOffice\Models\Commercial.cs" />
+    <Compile Include="Models\Commercial.cs" />
     <Compile Include="Models\Destination.cs" />
     <Compile Include="Models\DossierReservation.cs" />
     <Compile Include="Models\EtatDossierReservation.cs" />
@@ -384,7 +388,7 @@
     <Compile Include="Models\Personne.cs" />
     <Compile Include="Models\RaisonAnnulationDossier.cs" />
     <Compile Include="Models\Voyage.cs" />
-    <Compile Include="Models\VoyageFile.cs" />
+    <Compile Include="Models\DestinationFile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\Extensions.cs" />
     <Compile Include="Utils\Validators\ExistingClientMail.cs" />
@@ -444,6 +448,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807251542415_AjoutCivilite.resx">
       <DependentUpon>201807251542415_AjoutCivilite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807261344508_DestinationFile.resx">
+      <DependentUpon>201807261344508_DestinationFile.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
