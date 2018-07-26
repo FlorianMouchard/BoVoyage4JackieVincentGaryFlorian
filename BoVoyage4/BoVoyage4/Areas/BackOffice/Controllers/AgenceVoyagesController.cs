@@ -13,8 +13,7 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
 {
     public class AgenceVoyagesController : BaseBoController
     {
-        private BoVoyage4DbContext db = new BoVoyage4DbContext();
-
+ 
         // GET: BackOffice/AgenceVoyages
         public ActionResult Index()
         {
@@ -53,9 +52,10 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             {
                 db.AgenceVoyages.Add(agenceVoyage);
                 db.SaveChanges();
+                DisplayMessage($"Agence de voyage {agenceVoyage.Nom} enregistré.", MessageType.SUCCESS);
                 return RedirectToAction("Index");
             }
-
+            DisplayMessage("Une erreur est apparue", MessageType.ERROR);
             return View(agenceVoyage);
         }
 
@@ -85,8 +85,10 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             {
                 db.Entry(agenceVoyage).State = EntityState.Modified;
                 db.SaveChanges();
+                DisplayMessage($"Les données de l'agence de voyage {agenceVoyage.Nom} ont été modifiées.", MessageType.SUCCESS);
                 return RedirectToAction("Index");
             }
+            DisplayMessage("Une erreur est apparue", MessageType.ERROR);
             return View(agenceVoyage);
         }
 
@@ -104,17 +106,20 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             }
             return View(agenceVoyage);
         }
+        
 
         // POST: BackOffice/AgenceVoyages/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
-        {
+        {           
             AgenceVoyage agenceVoyage = db.AgenceVoyages.Find(id);
             db.AgenceVoyages.Remove(agenceVoyage);
             db.SaveChanges();
+            DisplayMessage($"L'agence de voyage {agenceVoyage.Nom} a été supprimée.", MessageType.SUCCESS);
             return RedirectToAction("Index");
         }
+        
 
         protected override void Dispose(bool disposing)
         {

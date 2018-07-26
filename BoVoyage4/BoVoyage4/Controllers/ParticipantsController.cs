@@ -56,10 +56,12 @@ namespace BoVoyage4.Controllers
             {
                 db.Participants.Add(participant);
                 db.SaveChanges();
+                DisplayMessage($"Participant {participant.Prenom} {participant.Nom} enregistré.", MessageType.SUCCESS);
                 return RedirectToAction("Index");
             }
 
             ViewBag.CiviliteID = new SelectList(db.Civilites, "ID", "Libelle", participant.CiviliteID);
+            DisplayMessage("Une erreur est apparue", MessageType.ERROR);
             return View(participant);
         }
 
@@ -90,9 +92,11 @@ namespace BoVoyage4.Controllers
             {
                 db.Entry(participant).State = EntityState.Modified;
                 db.SaveChanges();
+                DisplayMessage($"Les données du participant {participant.Prenom} {participant.Nom} ont été modifiées.", MessageType.SUCCESS);
                 return RedirectToAction("Index");
             }
             ViewBag.CiviliteID = new SelectList(db.Civilites, "ID", "Libelle", participant.CiviliteID);
+            DisplayMessage("Une erreur est apparue", MessageType.ERROR);
             return View(participant);
         }
 

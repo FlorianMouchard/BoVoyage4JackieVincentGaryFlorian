@@ -13,9 +13,7 @@ using BoVoyage4.Models;
 namespace BoVoyage4.Areas.BackOffice.Controllers
 {
     public class DestinationsController : BaseBoController
-    {
-        private BoVoyage4DbContext db = new BoVoyage4DbContext();
-
+    {       
         // GET: BackOffice/Destinations
         public ActionResult Index()
         {
@@ -54,9 +52,10 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             {
                 db.Destinations.Add(destination);
                 db.SaveChanges();
+                DisplayMessage($"La destination {destination.Continent} {destination.Pays} {destination.Region} a été créée.", MessageType.SUCCESS);
                 return RedirectToAction("Index");
             }
-
+            DisplayMessage("Une erreur est apparue", MessageType.ERROR);
             return View(destination);
         }
 
@@ -88,8 +87,10 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             {
                 db.Entry(destination).State = EntityState.Modified;
                 db.SaveChanges();
+                DisplayMessage($"La destination {destination.Continent} {destination.Pays} {destination.Region} a été modifiée.", MessageType.SUCCESS);
                 return RedirectToAction("Index");
             }
+            DisplayMessage("Une erreur est apparue", MessageType.ERROR);
             return View(destination);
         }
         [HttpPost]
