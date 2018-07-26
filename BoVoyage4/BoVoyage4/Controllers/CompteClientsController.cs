@@ -54,7 +54,7 @@ namespace BoVoyage4.Controllers
                 DisplayMessage($"Client {client.Prenom} {client.Nom} enregistré.", MessageType.SUCCESS);
                 return RedirectToAction("Index", "Home");
             }
-            DisplayMessage("Try again !", MessageType.ERROR);
+            DisplayMessage("Une erreur est apparue", MessageType.ERROR);
             ViewBag.Civilites = db.Civilites.ToList();
             return View(client);
         }
@@ -85,8 +85,10 @@ namespace BoVoyage4.Controllers
             {
                 db.Entry(client).State = EntityState.Modified;
                 db.SaveChanges();
+                DisplayMessage($"Les données du client {client.Prenom} {client.Nom} ont été modifiées.", MessageType.SUCCESS);
                 return RedirectToAction("Index");
             }
+            DisplayMessage("Une erreur est apparue", MessageType.ERROR);
             return View(client);
         }            
 

@@ -53,6 +53,7 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             {
                 db.AgenceVoyages.Add(agenceVoyage);
                 db.SaveChanges();
+                DisplayMessage($"Agence de voyage {agenceVoyage.Nom} enregistré.", MessageType.SUCCESS);
                 return RedirectToAction("Index");
             }
 
