@@ -44,7 +44,7 @@ namespace BoVoyage4.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Email,Historique,Password,PasswordConfirmation,Civilite,Nom,Prenom,Adresse,Telephone,DateNaissance")] Client client)
+        public ActionResult Create([Bind(Include = "ID,Email,Historique,Password,PasswordConfirmation,CiviliteID,Nom,Prenom,Adresse,Telephone,DateNaissance")] Client client)
         {
             if (ModelState.IsValid)
             {
@@ -52,7 +52,7 @@ namespace BoVoyage4.Controllers
                 client.Password = client.Password.HashMD5();
                 db.Clients.Add(client);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
             ViewBag.Civilites = db.Civilites.ToList();
             return View(client);
@@ -78,7 +78,7 @@ namespace BoVoyage4.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Email,Historique,Password,Civilite,Nom,Prenom,Adresse,Telephone,DateNaissance")] Client client)
+        public ActionResult Edit([Bind(Include = "ID,Email,Historique,Password,PasswordConfirmation,CiviliteID,Nom,Prenom,Adresse,Telephone,DateNaissance")] Client client)
         {
             if (ModelState.IsValid)
             {
