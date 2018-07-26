@@ -2,17 +2,14 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Areas/BackOffice/Views/Shared/_LayoutBO.cshtml";
 }
 
 <h2>Liste des clients</h2>
 
-<p>
-    @Html.ActionLink("Création d'un client", "Create")
-</p>
+
 <table class="table">
     <tr>
-
         <th>
             @Html.DisplayNameFor(model => model.Civilite)
         </th>
@@ -39,7 +36,6 @@
 
 @foreach (var item in Model) {
     <tr>
-
         <td>
             @Html.DisplayFor(modelItem => item.Civilite.Libelle)
         </td>

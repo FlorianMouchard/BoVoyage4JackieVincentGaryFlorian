@@ -7,7 +7,7 @@ using System.Web;
 
 namespace BoVoyage4.Areas.BackOffice.Models
 {
-    public class AuthentificationCommercial : BaseModel
+    public class AuthentificationCommercialViewModels
     {
         [Display(Name = "Adresse Mail")]
         [Required(ErrorMessage = "Le champ Mail est obligatoire")]

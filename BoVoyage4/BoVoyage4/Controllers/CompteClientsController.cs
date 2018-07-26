@@ -12,16 +12,11 @@ using BoVoyage4.Utils;
 
 namespace BoVoyage4.Controllers
 {
-    public class ClientsController : Controller
+    public class CompteClientsController : Controller
     {
         private BoVoyage4DbContext db = new BoVoyage4DbContext();
 
-        // GET: Clients
-        public ActionResult Index()
-        {
-            return View(db.Clients.ToList());
-        }
-
+      
         // GET: Clients/Details/5
         public ActionResult Details(int? id)
         {
@@ -49,7 +44,7 @@ namespace BoVoyage4.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Email,Historique,Password,Civilite,Nom,Prenom,Adresse,Telephone,DateNaissance")] Client client)
+        public ActionResult Create([Bind(Include = "ID,Email,Historique,Password,PasswordConfirmation,Civilite,Nom,Prenom,Adresse,Telephone,DateNaissance")] Client client)
         {
             if (ModelState.IsValid)
             {
@@ -92,33 +87,7 @@ namespace BoVoyage4.Controllers
                 return RedirectToAction("Index");
             }
             return View(client);
-        }
-
-        // GET: Clients/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Client client = db.Clients.Find(id);
-            if (client == null)
-            {
-                return HttpNotFound();
-            }
-            return View(client);
-        }
-
-        // POST: Clients/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Client client = db.Clients.Find(id);
-            db.Clients.Remove(client);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+        }            
 
         protected override void Dispose(bool disposing)
         {
