@@ -160,6 +160,8 @@
     <Content Include="Areas\BackOffice\Views\Commerciaux\Index.cshtml" />
     <Content Include="Areas\BackOffice\Views\Dashboard\Index.cshtml" />
     <Content Include="Areas\BackOffice\Views\AuthentificationCommerciaux\Login.cshtml" />
+    <Content Include="Areas\BackOffice\Views\GestionParticipants\Details.cshtml" />
+    <Content Include="Areas\BackOffice\Views\GestionParticipants\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\holder.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -333,6 +335,7 @@
     <Compile Include="Areas\BackOffice\Controllers\CommerciauxController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\DashboardController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\DestinationsController.cs" />
+    <Compile Include="Areas\BackOffice\Controllers\GestionParticipantsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ClientsController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\VoyagesController.cs" />
