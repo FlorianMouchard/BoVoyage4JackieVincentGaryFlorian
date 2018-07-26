@@ -13,5 +13,9 @@ namespace BoVoyage4.Controllers
         {
             return View();
         }
+        public ActionResult About()
+        {
+            return View();
+        }
     }
 }

@@ -114,6 +114,7 @@
     <Content Include="images\carrousselClubVacances.jpg" />
     <Content Include="images\club-vacances-ski-famille.jpg" />
     <Content Include="images\clubVacances.jpeg" />
+    <Content Include="images\imageFooter.jpeg" />
     <Content Include="images\NavBarFront.jpeg" />
     <Content Include="images\NavBarFrontSable.jpeg" />
     <Content Include="images\rond1.jpg" />
@@ -427,6 +428,7 @@
     <Content Include="Views\Offres\Details.cshtml" />
     <Content Include="Views\Offres\Index.cshtml" />
     <Content Include="Views\AuthentificationClients\Login.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

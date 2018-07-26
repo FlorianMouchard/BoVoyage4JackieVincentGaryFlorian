@@ -23,13 +23,13 @@
             <div class=" alert alert-@TempData["MessageType"].ToString()">@TempData["Message"].ToString()</div>
         }*@
 
-      <nav class="navbar navbar-expand-lg navbar-light bg-info image-fond">
-          
+        <nav class="navbar navbar-expand-lg navbar-light bg-info image-fond">
+
             <a class="navbar-brand" href="@Url.Action("Index","Home")" /><strong>ACCUEIL</strong></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-       
+
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
@@ -43,12 +43,12 @@
                         <a class="btn btn-dark" style="color: navajowhite" href="@Url.Action("Login","AuthentificationClients", new { area = "" })">Se connecter / Particulier<span class="sr-only">(current)</span></a>
                     </li>
 
-                   
+
 
                     <li class="nav-item active" style="margin-bottom: 5px">
 
                         <a class="btn btn-dark " style="color:navajowhite" href="@Url.Action("Login","AuthentificationCommerciaux", new { area = "BackOffice" })">Se connecter / Professionnel<span class="sr-only">(current)</span></a>
-                        </li>
+                    </li>
                 </ul>
 
 
@@ -59,25 +59,24 @@
                 </span>
 
 
-                </div>
-</nav>
+            </div>
+        </nav>
         @RenderBody()
-      <footer class="bg-light">
-        
-          <nav class="navbar navbar-expand-lg navbar-light bg-dark >
-              <nav class="links-wrap">
-                  <span class="title-footer toggle-brand-link" data-toggle-link="footerBrandList_1">A propos de BOVOYAGE</span>
-                  <ul id="footerBrandList_1" class="reset-list">
-                      <li class="item-link"><a href="http://www.thomascook-groupe.fr/" class="title-link">Qui sommes-nous ?</a></li>
-                      <li class="item-link"><a href="http://www.thomascook-groupe.fr/communiques-de-presse/" class="title-link">Presse</a></li>
-                      <li class="item-link"><a href="/groupe/conseils-voyageurs" class="title-link">Conseils aux voyageurs</a></li>
-                  </ul>
-              </nav>
-              </nav>
-            
+        <footer class="bg-light image-footer">
 
 
-      </footer>
+            <div class="links-wrap">
+                <span class="title-footer toggle-brand-link" data-toggle-link="footerBrandList_1" style="color:black"><strong><h3>A propos de BOVOYAGE</h3></strong></span>
+                <ul id="footerBrandList_1" class="reset-list">
+                    <li class="item-link"><a href="@Url.RouteUrl("AboutRoute")">Qui sommes-nous ?</a></li>
+                    <li class="item-link"><a href="http://www.thomascook-groupe.fr/communiques-de-presse/" class="title-link">Presse</a></li>
+                    <li class="item-link"><a href="/groupe/conseils-voyageurs" class="title-link">Conseils aux voyageurs</a></li>
+                </ul>
+            </div>
+
+
+
+        </footer>
     </div>
     <script src="~/Scripts/jquery-3.3.1.min.js"></script>
     <script src="~/Scripts/umd/popper.min.js"></script>
