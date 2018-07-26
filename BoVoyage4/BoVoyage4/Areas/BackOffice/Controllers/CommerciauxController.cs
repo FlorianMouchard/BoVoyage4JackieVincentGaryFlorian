@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using BoVoyage4.Areas.BackOffice.Models;
 using BoVoyage4.Data;
+using BoVoyage4.Utils;
 
 namespace BoVoyage4.Areas.BackOffice.Controllers
 {
@@ -53,6 +54,8 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
         {
             if (ModelState.IsValid)
             {
+                db.Configuration.ValidateOnSaveEnabled = false;
+                commercial.Password = commercial.Password.HashMD5();
                 db.Commerciaux.Add(commercial);
                 db.SaveChanges();
                 return RedirectToAction("Index");
