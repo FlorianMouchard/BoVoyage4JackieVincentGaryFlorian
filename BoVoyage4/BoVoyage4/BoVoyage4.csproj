@@ -164,6 +164,13 @@
     <Content Include="Areas\BackOffice\Views\Clients\Details.cshtml" />
     <Content Include="Areas\BackOffice\Views\Clients\Edit.cshtml" />
     <Content Include="Areas\BackOffice\Views\Clients\Index.cshtml" />
+    <Content Include="Areas\BackOffice\Views\GestionParticipants\Details.cshtml" />
+    <Content Include="Areas\BackOffice\Views\GestionParticipants\Index.cshtml" />
+    <Content Include="Areas\BackOffice\Views\AgenceVoyages\Create.cshtml" />
+    <Content Include="Areas\BackOffice\Views\AgenceVoyages\Delete.cshtml" />
+    <Content Include="Areas\BackOffice\Views\AgenceVoyages\Details.cshtml" />
+    <Content Include="Areas\BackOffice\Views\AgenceVoyages\Edit.cshtml" />
+    <Content Include="Areas\BackOffice\Views\AgenceVoyages\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\holder.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -332,6 +339,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\BackOffice\BackOfficeAreaRegistration.cs" />
+    <Compile Include="Areas\BackOffice\Controllers\AgenceVoyagesController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\AuthentificationCommerciauxController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\BaseController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\ClientsController.cs" />
@@ -339,6 +347,7 @@
     <Compile Include="Areas\BackOffice\Controllers\DashboardController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\DestinationsController.cs" />
     <Compile Include="Controllers\AuthentificationClientsController.cs" />
+    <Compile Include="Areas\BackOffice\Controllers\GestionParticipantsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\CompteClientsController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\VoyagesController.cs" />

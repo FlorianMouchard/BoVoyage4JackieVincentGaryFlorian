@@ -1,0 +1,27 @@
+﻿@model BoVoyage4.Models.AgenceVoyage
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/BackOffice/Views/Shared/_LayoutBO.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Agence de voyage</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nom)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Revenir à la liste des agences de voyage", "Index")
+</p>
