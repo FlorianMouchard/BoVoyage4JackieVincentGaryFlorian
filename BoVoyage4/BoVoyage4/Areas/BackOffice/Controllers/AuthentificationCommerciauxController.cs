@@ -1,6 +1,8 @@
 ﻿using BoVoyage4.Areas.BackOffice.Models;
 using BoVoyage4.Data;
 using BoVoyage4.Filters;
+using BoVoyage4.Models;
+using BoVoyage4.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +11,7 @@ using System.Web.Mvc;
 
 namespace BoVoyage4.Areas.BackOffice.Controllers
 {
-    public class AuthentificationCommerciauxController : Controller
+    public class AuthentificationCommerciauxController : BaseController
     {
         private BoVoyage4DbContext db = new BoVoyage4DbContext();
         // GET: BackOffice/Authentication
