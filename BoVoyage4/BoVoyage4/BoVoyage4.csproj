@@ -362,6 +362,7 @@
     <Compile Include="Areas\BackOffice\Controllers\VoyagesController.cs" />
     <Compile Include="Controllers\OffresController.cs" />
     <Compile Include="Controllers\ParticipantsController.cs" />
+    <Compile Include="Controllers\SharedController.cs" />
     <Compile Include="Data\BoVoyage4DbContext.cs" />
     <Compile Include="Filters\AuthentificationFilter.cs" />
     <Compile Include="Global.asax.cs">
@@ -440,6 +441,8 @@
     <Content Include="Views\AuthentificationClients\Login.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Shared\_DisplayMessage.cshtml" />
+    <Content Include="Views\Shared\_TopFivePrIce.cshtml" />
+    <Content Include="Views\Shared\_TopFiveDate.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
