@@ -1,6 +1,7 @@
 ﻿
 @{
     Layout = null;
+   
 }
 
 <!DOCTYPE html>
@@ -10,17 +11,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>_Layout</title>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
-    
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />   
     <link href="~/Content/carousel.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
 
-        @if (TempData["Message"] != null && !string.IsNullOrWhiteSpace(TempData["Message"].ToString()))
+        @*@if (TempData["Message"] != null && !string.IsNullOrWhiteSpace(TempData["Message"].ToString()))
         {
             <div class=" alert alert-@TempData["MessageType"].ToString()">@TempData["Message"].ToString()</div>
-        }
+        }*@
 
         <nav class="navbar navbar-expand-lg navbar-light bg-info">
             <a class="navbar-brand" href="#"></a>
@@ -42,7 +42,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="@Url.Action("Index","Offres",new {area=""})">Voir les voyages</a>
-                            <div class="dropdown-divider"></div>                 
+                            <div class="dropdown-divider"></div>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -50,8 +50,8 @@
                             Clients
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="@Url.Action("Index","Clients")">Voir les clients</a>
-                            <a class="dropdown-item" href="@Url.Action("Create","Clients")">Ajouter</a>
+                            <a class="dropdown-item" href="@Url.Action("Index","CompteClients")">Voir les clients</a>
+                            <a class="dropdown-item" href="@Url.Action("Create","CompteClients")">Ajouter</a>
                             <div class="dropdown-divider"></div>
                         </div>
                     </li>

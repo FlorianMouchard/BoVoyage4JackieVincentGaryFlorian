@@ -36,18 +36,16 @@ namespace BoVoyage4.Controllers
                     return View(model);
                 }
                 else
-                {
-                    Session.Add("CLIENT_BO", client);
+                {                   
                     Session.Add("CLIENT_NAME", client.Prenom);
                     TempData["Message"] = "Login complété";
-                    return RedirectToAction("Index", "Dashboard", new { area = "" });
+                    return RedirectToAction("Index", "Home");
                 }
             }
             return View(model);
 
         }
-
-        // Get: BackOffice/Authentication/logout
+      
         [AuthentificationFilter]
         public ActionResult Logout()
         {
