@@ -13,7 +13,7 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
 {
     public class AgenceVoyagesController : BaseBoController
     {
-        private BoVoyage4DbContext db = new BoVoyage4DbContext();
+      
 
         // GET: BackOffice/AgenceVoyages
         public ActionResult Index()

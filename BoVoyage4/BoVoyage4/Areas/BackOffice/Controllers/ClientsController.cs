@@ -14,7 +14,7 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
 {
     public class ClientsController : BaseBoController
     {
-        private BoVoyage4DbContext db = new BoVoyage4DbContext();
+       
 
         // GET: BackOffice/Clients
         public ActionResult Index()
