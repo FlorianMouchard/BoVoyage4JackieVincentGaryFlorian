@@ -11,7 +11,7 @@ using BoVoyage4.Models;
 
 namespace BoVoyage4.Areas.BackOffice.Controllers
 {
-    public class GestionParticipantsController : Controller
+    public class GestionParticipantsController : BaseBoController
     {
         private BoVoyage4DbContext db = new BoVoyage4DbContext();
 

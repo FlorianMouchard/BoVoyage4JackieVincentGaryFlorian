@@ -12,11 +12,10 @@ using BoVoyage4.Utils;
 
 namespace BoVoyage4.Controllers
 {
-    public class CompteClientsController : Controller
+    public class CompteClientsController : BaseController
     {
-        private BoVoyage4DbContext db = new BoVoyage4DbContext();
-
-      
+        
+ 
         // GET: Clients/Details/5
         public ActionResult Details(int? id)
         {
@@ -52,8 +51,10 @@ namespace BoVoyage4.Controllers
                 client.Password = client.Password.HashMD5();
                 db.Clients.Add(client);
                 db.SaveChanges();
+                DisplayMessage($"Client {client.Prenom} {client.Nom} enregistré.", MessageType.SUCCESS);
                 return RedirectToAction("Index", "Home");
             }
+            DisplayMessage("Try again !", MessageType.ERROR);
             ViewBag.Civilites = db.Civilites.ToList();
             return View(client);
         }

@@ -11,9 +11,9 @@ using BoVoyage4.Models;
 
 namespace BoVoyage4.Controllers
 {
-    public class ParticipantsController : Controller
+    public class ParticipantsController : BaseController
     {
-        private BoVoyage4DbContext db = new BoVoyage4DbContext();
+        
 
         // GET: Participants
         public ActionResult Index()

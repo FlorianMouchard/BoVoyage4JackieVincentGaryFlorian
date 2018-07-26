@@ -341,13 +341,14 @@
     <Compile Include="Areas\BackOffice\BackOfficeAreaRegistration.cs" />
     <Compile Include="Areas\BackOffice\Controllers\AgenceVoyagesController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\AuthentificationCommerciauxController.cs" />
-    <Compile Include="Areas\BackOffice\Controllers\BaseController.cs" />
+    <Compile Include="Areas\BackOffice\Controllers\BaseBoController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\ClientsController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\CommerciauxController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\DashboardController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\DestinationsController.cs" />
     <Compile Include="Controllers\AuthentificationClientsController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\GestionParticipantsController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\CompteClientsController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\VoyagesController.cs" />
@@ -435,6 +436,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\BackOffice\Views\Base\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201807251207012_Init.resx">

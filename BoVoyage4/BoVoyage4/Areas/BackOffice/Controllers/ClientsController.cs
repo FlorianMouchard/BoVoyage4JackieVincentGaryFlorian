@@ -12,7 +12,7 @@ using BoVoyage4.Utils;
 
 namespace BoVoyage4.Areas.BackOffice.Controllers
 {
-    public class ClientsController : Controller
+    public class ClientsController : BaseBoController
     {
         private BoVoyage4DbContext db = new BoVoyage4DbContext();
 
@@ -73,7 +73,7 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             {
                 db.Entry(client).State = EntityState.Modified;
                 db.Configuration.ValidateOnSaveEnabled = false;
-                db.SaveChanges();
+                db.SaveChanges();              
                 return RedirectToAction("Index");
             }
             ViewBag.CiviliteID = new SelectList(db.Civilites, "ID", "Libelle", client.CiviliteID);
