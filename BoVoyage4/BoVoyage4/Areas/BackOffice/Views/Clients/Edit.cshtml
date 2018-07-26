@@ -2,10 +2,10 @@
 
 @{
     ViewBag.Title = "Edit";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Areas/BackOffice/Views/Shared/_LayoutBO.cshtml";
 }
 
-<h2>Modifier son compte client</h2>
+<h2>Modifier</h2>
 
 @using (Html.BeginForm())
 {
@@ -16,12 +16,12 @@
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(model => model.ID)
-
+    
     <div class="form-group">
-        @Html.LabelFor(model => model.Civilite, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.CiviliteID, "CiviliteID", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Civilite, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Civilite, "", new { @class = "text-danger" })
+            @Html.DropDownList("CiviliteID", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.CiviliteID, "", new { @class = "text-danger" })
         </div>
     </div>
 
@@ -71,7 +71,7 @@
             @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
         </div>
     </div>
-
+    
     <div class="form-group">
         @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
@@ -87,12 +87,14 @@
             @Html.ValidationMessageFor(model => model.Historique, "", new { @class = "text-danger" })
         </div>
     </div>
-
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Enregistrer" onclick="return confirm('Confirmer ?');" class="btn btn-default" />
+            <input type="submit" value="Save" onclick="return confirm('Confirmer ?');" class="btn btn-default" />
         </div>
     </div>
 </div>
 }
 
+<div>
+    @Html.ActionLink("Revenir à la liste des clients", "Index")
+</div>

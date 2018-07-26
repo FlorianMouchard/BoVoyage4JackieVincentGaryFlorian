@@ -48,8 +48,10 @@
                             Clients
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="@Url.Action("Index","Clients", new { area = "" })">Voir les clients</a>
-                            <a class="dropdown-item" href="@Url.Action("Create","Clients", new { area = "" })">Ajouter</a>
+                            <a class="dropdown-item" href="@Url.Action("Index","Clients", new { area = "BackOffice" })">Liste des clients</a>
+                            <a class="dropdown-item" href="@Url.Action("Edit","Clients", new { area = "BackOffice" })">Modifier un client</a>
+                            <a class="dropdown-item" href="@Url.Action("Details","Clients", new { area = "BackOffice" })">Détail d'un client</a>
+                            <a class="dropdown-item" href="@Url.Action("Delete","Clients", new { area = "BackOffice" })">Supprimer un client</a>
                             <div class="dropdown-divider"></div>
 
                         </div>
