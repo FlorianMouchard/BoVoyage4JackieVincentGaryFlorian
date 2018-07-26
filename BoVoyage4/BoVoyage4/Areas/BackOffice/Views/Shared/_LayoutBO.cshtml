@@ -12,17 +12,18 @@
     <title>Backoffice</title>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
-    @*<link href="~/Content/roomy.css" rel="stylesheet" />*@
+ 
+    <link href="~/Content/Site.css" rel="stylesheet" />
 </head>
 <body>
 
-    <div class="container">
+    <div class="container" style="background-color:#94ddf5">
         @if (TempData["Message"] != null && !string.IsNullOrWhiteSpace(TempData["Message"].ToString()))
         {
             <div class=" alert alert-@TempData["MessageType"].ToString()">@TempData["Message"].ToString()</div>
         }
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-info">
+        <nav class="navbar navbar-expand- navbar-light bg-info image-fond-back "  >
             <a class="navbar-brand" href="#"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -31,13 +32,11 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="@Url.Action("Index","Home", new { area = "" })">Home<span class="sr-only">(current)</span></a>
+                        <a class="btn btn-dark" style="color:red" href="@Url.Action("Index","Home", new { area = "" })">ACCUEIL<span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="@Url.Action("Index","Dashboard")">BackOffice<span class="sr-only">(current)</span></a>
-                    </li>
+
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="btn btn-dark" style="color:red" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Voyages
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -46,7 +45,16 @@
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="btn btn-dark" style="color:red" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Destinations
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="@Url.Action("Index","Destinations", new { area = "BackOffice" })">Liste des Destinations</a>
+                            <a class="dropdown-item" href="@Url.Action("Create","Destinations", new { area = "BackOffice" })">Ajouter une destination</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="btn btn-dark" style="color:red" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Clients
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -54,7 +62,7 @@
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="btn btn-dark" style="color:red" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Agences de voyage
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -64,7 +72,7 @@
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="btn btn-dark" style="color:red" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Participants
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -74,7 +82,7 @@
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="btn btn-dark" style="color:red" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Commerciaux
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -82,11 +90,7 @@
                             <a class="dropdown-item" href="@Url.Action("Create","Commerciaux", new { area = "BackOffice" })">Ajouter un nouveau commercial</a>
                         </div>
                     </li>
-                    <li>
-                        <span class="navbar-text">
-                            <a href="#" class="col-2 text-white">Déconnexion</a>
-                        </span>
-                    </li>
+
                 </ul>
                 <span class="navbar-text">
                     Bonjour @*@commercial.Prenom @commercial.Nom*@<a href="@Url.Action("Logout","Authentication")" class="btn btn-danger"><i class="fa fa-power-off"></i></a>

@@ -13,9 +13,7 @@ using BoVoyage4.Utils;
 namespace BoVoyage4.Areas.BackOffice.Controllers
 {
     public class ClientsController : BaseBoController
-    {
-        private BoVoyage4DbContext db = new BoVoyage4DbContext();
-
+    {       
         // GET: BackOffice/Clients
         public ActionResult Index()
         {
@@ -75,10 +73,12 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             {
                 db.Entry(client).State = EntityState.Modified;
                 db.Configuration.ValidateOnSaveEnabled = false;
-                db.SaveChanges();              
+                db.SaveChanges();
+                DisplayMessage($"Les données du client {client.Nom} {client.Prenom} ont été modifiées.", MessageType.SUCCESS);
                 return RedirectToAction("Index");
             }
             ViewBag.CiviliteID = new SelectList(db.Civilites, "ID", "Libelle", client.CiviliteID);
+            DisplayMessage("Une erreur est apparue", MessageType.ERROR);
             return View(client);
         }
 
@@ -105,6 +105,7 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             Client client = db.Clients.Find(id);
             db.Clients.Remove(client);
             db.SaveChanges();
+            DisplayMessage($"Le client {client.Nom} {client.Prenom} a été supprimé.", MessageType.SUCCESS);
             return RedirectToAction("Index");
         }
 
