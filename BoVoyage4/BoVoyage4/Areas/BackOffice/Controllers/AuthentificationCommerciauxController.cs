@@ -12,8 +12,7 @@ using System.Web.Mvc;
 namespace BoVoyage4.Areas.BackOffice.Controllers
 {
     public class AuthentificationCommerciauxController : BaseController
-    {
-        private BoVoyage4DbContext db = new BoVoyage4DbContext();
+    {       
         // GET: BackOffice/Authentication
         public ActionResult Login()
         {

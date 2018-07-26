@@ -1,0 +1,58 @@
+﻿@model BoVoyage4.Models.Voyage
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Voyage</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Destination.Continent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Destination.Continent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateAller)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateAller)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateRetour)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateRetour)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlacesDisponibles)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlacesDisponibles)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TarifToutCompris)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TarifToutCompris)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

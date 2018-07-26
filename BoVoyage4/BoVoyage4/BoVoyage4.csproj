@@ -341,6 +341,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\CompteClientsController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\VoyagesController.cs" />
+    <Compile Include="Controllers\OffresController.cs" />
     <Compile Include="Controllers\ParticipantsController.cs" />
     <Compile Include="Data\BoVoyage4DbContext.cs" />
     <Compile Include="Filters\AuthentificationFilter.cs" />
@@ -409,6 +410,8 @@
     <Content Include="Views\Clients\Edit.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Offres\Details.cshtml" />
+    <Content Include="Views\Offres\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
