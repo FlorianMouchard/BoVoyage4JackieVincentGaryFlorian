@@ -12,15 +12,7 @@
 </p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Historique)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Password)
-        </th>
+
         <th>
             @Html.DisplayNameFor(model => model.Civilite)
         </th>
@@ -39,20 +31,21 @@
         <th>
             @Html.DisplayNameFor(model => model.DateNaissance)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Historique)
+        </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Historique)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Password)
-        </td>
+
         <td>
             @Html.DisplayFor(modelItem => item.Civilite)
         </td>
@@ -71,6 +64,16 @@
         <td>
             @Html.DisplayFor(modelItem => item.DateNaissance)
         </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Historique)
+        </td>
+
         <td>
             <a href="@Url.Action("Edit", new { id = item.ID })"><i class="fa fa-edit"></i>|</a>
             <a href="@Url.Action("Details", new { id=item.ID })"><i class="fa fa-eye"></i>|</a>
