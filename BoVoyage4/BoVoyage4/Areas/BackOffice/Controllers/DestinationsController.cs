@@ -11,7 +11,7 @@ using BoVoyage4.Data;
 using BoVoyage4.Models;
 
 namespace BoVoyage4.Areas.BackOffice.Controllers
-{
+{    
     public class DestinationsController : BaseBoController
     {       
         // GET: BackOffice/Destinations
@@ -67,7 +67,7 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             //Room room = db.Rooms.Include(x => x.Files).SingleOrDefault(x => x.ID == id); ou les deux lignes suivantes
-            var rooms = db.Destinations.Include(r => r.Files).SingleOrDefault(x => x.ID == id);
+            var destinations = db.Destinations.Include(r => r.Files).SingleOrDefault(x => x.ID == id);
             Destination destination = db.Destinations.Find(id);
             if (destination == null)
             {

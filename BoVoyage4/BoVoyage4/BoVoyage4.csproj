@@ -103,6 +103,7 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\BoVoyage.css" />
     <Content Include="Content\carousel.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
@@ -177,6 +178,7 @@
     <Content Include="Areas\BackOffice\Views\AgenceVoyages\Details.cshtml" />
     <Content Include="Areas\BackOffice\Views\AgenceVoyages\Edit.cshtml" />
     <Content Include="Areas\BackOffice\Views\AgenceVoyages\Index.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Shared\_DisplayMessageBO.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\holder.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -437,6 +439,7 @@
     <Content Include="Views\Offres\Index.cshtml" />
     <Content Include="Views\AuthentificationClients\Login.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Shared\_DisplayMessage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

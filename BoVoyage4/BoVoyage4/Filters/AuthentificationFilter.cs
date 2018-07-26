@@ -12,7 +12,7 @@ namespace BoVoyage4.Filters
         {
             if (filterContext.HttpContext.Session["COMMERCIAL_BO"] == null)
             {
-                filterContext.Result = new RedirectResult("\\BackOffice\\Authentication\\Login");
+                filterContext.Result = new RedirectResult("\\BackOffice\\AuthentificationCommerciaux\\Login");
             }
         }
     }

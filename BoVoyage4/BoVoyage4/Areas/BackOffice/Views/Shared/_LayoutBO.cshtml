@@ -1,7 +1,7 @@
 ﻿
 @{
     Layout = null;
-    var user = Session["COMMERCIAL_BO"] as BoVoyage4.Models.Commercial;
+    var commercial = Session["COMMERCIAL_BO"] as BoVoyage4.Models.Commercial;
 }
 
 <!DOCTYPE html>
@@ -12,18 +12,14 @@
     <title>Backoffice</title>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
- 
+    <link href="~/Content/BoVoyage.css" rel="stylesheet" />
     <link href="~/Content/Site.css" rel="stylesheet" />
 </head>
 <body>
 
     <div class="container" style="background-color:#94ddf5">
-        @if (TempData["Message"] != null && !string.IsNullOrWhiteSpace(TempData["Message"].ToString()))
-        {
-            <div class=" alert alert-@TempData["MessageType"].ToString()">@TempData["Message"].ToString()</div>
-        }
-
-        <nav class="navbar navbar-expand- navbar-light bg-info image-fond-back "  >
+       
+        <nav class="navbar navbar-expand- navbar-light bg-info image-fond-back ">
             <a class="navbar-brand" href="#"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -93,10 +89,12 @@
 
                 </ul>
                 <span class="navbar-text">
-                    Bonjour @*@commercial.Prenom @commercial.Nom*@<a href="@Url.Action("Logout","Authentication")" class="btn btn-danger"><i class="fa fa-power-off"></i></a>
+                    Bonjour @*@commercial.Prenom @commercial.Nom*@ <a href="@Url.Action("Logout","AuthentificationCommerciaux")" class="btn btn-danger"><i class="fa fa-power-off"></i></a>
                 </span>
             </div>
         </nav>
+        @Html.Partial("_DisplayMessageBO")
+
         @RenderBody()
         <footer class="bg-light">
             &copy; Projet de l'année !
