@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using BoVoyage4.Areas.BackOffice.Models;
 using BoVoyage4.Data;
+using BoVoyage4.Models;
 using BoVoyage4.Utils;
 
 namespace BoVoyage4.Areas.BackOffice.Controllers

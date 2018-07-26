@@ -375,7 +375,7 @@
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\Civilite.cs" />
     <Compile Include="Models\Client.cs" />
-    <Compile Include="Areas\BackOffice\Models\Commercial.cs" />
+    <Compile Include="Models\Commercial.cs" />
     <Compile Include="Models\Destination.cs" />
     <Compile Include="Models\DossierReservation.cs" />
     <Compile Include="Models\EtatDossierReservation.cs" />

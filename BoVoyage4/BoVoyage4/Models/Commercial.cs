@@ -1,5 +1,4 @@
-﻿using BoVoyage4.Models;
-using BoVoyage4.Utils.Validators;
+﻿using BoVoyage4.Utils.Validators;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -7,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace BoVoyage4.Areas.BackOffice.Models
+namespace BoVoyage4.Models
 {
     public class Commercial : Personne
     {
