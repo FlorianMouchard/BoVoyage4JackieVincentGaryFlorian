@@ -22,10 +22,10 @@ namespace BoVoyage4.Models
         [Display(Name ="Contenu")]
         [Required(ErrorMessage = "Champ {0} obligatoire")]
         public byte[] Contenu { get; set; }
-
-
-         
+        
+        [Display(Name = "Destination")]
         public int DestinationID { get; set; }
+
         [ForeignKey("DestinationID")]
         public Destination Destination { get; set; }
     }

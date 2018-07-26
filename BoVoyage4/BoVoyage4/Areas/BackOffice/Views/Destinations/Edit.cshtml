@@ -10,7 +10,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Destination</h4>
         <hr />
@@ -56,7 +56,44 @@
         </div>
     </div>
 }
+<hr />
+<div class="row">
+    @foreach (var file in Model.Files)
+    {
+        <div class="col-md-3" id="div-file-@file.ID">
+            <img class="img-thumbnail" title="@file.Nom" src="data:@file.TypeContenu;base64, @System.Convert.ToBase64String(file.Contenu)" />
+            <p>@file.Nom <a href="#" class="btn btn-danger suppr" data-id="@file.ID"><i class="fa fa-remove"></i></a></p>
+        </div>
+    }
+</div>
+
+<form action="@Url.Action("AddFile", "Destinations")" method="post" enctype="multipart/form-data">
+    @Html.HiddenFor(x => x.ID)
+    <div class="form-group">
+        <label>Fichier</label>
+        <input type="file" name="upload" class="form-control" />
+    </div>
+    <button type="submit" onclick="return confirm('Confirmer ?');" class="btn btn-warning">Ajouter</button>
+</form>
 
 <div>
     @Html.ActionLink("Revenir à la liste des destinations", "Index")
 </div>
+
+<script>
+$(document).ready(function () {
+            $("a.suppr").click(function () {
+                var idFile = $(this).data("id");
+                $.ajax({
+                    url: "@Url.Action("DeleteFile", "Destinations")",
+                    type: "POST",
+                    dataType: "json",
+                    data: { id: idFile },
+                    success: function (obj) {
+                        $("#div-file-" + idFile).remove();
+                        alert("Fichier supprimer");
+                    }
+                });
+            });
+});
+</script>
