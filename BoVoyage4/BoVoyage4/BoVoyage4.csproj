@@ -112,6 +112,10 @@
     <Content Include="images\carrouselCircuit.jpg" />
     <Content Include="images\carrouselSafari.jpg" />
     <Content Include="images\carrousselClubVacances.jpg" />
+    <Content Include="images\club-vacances-ski-famille.jpg" />
+    <Content Include="images\clubVacances.jpeg" />
+    <Content Include="images\NavBarFront.jpeg" />
+    <Content Include="images\NavBarFrontSable.jpeg" />
     <Content Include="images\rond1.jpg" />
     <Content Include="images\rond2.jpg" />
     <Content Include="images\rond3.jpg" />
