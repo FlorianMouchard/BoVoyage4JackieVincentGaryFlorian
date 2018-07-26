@@ -1,0 +1,7 @@
+﻿.input-validation-error {
+    border-left: red 4px solid;
+}
+
+.field-validation-error {
+    font-size: small;
+}

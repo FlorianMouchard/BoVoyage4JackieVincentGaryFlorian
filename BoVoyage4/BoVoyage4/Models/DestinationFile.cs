@@ -7,7 +7,7 @@ using System.Web;
 
 namespace BoVoyage4.Models
 {
-    public class VoyageFile : BaseModel
+    public class DestinationFile : BaseModel
     {
         [Display(Name="Nom du fichier")]
         [Required(ErrorMessage = "Champ {0} obligatoire")]
@@ -22,11 +22,11 @@ namespace BoVoyage4.Models
         [Display(Name ="Contenu")]
         [Required(ErrorMessage = "Champ {0} obligatoire")]
         public byte[] Contenu { get; set; }
+        
+        [Display(Name = "Destination")]
+        public int DestinationID { get; set; }
 
-
-        [Display(Name = "Voyage")]     
-        public int VoyageID { get; set; }
-        [ForeignKey("VoyageID")]
-        public Voyage Voyage { get; set; }
+        [ForeignKey("DestinationID")]
+        public Destination Destination { get; set; }
     }
 }

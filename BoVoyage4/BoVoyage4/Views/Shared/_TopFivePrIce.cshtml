@@ -1,0 +1,13 @@
+﻿@model IEnumerable<BoVoyage4.Models.Voyage>
+@{
+    Layout = null;
+}
+<div class="row">
+    <div class="col-md-3">
+        @foreach (var item in Model)
+        {
+            <p>@item.DestinationID</p>
+            <p>@item.TarifToutCompris €</p>
+        }
+    </div>
+</div>

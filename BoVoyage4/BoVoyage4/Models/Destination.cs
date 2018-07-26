@@ -23,5 +23,7 @@ namespace BoVoyage4.Models
         [Display(Name = "Description")]
         [Required(ErrorMessage = "Le champ {0} est obligatoire")]
         public string Description { get; set; }
+
+        public ICollection<DestinationFile> Files { get; set; }
     }
 }

@@ -8,13 +8,13 @@ using System.Web;
 using System.Web.Mvc;
 using BoVoyage4.Areas.BackOffice.Models;
 using BoVoyage4.Data;
+using BoVoyage4.Models;
 using BoVoyage4.Utils;
 
 namespace BoVoyage4.Areas.BackOffice.Controllers
 {
-    public class CommerciauxController : Controller
-    {
-        private BoVoyage4DbContext db = new BoVoyage4DbContext();
+    public class CommerciauxController : BaseBoController
+    {        
 
         // GET: BackOffice/Commerciaux
         public ActionResult Index()
@@ -50,7 +50,7 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Email,Password,Civilite,Nom,Prenom,Adresse,Telephone,DateNaissance")] Commercial commercial)
+        public ActionResult Create([Bind(Include = "ID,Email,Password,PasswordConfirmation,CiviliteID,Nom,Prenom,Adresse,Telephone,DateNaissance")] Commercial commercial)
         {
             if (ModelState.IsValid)
             {
@@ -58,9 +58,11 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
                 commercial.Password = commercial.Password.HashMD5();
                 db.Commerciaux.Add(commercial);
                 db.SaveChanges();
+                DisplayMessage($"Le commercial {commercial.Nom} {commercial.Prenom} a été créé.", MessageType.SUCCESS);
                 return RedirectToAction("Index");
             }
             ViewBag.Civilites = db.Civilites.ToList();
+            DisplayMessage("Une erreur est apparue", MessageType.ERROR);
             return View(commercial);
         }
 
@@ -71,11 +73,12 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Commercial commercial = db.Commerciaux.Find(id);
+            Commercial commercial = db.Commerciaux.Include(x => x.Civilite).SingleOrDefault(x=> x.ID == id);
             if (commercial == null)
             {
                 return HttpNotFound();
             }
+            ViewBag.Civilites = db.Civilites.ToList();
             return View(commercial);
         }
 
@@ -84,14 +87,26 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Email,Password,Civilite,Nom,Prenom,Adresse,Telephone,DateNaissance")] Commercial commercial)
+        public ActionResult Edit([Bind(Include = "ID,Email,CiviliteID,Nom,Prenom,Adresse,Telephone,DateNaissance")] Commercial commercial)
         {
+            ModelState.Remove("Password");
+            ModelState.Remove("PasswordConfirmation");
+            ModelState.Remove("Email");
+            var old = db.Commerciaux.SingleOrDefault(x => x.ID == commercial.ID);
+            commercial.Password = old.Password.HashMD5();
+            commercial.PasswordConfirmation = old.Password.HashMD5();
+            commercial.Email = old.Email;
+            db.Entry(old).State = EntityState.Detached;
             if (ModelState.IsValid)
             {
                 db.Entry(commercial).State = EntityState.Modified;
+                db.Configuration.ValidateOnSaveEnabled = false;
                 db.SaveChanges();
+                DisplayMessage($"Les données du commercial {commercial.Nom} {commercial.Prenom} onr été modifiééq.", MessageType.SUCCESS);
                 return RedirectToAction("Index");
             }
+            ViewBag.Civilites = db.Civilites.ToList();
+            DisplayMessage("Une erreur est apparue", MessageType.ERROR);
             return View(commercial);
         }
 
@@ -118,6 +133,7 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             Commercial commercial = db.Commerciaux.Find(id);
             db.Commerciaux.Remove(commercial);
             db.SaveChanges();
+            DisplayMessage($"Le commercial {commercial.Nom} {commercial.Prenom} a été supprimé.", MessageType.SUCCESS);
             return RedirectToAction("Index");
         }
 

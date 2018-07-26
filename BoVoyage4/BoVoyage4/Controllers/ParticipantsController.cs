@@ -11,9 +11,9 @@ using BoVoyage4.Models;
 
 namespace BoVoyage4.Controllers
 {
-    public class ParticipantsController : Controller
+    public class ParticipantsController : BaseController
     {
-        private BoVoyage4DbContext db = new BoVoyage4DbContext();
+        
 
         // GET: Participants
         public ActionResult Index()
@@ -21,6 +21,7 @@ namespace BoVoyage4.Controllers
             var participants = db.Participants.Include(p => p.Civilite);
             return View(participants.ToList());
         }
+
 
         // GET: Participants/Details/5
         public ActionResult Details(int? id)
@@ -55,10 +56,12 @@ namespace BoVoyage4.Controllers
             {
                 db.Participants.Add(participant);
                 db.SaveChanges();
+                DisplayMessage($"Participant {participant.Prenom} {participant.Nom} enregistré.", MessageType.SUCCESS);
                 return RedirectToAction("Index");
             }
 
             ViewBag.CiviliteID = new SelectList(db.Civilites, "ID", "Libelle", participant.CiviliteID);
+            DisplayMessage("Une erreur est apparue", MessageType.ERROR);
             return View(participant);
         }
 
@@ -89,9 +92,11 @@ namespace BoVoyage4.Controllers
             {
                 db.Entry(participant).State = EntityState.Modified;
                 db.SaveChanges();
+                DisplayMessage($"Les données du participant {participant.Prenom} {participant.Nom} ont été modifiées.", MessageType.SUCCESS);
                 return RedirectToAction("Index");
             }
             ViewBag.CiviliteID = new SelectList(db.Civilites, "ID", "Libelle", participant.CiviliteID);
+            DisplayMessage("Une erreur est apparue", MessageType.ERROR);
             return View(participant);
         }
 

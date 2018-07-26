@@ -1,7 +1,7 @@
 ﻿
 @{
     Layout = null;
-    
+    var commercial = Session["COMMERCIAL_BO"] as BoVoyage4.Models.Commercial;
 }
 
 <!DOCTYPE html>
@@ -12,14 +12,14 @@
     <title>Backoffice</title>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
-    <link href="~/Content/roomy.css" rel="stylesheet" />
+    <link href="~/Content/BoVoyage.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
 </head>
 <body>
 
-    <div class="container">
-
-
-        <nav class="navbar navbar-expand-lg navbar-light bg-info">
+    <div class="container" style="background-color:#94ddf5">
+       
+        <nav class="navbar navbar-expand- navbar-light bg-info image-fond-back ">
             <a class="navbar-brand" href="#"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -28,56 +28,74 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="@Url.Action("Index","Home", new { area = "" })">Home<span class="sr-only">(current)</span></a>
+                        <a class="btn btn-dark" style="color:red" href="@Url.Action("Index","Home", new { area = "" })">ACCUEIL<span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="@Url.Action("Index","Dashboard")">BackOffice<span class="sr-only">(current)</span></a>
-                    </li>
+
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="btn btn-dark" style="color:red" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Voyages
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="@Url.Action("Index","Voyages", new { area = "BackOffice" })">Voir les voyages</a>
-                            <a class="dropdown-item" href="@Url.Action("Create","Voyages", new { area = "BackOffice" })">Ajouter</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" href="@Url.Action("Index","Voyages", new { area = "BackOffice" })">Liste des voyages</a>
+                            <a class="dropdown-item" href="@Url.Action("Create","Voyages", new { area = "BackOffice" })">Ajouter un voyage</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="btn btn-dark" style="color:red" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Destinations
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="@Url.Action("Index","Destinations", new { area = "BackOffice" })">Liste des Destinations</a>
+                            <a class="dropdown-item" href="@Url.Action("Create","Destinations", new { area = "BackOffice" })">Ajouter une destination</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="btn btn-dark" style="color:red" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Clients
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="@Url.Action("Index","Clients", new { area = "" })">Voir les clients</a>
-                            <a class="dropdown-item" href="@Url.Action("Create","Clients", new { area = "" })">Ajouter</a>
-                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="@Url.Action("Index","Clients", new { area = "BackOffice" })">Liste des clients</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="btn btn-dark" style="color:red" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Agences de voyage
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="@Url.Action("Index","AgenceVoyages", new { area = "BackOffice" })">Liste des agences de voyage</a>
+                            <a class="dropdown-item" href="@Url.Action("Create","AgenceVoyages", new { area = "BackOffice" })">Ajouter une agence de voyage</a>
 
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Commerciaux
+                        <a class="btn btn-dark" style="color:red" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Participants
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="@Url.Action("Index","Commerciaux")">Voir les commerciaux</a>
-                            <a class="dropdown-item" href="@Url.Action("Create","Commerciaux")">Ajouter</a>
-                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="@Url.Action("Index","GestionParticipants", new { area = "BackOffice" })">Liste des participants</a>
+                            <a class="dropdown-item" href="@Url.Action("Details","GestionParticipants", new { area = "BackOffice" })">Détail d'un participant</a>
 
                         </div>
                     </li>
-                    <li>
-                        <span class="navbar-text">
-                            <a href="#" class="col-2 text-white">Déconnexion</a>
-                        </span>
+                    <li class="nav-item dropdown">
+                        <a class="btn btn-dark" style="color:red" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Commerciaux
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="@Url.Action("Index","Commerciaux", new { area = "BackOffice" })">Liste des commerciaux</a>
+                            <a class="dropdown-item" href="@Url.Action("Create","Commerciaux", new { area = "BackOffice" })">Ajouter un nouveau commercial</a>
+                        </div>
                     </li>
+
                 </ul>
                 <span class="navbar-text">
-                    Bonjour <a href="@Url.Action("Logout","Authentication")" class="btn btn-danger"><i class="fa fa-eject"></i></a>
+                    Bonjour @*@commercial.Prenom @commercial.Nom*@ <a href="@Url.Action("Logout","AuthentificationCommerciaux")" class="btn btn-danger"><i class="fa fa-power-off"></i></a>
                 </span>
             </div>
         </nav>
-       @RenderBody()
+        @Html.Partial("_DisplayMessageBO")
+
+        @RenderBody()
         <footer class="bg-light">
             &copy; Projet de l'année !
         </footer>

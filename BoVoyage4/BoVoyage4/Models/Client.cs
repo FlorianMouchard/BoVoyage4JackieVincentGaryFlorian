@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BoVoyage4.Utils.Validators;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -15,6 +16,7 @@ namespace BoVoyage4.Models
                            @"\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\" +
                            @".)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$",
         ErrorMessage = "L'adresse mail n'est pas au bon format")]
+        [ExistingClientMail(ErrorMessage = "L'adresse email est déjà utilisée")]
         public string Email { get; set; }
 
         public string Historique { get; set; }

@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Delete";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Areas/BackOffice/Views/Shared/_LayoutBO.cshtml";
 }
 
 <h2>Supprimer</h2>
@@ -12,14 +12,12 @@
     <h4>Client</h4>
     <hr />
     <dl class="dl-horizontal">
-
-
         <dt>
-            @Html.DisplayNameFor(model => model.Civilite)
+            @Html.DisplayNameFor(model => model.Civilite.Libelle)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Civilite)
+            @Html.DisplayFor(model => model.Civilite.Libelle)
         </dd>
 
         <dt>
@@ -61,6 +59,7 @@
         <dd>
             @Html.DisplayFor(model => model.DateNaissance)
         </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.Email)
         </dt>
@@ -84,7 +83,6 @@
         <dd>
             @Html.DisplayFor(model => model.Historique)
         </dd>
-        
     </dl>
 
     @using (Html.BeginForm()) {

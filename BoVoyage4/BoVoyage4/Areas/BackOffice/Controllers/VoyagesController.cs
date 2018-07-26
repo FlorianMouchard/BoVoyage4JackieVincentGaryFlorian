@@ -11,10 +11,8 @@ using BoVoyage4.Models;
 
 namespace BoVoyage4.Areas.BackOffice.Controllers
 {
-    public class VoyagesController : Controller
+    public class VoyagesController : BaseBoController
     {
-        private BoVoyage4DbContext db = new BoVoyage4DbContext();
-
         // GET: BackOffice/Voyages
         public ActionResult Index()
         {
@@ -22,17 +20,14 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             return View(voyages.ToList());
         }
 
-        // GET: BackOffice/Vayages/Search?
         [HttpGet]
-        public ActionResult Index(DateTime? dateMin, DateTime? dateMax, decimal prixMin, decimal prixMax, string destination)
+        public ActionResult Search(string destination, DateTime? dateMin, DateTime? dateMax, decimal prixMin, decimal prixMax)
         {
             ViewBag.dateMin = dateMin;
             ViewBag.dateMax = dateMax;
             ViewBag.prixMin = prixMin;
             ViewBag.prixMax = prixMax;
-
-            IQueryable<Voyage> voyages = db.Voyages.Include(x => x.Destination);
-
+            IQueryable < Voyage > voyages = db.Voyages.Include(x => x.Destination);
             if (destination != null)
                 voyages = voyages.Where(x => x.Destination.Region == destination);
             if (dateMin.HasValue)
@@ -43,7 +38,6 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
                 voyages = voyages.Where(x => x.TarifToutCompris >= prixMin);
             if (prixMax != 0)
                 voyages = voyages.Where(x => x.TarifToutCompris <= prixMax);
-
             return View(voyages.ToList());
         }
 
@@ -80,10 +74,12 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             {
                 db.Voyages.Add(voyage);
                 db.SaveChanges();
+                DisplayMessage($"Le voyage {voyage.Destination} à {voyage.TarifToutCompris} a été créé.", MessageType.SUCCESS);
                 return RedirectToAction("Index");
             }
 
             ViewBag.DestinationID = new SelectList(db.Destinations, "ID", "Continent", voyage.DestinationID);
+            DisplayMessage("Une erreur est apparue", MessageType.ERROR);
             return View(voyage);
         }
 
@@ -114,9 +110,11 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             {
                 db.Entry(voyage).State = EntityState.Modified;
                 db.SaveChanges();
+                DisplayMessage($"Le voyage {voyage.Destination} a été modifié.", MessageType.SUCCESS);
                 return RedirectToAction("Index");
             }
             ViewBag.DestinationID = new SelectList(db.Destinations, "ID", "Continent", voyage.DestinationID);
+            DisplayMessage("Une erreur est apparue", MessageType.ERROR);
             return View(voyage);
         }
 
@@ -143,6 +141,7 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             Voyage voyage = db.Voyages.Find(id);
             db.Voyages.Remove(voyage);
             db.SaveChanges();
+            DisplayMessage($"Le voyage {voyage.Destination} a été supprimé.", MessageType.SUCCESS);
             return RedirectToAction("Index");
         }
        
