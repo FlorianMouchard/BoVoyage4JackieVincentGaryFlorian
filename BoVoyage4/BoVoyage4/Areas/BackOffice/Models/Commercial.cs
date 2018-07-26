@@ -1,4 +1,5 @@
 ﻿using BoVoyage4.Models;
+using BoVoyage4.Utils.Validators;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -16,6 +17,7 @@ namespace BoVoyage4.Areas.BackOffice.Models
                            @"\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\" +
                            @".)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$",
         ErrorMessage = "L'adresse mail n'est pas au bon format")]
+        [ExistingComercialMail(ErrorMessage = "L'adresse email est déjà utilisée")]
         public string Email { get; set; }
 
         [Display(Name = "Mot de passe")]
