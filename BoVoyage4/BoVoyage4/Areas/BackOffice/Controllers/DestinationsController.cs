@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -65,6 +66,8 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            //Room room = db.Rooms.Include(x => x.Files).SingleOrDefault(x => x.ID == id); ou les deux lignes suivantes
+            var rooms = db.Destinations.Include(r => r.Files).SingleOrDefault(x => x.ID == id);
             Destination destination = db.Destinations.Find(id);
             if (destination == null)
             {
@@ -90,7 +93,45 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             DisplayMessage("Une erreur est apparue", MessageType.ERROR);
             return View(destination);
         }
+        [HttpPost]
+        public ActionResult AddFile(int id, HttpPostedFileBase upload)
+        {
+            if (upload.ContentLength > 0)
+            {
 
+                var model = new DestinationFile();
+
+                model.DestinationID = id;
+                model.Nom = upload.FileName;
+                model.TypeContenu = upload.ContentType;
+
+                using (var reader = new BinaryReader(upload.InputStream))
+                {
+                    model.Contenu = reader.ReadBytes(upload.ContentLength);
+                }
+
+                db.DestinationFiles.Add(model);
+                db.SaveChanges();
+
+                return RedirectToAction("Edit", new { id = model.DestinationID });
+            }
+            else
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        }
+
+        [HttpPost]
+        public ActionResult DeleteFile(int id)
+        {
+            var file = db.DestinationFiles.Find(id);
+            if (file == null)
+            {
+                return HttpNotFound("Le fichier demandé n'existe pas.");
+            }
+            db.DestinationFiles.Remove(file);
+            db.SaveChanges();
+            return Json("OK");
+
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)
