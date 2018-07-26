@@ -1,6 +1,7 @@
 ﻿
 @{
     Layout = null;
+   
 }
 
 <!DOCTYPE html>
@@ -10,18 +11,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>Bovoyage </title>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
-    
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />   
     <link href="~/Content/carousel.css" rel="stylesheet">
     <link href="~/Content/Site.css" rel="stylesheet" />
 </head>
 <body>
     <div class="container">
 
-        @if (TempData["Message"] != null && !string.IsNullOrWhiteSpace(TempData["Message"].ToString()))
+        @*@if (TempData["Message"] != null && !string.IsNullOrWhiteSpace(TempData["Message"].ToString()))
         {
             <div class=" alert alert-@TempData["MessageType"].ToString()">@TempData["Message"].ToString()</div>
-        }
+        }*@
 
       <nav class="navbar navbar-expand-lg navbar-light bg-info image-fond">
           

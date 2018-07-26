@@ -38,9 +38,8 @@
                             Voyages
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="@Url.Action("Index","Voyages", new { area = "BackOffice" })">Voir les voyages</a>
-                            <a class="dropdown-item" href="@Url.Action("Create","Voyages", new { area = "BackOffice" })">Ajouter</a>
-                            <div class="dropdown-divider"></div>                           
+                            <a class="dropdown-item" href="@Url.Action("Index","Voyages", new { area = "BackOffice" })">Liste des voyages</a>
+                            <a class="dropdown-item" href="@Url.Action("Create","Voyages", new { area = "BackOffice" })">Ajouter un voyage</a>                            
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -49,11 +48,26 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="@Url.Action("Index","Clients", new { area = "BackOffice" })">Liste des clients</a>
-                            <a class="dropdown-item" href="@Url.Action("Edit","Clients", new { area = "BackOffice" })">Modifier un client</a>
-                            <a class="dropdown-item" href="@Url.Action("Details","Clients", new { area = "BackOffice" })">Détail d'un client</a>
-                            <a class="dropdown-item" href="@Url.Action("Delete","Clients", new { area = "BackOffice" })">Supprimer un client</a>
-                            <div class="dropdown-divider"></div>
-
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Agences de voyage
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="@Url.Action("Index","AgenceVoyages", new { area = "BackOffice" })">Liste des agences de voyage</a>
+                            <a class="dropdown-item" href="@Url.Action("Create","AgenceVoyages", new { area = "BackOffice" })">Ajouter une agence de voyage</a>                            
+                            
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Participants
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="@Url.Action("Index","GestionParticipants", new { area = "BackOffice" })">Liste des participants</a>
+                            <a class="dropdown-item" href="@Url.Action("Details","GestionParticipants", new { area = "BackOffice" })">Détail d'un participant</a>
+                            
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -61,10 +75,8 @@
                             Commerciaux
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="@Url.Action("Index","Commerciaux")">Voir les commerciaux</a>
-                            <a class="dropdown-item" href="@Url.Action("Create","Commerciaux")">Ajouter</a>
-                            <div class="dropdown-divider"></div>
-
+                            <a class="dropdown-item" href="@Url.Action("Index","Commerciaux", new { area = "BackOffice" })">Liste des commerciaux</a>
+                            <a class="dropdown-item" href="@Url.Action("Create","Commerciaux", new { area = "BackOffice" })">Ajouter un nouveau commercial</a>                            
                         </div>
                     </li>
                     <li>
