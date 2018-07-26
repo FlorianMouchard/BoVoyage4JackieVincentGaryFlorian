@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace BoVoyage4.Areas.BackOffice.Controllers
+namespace BoVoyage4.Controllers
 {
     public class BaseController : Controller
     {

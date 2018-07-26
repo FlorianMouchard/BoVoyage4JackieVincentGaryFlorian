@@ -11,9 +11,9 @@ using System.Web.Mvc;
 
 namespace BoVoyage4.Areas.BackOffice.Controllers
 {
-    public class AuthentificationCommerciauxController : BaseController
-    {       
-        
+    public class AuthentificationCommerciauxController : Controller
+    {
+        protected BoVoyage4DbContext db = new BoVoyage4DbContext();
         public ActionResult Login()
         {
             return View();
@@ -40,7 +40,8 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
                 {
                     Session.Add("COMMERCIAL_BO", commercial);
                     Session.Add("COMMERCIAL_NAME", commercial.Prenom);
-                    TempData["Message"] = "Login complété";
+                    DisplayMessage("Login complété", MessageType.SUCCESS);
+                    //TempData["Message"] = ;
                     return RedirectToAction("Index", "Dashboard", new { area = "BackOffice" });
                 }
             }
@@ -55,6 +56,33 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             Session.Clear();
             TempData["Message"] = "Vous vous êtes déconnecté";
             return RedirectToAction("Index", "Home", new { area = "" });
+        }
+
+        protected void DisplayMessage(string message, MessageType type)
+        {
+            TempData["Message"] = message;
+            switch (type)
+            {
+                case MessageType.SUCCESS:
+                    TempData["MessageType"] = "success";
+                    break;
+                case MessageType.WARNING:
+                    TempData["MessageType"] = "warning";
+                    break;
+                case MessageType.ERROR:
+                    TempData["MessageType"] = "danger";
+                    break;
+
+            }
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }

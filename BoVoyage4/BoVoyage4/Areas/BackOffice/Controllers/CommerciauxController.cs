@@ -13,7 +13,7 @@ using BoVoyage4.Utils;
 
 namespace BoVoyage4.Areas.BackOffice.Controllers
 {
-    public class CommerciauxController : Controller
+    public class CommerciauxController : BaseBoController
     {
         private BoVoyage4DbContext db = new BoVoyage4DbContext();
 

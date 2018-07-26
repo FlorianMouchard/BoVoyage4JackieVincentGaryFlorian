@@ -9,21 +9,23 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>_Layout</title>
+    <title>Bovoyage </title>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/font-awesome.min.css" rel="stylesheet" />   
     <link href="~/Content/carousel.css" rel="stylesheet">
+    <link href="~/Content/Site.css" rel="stylesheet" />
 </head>
 <body>
     <div class="container">
 
-        @*@if (TempData["Message"] != null && !string.IsNullOrWhiteSpace(TempData["Message"].ToString()))
+        @if (TempData["Message"] != null && !string.IsNullOrWhiteSpace(TempData["Message"].ToString()))
         {
             <div class=" alert alert-@TempData["MessageType"].ToString()">@TempData["Message"].ToString()</div>
-        }*@
+        }
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-info">
-            <a class="navbar-brand" href="#"></a>
+        <nav class="navbar navbar-expand-lg navbar-light bg-info image-fond">
+
+            <a class="navbar-brand" href="@Url.Action("Index","Home")" /><strong>ACCUEIL</strong></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -31,44 +33,49 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="@Url.Action("Index","Home")">Home<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="@Url.Action("Index","Offres",new {area=""})">VOYAGES<span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="@Url.Action("Index","Dashboard",new { area = "BackOffice" })">BackOffice<span class="sr-only">(current)</span></a>
+
+                </ul>
+                <ul>
+                    <li class="nav-item active" style="margin-bottom: 5px">
+
+                        <a class="btn btn-dark" style="color: navajowhite" href="@Url.Action("Login","AuthentificationClients", new { area = "" })">Se connecter / Particulier<span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Voyages
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="@Url.Action("Index","Offres",new {area=""})">Voir les voyages</a>
-                            <div class="dropdown-divider"></div>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Clients
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="@Url.Action("Index","CompteClients")">Voir les clients</a>
-                            <a class="dropdown-item" href="@Url.Action("Create","CompteClients")">Ajouter</a>
-                            <div class="dropdown-divider"></div>
-                        </div>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="@Url.Action("Login","AuthentificationCommerciaux", new { area = "BackOffice" })">Se connecter / Professionnel<span class="sr-only">(current)</span></a>
-                        <a class="nav-link" href="@Url.Action("Login","AuthentificationClients", new { area = "" })">Se connecter / Particulier<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li>
-                        <span class="navbar-text">
-                        </span>
+
+
+
+                    <li class="nav-item active" style="margin-bottom: 5px">
+
+                        <a class="btn btn-dark " style="color:navajowhite" href="@Url.Action("Login","AuthentificationCommerciaux", new { area = "BackOffice" })">Se connecter / Professionnel<span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
+
+
+
+
+
+                <span class="navbar-text">
+                </span>
+
+
             </div>
         </nav>
         @RenderBody()
-        <footer class="bg-light">
-            &copy; Projet de l'année !
+        <footer class="bg-light image-footer">
+
+
+            <div class="links-wrap">
+                <span class="title-footer toggle-brand-link" data-toggle-link="footerBrandList_1" style="color:black"><strong><h3>A propos de BOVOYAGE</h3></strong></span>
+                <ul id="footerBrandList_1" class="reset-list">
+                    <li class="item-link"><a href="@Url.RouteUrl("AboutRoute")">Qui sommes-nous ?</a></li>
+                    <li class="item-link"><a href="http://www.thomascook-groupe.fr/communiques-de-presse/" class="title-link">Presse</a></li>
+                    <li class="item-link"><a href="/groupe/conseils-voyageurs" class="title-link">Conseils aux voyageurs</a></li>
+                </ul>
+            </div>
+
+
+
         </footer>
     </div>
     <script src="~/Scripts/jquery-3.3.1.min.js"></script>
