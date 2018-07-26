@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using BoVoyage4.Areas.BackOffice.Models;
 using BoVoyage4.Data;
 using BoVoyage4.Models;
 using BoVoyage4.Utils;
@@ -19,6 +20,23 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
         {
             var clients = db.Clients.Include(c => c.Civilite);
             return View(clients.ToList());
+        }
+
+        //GET: BackOffice/Clients
+        public ActionResult Index(RechercheClientViewModel model)
+        {
+            IEnumerable<Client> clients = db.Clients.Include(x => x.Civilite);
+            if (!string.IsNullOrWhiteSpace(model.Nom))
+                clients = db.Clients.Where(x => x.Nom.Contains(model.Nom));
+            if (!string.IsNullOrWhiteSpace(model.Prenom))
+                clients = db.Clients.Where(x => x.Nom.Contains(model.Prenom));
+            if (model.NeAvantLe.HasValue)
+                clients = db.Clients.Where(x => x.DateNaissance <= model.NeAvantLe);
+            if (model.NeApresLe.HasValue)
+                clients = db.Clients.Where(x => x.DateNaissance >= model.NeApresLe);
+
+            model.Clients = clients.ToList();
+            return View(model);
         }
 
         // GET: BackOffice/Clients/Details/5

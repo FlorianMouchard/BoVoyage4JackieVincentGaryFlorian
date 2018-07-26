@@ -27,5 +27,7 @@ namespace BoVoyage4.Areas.BackOffice.Models
         [Display(Name = "Partir après le")]
         [DataType(DataType.Date)]
         public DateTime? DateMax { get; set; }
+
+        public IEnumerable<Voyage> Voyages { get; set; }
     }
 }

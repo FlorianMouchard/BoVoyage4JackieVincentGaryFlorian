@@ -23,6 +23,6 @@ namespace BoVoyage4.Areas.BackOffice.Models
         [DataType(DataType.Date)]
         public DateTime? NeApresLe { get; set; }
 
-        IEnumerable<Client> Clients { get; set; }
+        public IEnumerable<Client> Clients { get; set; }
     }
 }
