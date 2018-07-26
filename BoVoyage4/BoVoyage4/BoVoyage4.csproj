@@ -354,6 +354,7 @@
     <Compile Include="Areas\BackOffice\Controllers\CommerciauxController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\DashboardController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\DestinationsController.cs" />
+    <Compile Include="Areas\BackOffice\Models\RechercheVoyageViewModel.cs" />
     <Compile Include="Controllers\AuthentificationClientsController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\GestionParticipantsController.cs" />
     <Compile Include="Controllers\BaseController.cs" />

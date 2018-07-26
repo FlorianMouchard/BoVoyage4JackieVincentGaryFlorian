@@ -21,12 +21,13 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
         }
 
         [HttpGet]
-        public ActionResult Search(string destination, DateTime? dateMin, DateTime? dateMax, decimal prixMin, decimal prixMax)
+        public ActionResult Index(string destination, DateTime? dateMin, DateTime? dateMax, decimal prixMin, decimal prixMax)
         {
             ViewBag.dateMin = dateMin;
             ViewBag.dateMax = dateMax;
             ViewBag.prixMin = prixMin;
             ViewBag.prixMax = prixMax;
+
             IQueryable < Voyage > voyages = db.Voyages.Include(x => x.Destination);
             if (destination != null)
                 voyages = voyages.Where(x => x.Destination.Region == destination);
