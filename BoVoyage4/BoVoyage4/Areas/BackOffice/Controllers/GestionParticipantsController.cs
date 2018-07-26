@@ -13,8 +13,6 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
 {
     public class GestionParticipantsController : BaseBoController
     {
-       
-
         // GET: BackOffice/GestionParticipants
         public ActionResult Index()
         {

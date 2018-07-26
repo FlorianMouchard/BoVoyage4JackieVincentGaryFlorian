@@ -13,8 +13,6 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
 {
     public class VoyagesController : BaseBoController
     {
-       
-
         // GET: BackOffice/Voyages
         public ActionResult Index()
         {
@@ -76,10 +74,12 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             {
                 db.Voyages.Add(voyage);
                 db.SaveChanges();
+                DisplayMessage($"Le voyage {voyage.Destination} à {voyage.TarifToutCompris} a été créé.", MessageType.SUCCESS);
                 return RedirectToAction("Index");
             }
 
             ViewBag.DestinationID = new SelectList(db.Destinations, "ID", "Continent", voyage.DestinationID);
+            DisplayMessage("Une erreur est apparue", MessageType.ERROR);
             return View(voyage);
         }
 
@@ -110,9 +110,11 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             {
                 db.Entry(voyage).State = EntityState.Modified;
                 db.SaveChanges();
+                DisplayMessage($"Le voyage {voyage.Destination} a été modifié.", MessageType.SUCCESS);
                 return RedirectToAction("Index");
             }
             ViewBag.DestinationID = new SelectList(db.Destinations, "ID", "Continent", voyage.DestinationID);
+            DisplayMessage("Une erreur est apparue", MessageType.ERROR);
             return View(voyage);
         }
 
@@ -139,6 +141,7 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             Voyage voyage = db.Voyages.Find(id);
             db.Voyages.Remove(voyage);
             db.SaveChanges();
+            DisplayMessage($"Le voyage {voyage.Destination} a été supprimé.", MessageType.SUCCESS);
             return RedirectToAction("Index");
         }
 

@@ -14,8 +14,7 @@ using BoVoyage4.Utils;
 namespace BoVoyage4.Areas.BackOffice.Controllers
 {
     public class CommerciauxController : BaseBoController
-    {
-        
+    {        
 
         // GET: BackOffice/Commerciaux
         public ActionResult Index()
@@ -59,9 +58,11 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
                 commercial.Password = commercial.Password.HashMD5();
                 db.Commerciaux.Add(commercial);
                 db.SaveChanges();
+                DisplayMessage($"Le commercial {commercial.Nom} {commercial.Prenom} a été créé.", MessageType.SUCCESS);
                 return RedirectToAction("Index");
             }
             ViewBag.Civilites = db.Civilites.ToList();
+            DisplayMessage("Une erreur est apparue", MessageType.ERROR);
             return View(commercial);
         }
 
@@ -90,18 +91,22 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
         {
             ModelState.Remove("Password");
             ModelState.Remove("PasswordConfirmation");
+            ModelState.Remove("Email");
             var old = db.Commerciaux.SingleOrDefault(x => x.ID == commercial.ID);
             commercial.Password = old.Password.HashMD5();
-            commercial.PasswordConfirmation = old.Password.HashMD5();                      
+            commercial.PasswordConfirmation = old.Password.HashMD5();
+            commercial.Email = old.Email;
             db.Entry(old).State = EntityState.Detached;
             if (ModelState.IsValid)
             {
                 db.Entry(commercial).State = EntityState.Modified;
                 db.Configuration.ValidateOnSaveEnabled = false;
                 db.SaveChanges();
+                DisplayMessage($"Les données du commercial {commercial.Nom} {commercial.Prenom} onr été modifiééq.", MessageType.SUCCESS);
                 return RedirectToAction("Index");
             }
             ViewBag.Civilites = db.Civilites.ToList();
+            DisplayMessage("Une erreur est apparue", MessageType.ERROR);
             return View(commercial);
         }
 
@@ -128,6 +133,7 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             Commercial commercial = db.Commerciaux.Find(id);
             db.Commerciaux.Remove(commercial);
             db.SaveChanges();
+            DisplayMessage($"Le commercial {commercial.Nom} {commercial.Prenom} a été supprimé.", MessageType.SUCCESS);
             return RedirectToAction("Index");
         }
 
