@@ -335,6 +335,7 @@
     <Compile Include="Areas\BackOffice\Controllers\VoyagesController.cs" />
     <Compile Include="Controllers\ParticipantsController.cs" />
     <Compile Include="Data\BoVoyage4DbContext.cs" />
+    <Compile Include="Filters\AuthentificationFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

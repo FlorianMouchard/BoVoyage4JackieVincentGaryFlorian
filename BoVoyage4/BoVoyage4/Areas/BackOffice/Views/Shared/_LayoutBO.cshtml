@@ -1,7 +1,7 @@
 ﻿
 @{
     Layout = null;
-    
+    var user = Session["COMMERCIAL_BO"] as BoVoyage4.Areas.BackOffice.Models.Commercial;
 }
 
 <!DOCTYPE html>
@@ -12,7 +12,7 @@
     <title>Backoffice</title>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
-    <link href="~/Content/roomy.css" rel="stylesheet" />
+    @*<link href="~/Content/roomy.css" rel="stylesheet" />*@
 </head>
 <body>
 
@@ -73,7 +73,7 @@
                     </li>
                 </ul>
                 <span class="navbar-text">
-                    Bonjour <a href="@Url.Action("Logout","Authentication")" class="btn btn-danger"><i class="fa fa-eject"></i></a>
+                    Bonjour @*@commercial.Prenom @commercial.Nom*@<a href="@Url.Action("Logout","Authentication")" class="btn btn-danger"><i class="fa fa-power-off"></i></a>
                 </span>
             </div>
         </nav>
