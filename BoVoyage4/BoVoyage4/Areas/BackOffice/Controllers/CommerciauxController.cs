@@ -90,9 +90,11 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
         {
             ModelState.Remove("Password");
             ModelState.Remove("PasswordConfirmation");
+            ModelState.Remove("Email");
             var old = db.Commerciaux.SingleOrDefault(x => x.ID == commercial.ID);
             commercial.Password = old.Password.HashMD5();
-            commercial.PasswordConfirmation = old.Password.HashMD5();                      
+            commercial.PasswordConfirmation = old.Password.HashMD5();
+            commercial.Email = old.Email;
             db.Entry(old).State = EntityState.Detached;
             if (ModelState.IsValid)
             {

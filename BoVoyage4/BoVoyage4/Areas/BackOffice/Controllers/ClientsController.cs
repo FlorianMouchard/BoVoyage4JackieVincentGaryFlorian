@@ -65,9 +65,11 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
         {
             ModelState.Remove("Password");
             ModelState.Remove("PasswordConfirmation");
+            ModelState.Remove("Email");
             var old = db.Clients.SingleOrDefault(x => x.ID == client.ID);
             client.Password = old.Password.HashMD5();
             client.PasswordConfirmation = old.Password.HashMD5();
+            client.Email = old.Email;
             db.Entry(old).State = EntityState.Detached;
             if (ModelState.IsValid)
             {
