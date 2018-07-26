@@ -23,7 +23,7 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
         }
 
         [HttpGet]
-        public ActionResult Index(string destination, DateTime? dateMin, DateTime? dateMax, decimal prixMin, decimal prixMax)
+        public ActionResult Search(string destination, DateTime? dateMin, DateTime? dateMax, decimal prixMin, decimal prixMax)
         {
             ViewBag.dateMin = dateMin;
             ViewBag.dateMax = dateMax;
