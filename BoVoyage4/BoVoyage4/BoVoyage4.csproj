@@ -159,6 +159,7 @@
     <Content Include="Areas\BackOffice\Views\Commerciaux\Edit.cshtml" />
     <Content Include="Areas\BackOffice\Views\Commerciaux\Index.cshtml" />
     <Content Include="Areas\BackOffice\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\BackOffice\Views\AuthentificationCommerciaux\Login.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\holder.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -327,6 +328,8 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\BackOffice\BackOfficeAreaRegistration.cs" />
+    <Compile Include="Areas\BackOffice\Controllers\AuthentificationCommerciauxController.cs" />
+    <Compile Include="Areas\BackOffice\Controllers\BaseController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\CommerciauxController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\DashboardController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\DestinationsController.cs" />
@@ -412,6 +415,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\BackOffice\Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201807251207012_Init.resx">
