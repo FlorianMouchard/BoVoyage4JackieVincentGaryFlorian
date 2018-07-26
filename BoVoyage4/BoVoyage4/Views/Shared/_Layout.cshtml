@@ -18,10 +18,10 @@
 <body>
     <div class="container">
 
-        @*@if (TempData["Message"] != null && !string.IsNullOrWhiteSpace(TempData["Message"].ToString()))
+        @if (TempData["Message"] != null && !string.IsNullOrWhiteSpace(TempData["Message"].ToString()))
         {
             <div class=" alert alert-@TempData["MessageType"].ToString()">@TempData["Message"].ToString()</div>
-        }*@
+        }
 
         <nav class="navbar navbar-expand-lg navbar-light bg-info image-fond">
 

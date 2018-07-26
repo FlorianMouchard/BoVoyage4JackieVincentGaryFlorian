@@ -11,9 +11,9 @@ using System.Web.Mvc;
 
 namespace BoVoyage4.Areas.BackOffice.Controllers
 {
-    public class AuthentificationCommerciauxController : BaseController
-    {       
-        
+    public class AuthentificationCommerciauxController : Controller
+    {
+        protected BoVoyage4DbContext db = new BoVoyage4DbContext();
         public ActionResult Login()
         {
             return View();
@@ -55,6 +55,15 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             Session.Clear();
             TempData["Message"] = "Vous vous êtes déconnecté";
             return RedirectToAction("Index", "Home", new { area = "" });
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }

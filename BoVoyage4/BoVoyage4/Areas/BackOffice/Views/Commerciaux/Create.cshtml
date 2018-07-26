@@ -1,4 +1,4 @@
-﻿@model BoVoyage4.Areas.BackOffice.Models.Commercial
+﻿@model BoVoyage4.Models.Commercial
 
 @{
     ViewBag.Title = "Create";
@@ -18,8 +18,7 @@
 
     <div class="form-group">
         @Html.LabelFor(model => model.CiviliteID, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">          
-            
+        <div class="col-md-10">                      
             @Html.DropDownListFor(model => model.CiviliteID, new SelectList(ViewBag.Civilites, "ID", "Libelle"), new { @class = "form-control col-12" })
         </div>
     </div>

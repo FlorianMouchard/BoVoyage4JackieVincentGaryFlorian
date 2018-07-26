@@ -8,11 +8,12 @@ using System.Web;
 using System.Web.Mvc;
 using BoVoyage4.Areas.BackOffice.Models;
 using BoVoyage4.Data;
+using BoVoyage4.Models;
 using BoVoyage4.Utils;
 
 namespace BoVoyage4.Areas.BackOffice.Controllers
 {
-    public class CommerciauxController : Controller
+    public class CommerciauxController : BaseBoController
     {
         private BoVoyage4DbContext db = new BoVoyage4DbContext();
 
@@ -71,11 +72,12 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Commercial commercial = db.Commerciaux.Find(id);
+            Commercial commercial = db.Commerciaux.Include(x => x.Civilite).SingleOrDefault(x=> x.ID == id);
             if (commercial == null)
             {
                 return HttpNotFound();
             }
+            ViewBag.Civilites = db.Civilites.ToList();
             return View(commercial);
         }
 
@@ -84,14 +86,22 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Email,Password,Civilite,Nom,Prenom,Adresse,Telephone,DateNaissance")] Commercial commercial)
+        public ActionResult Edit([Bind(Include = "ID,Email,CiviliteID,Nom,Prenom,Adresse,Telephone,DateNaissance")] Commercial commercial)
         {
+            ModelState.Remove("Password");
+            ModelState.Remove("PasswordConfirmation");
+            var old = db.Commerciaux.SingleOrDefault(x => x.ID == commercial.ID);
+            commercial.Password = old.Password.HashMD5();
+            commercial.PasswordConfirmation = old.Password.HashMD5();                      
+            db.Entry(old).State = EntityState.Detached;
             if (ModelState.IsValid)
             {
                 db.Entry(commercial).State = EntityState.Modified;
+                db.Configuration.ValidateOnSaveEnabled = false;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.Civilites = db.Civilites.ToList();
             return View(commercial);
         }
 

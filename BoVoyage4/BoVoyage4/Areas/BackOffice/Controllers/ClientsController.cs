@@ -8,10 +8,11 @@ using System.Web;
 using System.Web.Mvc;
 using BoVoyage4.Data;
 using BoVoyage4.Models;
+using BoVoyage4.Utils;
 
 namespace BoVoyage4.Areas.BackOffice.Controllers
 {
-    public class ClientsController : Controller
+    public class ClientsController : BaseBoController
     {
         private BoVoyage4DbContext db = new BoVoyage4DbContext();
 
@@ -60,12 +61,19 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Email,Historique,Password,CiviliteID,Nom,Prenom,Adresse,Telephone,DateNaissance")] Client client)
+        public ActionResult Edit([Bind(Include = "ID,Email,CiviliteID,Nom,Prenom,Adresse,Telephone,DateNaissance")] Client client)
         {
+            ModelState.Remove("Password");
+            ModelState.Remove("PasswordConfirmation");
+            var old = db.Clients.SingleOrDefault(x => x.ID == client.ID);
+            client.Password = old.Password.HashMD5();
+            client.PasswordConfirmation = old.Password.HashMD5();
+            db.Entry(old).State = EntityState.Detached;
             if (ModelState.IsValid)
             {
                 db.Entry(client).State = EntityState.Modified;
-                db.SaveChanges();
+                db.Configuration.ValidateOnSaveEnabled = false;
+                db.SaveChanges();              
                 return RedirectToAction("Index");
             }
             ViewBag.CiviliteID = new SelectList(db.Civilites, "ID", "Libelle", client.CiviliteID);
