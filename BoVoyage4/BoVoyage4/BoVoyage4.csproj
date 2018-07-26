@@ -327,6 +327,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\BackOffice\BackOfficeAreaRegistration.cs" />
+    <Compile Include="Areas\BackOffice\Controllers\AuthentificationCommerciauxController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\CommerciauxController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\DashboardController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\DestinationsController.cs" />
@@ -411,6 +412,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\BackOffice\Views\AuthentificationCommerciaux\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201807251207012_Init.resx">
