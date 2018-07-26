@@ -160,6 +160,10 @@
     <Content Include="Areas\BackOffice\Views\Commerciaux\Index.cshtml" />
     <Content Include="Areas\BackOffice\Views\Dashboard\Index.cshtml" />
     <Content Include="Areas\BackOffice\Views\AuthentificationCommerciaux\Login.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Clients\Delete.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Clients\Details.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Clients\Edit.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Clients\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\holder.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -330,13 +334,15 @@
     <Compile Include="Areas\BackOffice\BackOfficeAreaRegistration.cs" />
     <Compile Include="Areas\BackOffice\Controllers\AuthentificationCommerciauxController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\BaseController.cs" />
+    <Compile Include="Areas\BackOffice\Controllers\ClientsController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\CommerciauxController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\DashboardController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\DestinationsController.cs" />
     <Compile Include="Controllers\AuthentificationClientsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ClientsController.cs" />
+    <Compile Include="Controllers\CompteClientsController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\VoyagesController.cs" />
+    <Compile Include="Controllers\OffresController.cs" />
     <Compile Include="Controllers\ParticipantsController.cs" />
     <Compile Include="Data\BoVoyage4DbContext.cs" />
     <Compile Include="Filters\AuthentificationFilter.cs" />
@@ -401,12 +407,12 @@
     <Content Include="Views\Participants\Edit.cshtml" />
     <Content Include="Views\Participants\Index.cshtml" />
     <Content Include="Views\Clients\Create.cshtml" />
-    <Content Include="Views\Clients\Delete.cshtml" />
     <Content Include="Views\Clients\Details.cshtml" />
     <Content Include="Views\Clients\Edit.cshtml" />
-    <Content Include="Views\Clients\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Offres\Details.cshtml" />
+    <Content Include="Views\Offres\Index.cshtml" />
     <Content Include="Views\AuthentificationClients\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
