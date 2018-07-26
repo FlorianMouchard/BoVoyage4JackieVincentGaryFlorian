@@ -50,7 +50,7 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Email,Password,Civilite,Nom,Prenom,Adresse,Telephone,DateNaissance")] Commercial commercial)
+        public ActionResult Create([Bind(Include = "ID,Email,Password,PasswordConfirmation,CiviliteID,Nom,Prenom,Adresse,Telephone,DateNaissance")] Commercial commercial)
         {
             if (ModelState.IsValid)
             {
