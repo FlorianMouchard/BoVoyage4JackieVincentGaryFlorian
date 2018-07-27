@@ -15,13 +15,7 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
 {
     public class ClientsController : BaseBoController
     {       
-        // GET: BackOffice/Clients
-        public ActionResult Index()
-        {
-            var clients = db.Clients.Include(c => c.Civilite);
-            return View(clients.ToList());
-        }
-
+      
         //GET: BackOffice/Clients
         public ActionResult Index(RechercheClientViewModel model)
         {
