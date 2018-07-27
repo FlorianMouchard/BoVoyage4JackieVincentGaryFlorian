@@ -54,7 +54,7 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
         public ActionResult Logout()
         {
             Session.Clear();
-            TempData["Message"] = "Vous vous êtes déconnecté";
+            DisplayMessage("Vous vous êtes déconnecté", MessageType.SUCCESS);            
             return RedirectToAction("Index", "Home", new { area = "" });
         }
 

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BoVoyage4.Models.Client>
+﻿@model BoVoyage4.Areas.BackOffice.Models.RechercheClientViewModel
 
 @{
     ViewBag.Title = "Index";
@@ -7,63 +7,127 @@
 
 <h2>Liste des clients</h2>
 
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#rechercheClient">
+    Filtrer
+</button>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Civilite)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Nom)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Prenom)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Adresse)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Telephone)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateNaissance)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>       
-        <th></th>
-    </tr>
+<div class="modal fade" id="rechercheClient" tabindex="-1" role="dialog" aria-labelledby="rechercheClientCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Rechercher un voyage</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @using (Html.BeginForm())
+                {
+                    <div class="form-control">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Nom, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Nom, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Nom, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Civilite.Libelle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nom)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Prenom)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Adresse)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Telephone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateNaissance)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>      
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Prenom, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Prenom, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Prenom, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
 
-        <td>
-            <a href="@Url.Action("Edit", new { id = item.ID })"><i class="fa fa-edit"></i>|</a>
-            <a href="@Url.Action("Details", new { id=item.ID })"><i class="fa fa-eye"></i>|</a>
-            <a href="@Url.Action("Delete", new { id=item.ID })"><i class="fa fa-trash text-danger"></i></a>
-        </td>
-    </tr>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.NeAvantLe, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.NeAvantLe, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.NeAvantLe, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.NeApresLe, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.NeApresLe, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.NeApresLe, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+            <div class="modal-footer">
+                <input type="submit" value="Rechercher" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (Model.Clients != null)
+{
+
+    <table class="table">
+        <tr>
+            <th>
+                Civilité
+            </th>
+            <th>
+                Nom
+            </th>
+            <th>
+                Prénom
+            </th>
+            <th>
+                Adresse
+            </th>
+            <th>
+                Telephone
+            </th>
+            <th>
+                DateNaissance
+            </th>
+            <th>
+                Email
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.Clients)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Civilite.Libelle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prenom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Adresse)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telephone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateNaissance)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+
+                <td>
+                    <a href="@Url.Action("Edit", new { id = item.ID })"><i class="fa fa-edit"></i>|</a>
+                    <a href="@Url.Action("Details", new { id=item.ID })"><i class="fa fa-eye"></i>|</a>
+                    <a href="@Url.Action("Delete", new { id=item.ID })"><i class="fa fa-trash text-danger"></i></a>
+                </td>
+            </tr>
+        }
+
+    </table>
 }
-
-</table>

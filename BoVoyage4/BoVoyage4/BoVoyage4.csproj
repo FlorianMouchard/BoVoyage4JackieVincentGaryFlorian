@@ -103,6 +103,7 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\BoVoyage.css" />
     <Content Include="Content\carousel.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
@@ -177,6 +178,7 @@
     <Content Include="Areas\BackOffice\Views\AgenceVoyages\Details.cshtml" />
     <Content Include="Areas\BackOffice\Views\AgenceVoyages\Edit.cshtml" />
     <Content Include="Areas\BackOffice\Views\AgenceVoyages\Index.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Shared\_DisplayMessageBO.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\holder.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -352,6 +354,8 @@
     <Compile Include="Areas\BackOffice\Controllers\CommerciauxController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\DashboardController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\DestinationsController.cs" />
+    <Compile Include="Areas\BackOffice\Models\RechercheClientViewModel.cs" />
+    <Compile Include="Areas\BackOffice\Models\RechercheVoyageViewModel.cs" />
     <Compile Include="Controllers\AuthentificationClientsController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\GestionParticipantsController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -360,6 +364,7 @@
     <Compile Include="Areas\BackOffice\Controllers\VoyagesController.cs" />
     <Compile Include="Controllers\OffresController.cs" />
     <Compile Include="Controllers\ParticipantsController.cs" />
+    <Compile Include="Controllers\SharedController.cs" />
     <Compile Include="Data\BoVoyage4DbContext.cs" />
     <Compile Include="Filters\AuthentificationFilter.cs" />
     <Compile Include="Global.asax.cs">
@@ -437,6 +442,9 @@
     <Content Include="Views\Offres\Index.cshtml" />
     <Content Include="Views\AuthentificationClients\Login.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Shared\_DisplayMessage.cshtml" />
+    <Content Include="Views\Shared\_TopFivePrIce.cshtml" />
+    <Content Include="Views\Shared\_TopFiveDate.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

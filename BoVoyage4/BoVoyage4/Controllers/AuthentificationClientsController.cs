@@ -40,7 +40,7 @@ namespace BoVoyage4.Controllers
                 else
                 {                   
                     Session.Add("CLIENT_NAME", client.Prenom);
-                    TempData["Message"] = "Login complété";
+                    DisplayMessage("Login complété", MessageType.SUCCESS);
                     return RedirectToAction("Index", "Home");
                 }
             }
@@ -54,6 +54,23 @@ namespace BoVoyage4.Controllers
             Session.Clear();
             TempData["Message"] = "Vous vous êtes déconnecté";
             return RedirectToAction("Index", "Home", new { area = "" });
+        }
+
+        protected void DisplayMessage(string message, MessageType type)
+        {
+            TempData["Message"] = message;
+            switch (type)
+            {
+                case MessageType.SUCCESS:
+                    TempData["MessageType"] = "success";
+                    break;
+                case MessageType.WARNING:
+                    TempData["MessageType"] = "warning";
+                    break;
+                case MessageType.ERROR:
+                    TempData["MessageType"] = "danger";
+                    break;
+            }
         }
 
         protected override void Dispose(bool disposing)

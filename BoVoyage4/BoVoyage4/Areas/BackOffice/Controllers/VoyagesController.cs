@@ -27,6 +27,7 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             ViewBag.dateMax = dateMax;
             ViewBag.prixMin = prixMin;
             ViewBag.prixMax = prixMax;
+
             IQueryable < Voyage > voyages = db.Voyages.Include(x => x.Destination);
             if (destination != null)
                 voyages = voyages.Where(x => x.Destination.Region == destination);
@@ -144,24 +145,7 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             DisplayMessage($"Le voyage {voyage.Destination} a été supprimé.", MessageType.SUCCESS);
             return RedirectToAction("Index");
         }
-
-        // GET: BackOffice/Vayages/Search?
-        [HttpGet]
-        public IQueryable<Voyage> GetSearch(DateTime? dateAller = null, DateTime? dateRetour = null, int? destinationID = null)
-        {
-            var query = db.Voyages.Where(x => x.PlacesDisponibles > 0);
-
-            if (destinationID != null)
-                query = query.Where(x => x.DestinationID == destinationID);
-
-            if (dateAller != null)
-                query = query.Where(x => x.DateAller == dateAller);
-
-            if (dateRetour != null)
-                query = query.Where(x => x.DateRetour == dateRetour);
-
-            return query;
-        }
+       
         protected override void Dispose(bool disposing)
         {
             if (disposing)

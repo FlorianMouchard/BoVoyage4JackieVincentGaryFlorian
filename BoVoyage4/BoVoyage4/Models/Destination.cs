@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace BoVoyage4.Models
 {
@@ -22,6 +23,9 @@ namespace BoVoyage4.Models
 
         [Display(Name = "Description")]
         [Required(ErrorMessage = "Le champ {0} est obligatoire")]
+        [AllowHtml]
         public string Description { get; set; }
+
+        public ICollection<DestinationFile> Files { get; set; }
     }
 }

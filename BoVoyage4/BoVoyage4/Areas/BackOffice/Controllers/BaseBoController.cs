@@ -1,4 +1,5 @@
 ﻿using BoVoyage4.Data;
+using BoVoyage4.Filters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,7 @@ using System.Web.Mvc;
 
 namespace BoVoyage4.Areas.BackOffice.Controllers
 {
+    //[AuthentificationFilter]
     public class BaseBoController : Controller
     {
         protected BoVoyage4DbContext db = new BoVoyage4DbContext();
