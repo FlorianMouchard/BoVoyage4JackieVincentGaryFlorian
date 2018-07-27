@@ -20,10 +20,12 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
         {          
 
             IEnumerable<Voyage> voyages = db.Voyages.Include(x => x.Destination).Include(x => x.AgenceVoyage);
+            if (!string.IsNullOrWhiteSpace(model.Destination))
+                voyages = db.Voyages.Include(x => x.Destination).Include(x => x.AgenceVoyage).Where(x => x.Destination.Pays.Contains(model.Destination));
             if (model.DateMin.HasValue)
-                voyages = db.Voyages.Include(x=> x.Destination).Include(x => x.AgenceVoyage).Where(x => x.DateAller >= model.DateMin);
+                voyages = db.Voyages.Include(x=> x.Destination).Include(x => x.AgenceVoyage).Where(x => x.DateAller <= model.DateMin);
             if (model.DateMax.HasValue)
-                voyages = db.Voyages.Include(x => x.Destination).Include(x => x.AgenceVoyage).Where(x => x.DateAller <= model.DateMax);
+                voyages = db.Voyages.Include(x => x.Destination).Include(x => x.AgenceVoyage).Where(x => x.DateAller >= model.DateMax);
             if (model.PrixMin != null)
                 voyages = db.Voyages.Include(x => x.Destination).Include(x => x.AgenceVoyage).Where(x => x.TarifToutCompris >= model.PrixMin);
             if (model.PrixMax != null)
@@ -145,15 +147,7 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             return RedirectToAction("Index");
         }
        
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
+      
 
     }
 }
