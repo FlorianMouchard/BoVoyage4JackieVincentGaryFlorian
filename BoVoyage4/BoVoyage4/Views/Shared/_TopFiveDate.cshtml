@@ -3,13 +3,19 @@
     Layout = null;
 }
 <div class="row">
-    <div class="col-md-3">
+   
         @foreach (var item in Model)
         {
-            <p>@Html.DisplayFor(model => item.DateAller) </p>
-            <p>@Html.DisplayFor(model => item.Destination.Pays) - @Html.DisplayFor(model => item.TarifToutCompris) €</p>
-            
-        }
+    <div class="col-md-4" style="border-style:double">
+        <h6 style="background-color:lavender">Date de départ </h6>
+
+        <p>@Html.DisplayFor(model => item.DateAller) </p>
+        <h6 style="background-color:lavender">Destination  </h6>
+        <p>@Html.DisplayFor(model => item.Destination.Pays)</p>
+        <h6 style="background-color:lavender">Tarif  </h6>
+        <p>@Html.DisplayFor(model => item.TarifToutCompris) €</p>
     </div>
-</div>
+            }
+    
+        </div>
 
