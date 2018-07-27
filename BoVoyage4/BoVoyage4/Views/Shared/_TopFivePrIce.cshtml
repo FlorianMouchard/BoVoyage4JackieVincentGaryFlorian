@@ -6,8 +6,8 @@
     <div class="col-md-3">
         @foreach (var item in Model)
         {
-            <p>@item.DestinationID</p>
-            <p>@item.TarifToutCompris €</p>
+            <p>@Html.DisplayFor(model => item.Destination.Pays) </p>
+            <p>@Html.DisplayFor(model => item.DateAller) - @Html.DisplayFor(model => item.TarifToutCompris) €</p>            
         }
     </div>
 </div>
