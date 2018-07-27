@@ -1,0 +1,14 @@
+﻿@model IEnumerable<BoVoyage4.Models.Voyage>
+@{
+    Layout = null;
+}
+<div class="row">
+    <div class="col-md-3">
+        @foreach (var item in Model)           
+        {
+            @foreach (var )
+            <p>@Html.DisplayFor(model => item.Destination.Pays) </p>
+            <p>@Html.DisplayFor(model => item.DateAller) - @Html.DisplayFor(model => item.TarifToutCompris) €</p>
+        }
+    </div>
+</div>

@@ -14,15 +14,26 @@ namespace BoVoyage4.Controllers
         [ChildActionOnly]
         public ActionResult TopFivePrice()
         {
-            var voyages = db.Voyages.Include("Destination").Where(x => x.DateAller > DateTime.Now).OrderBy(x => x.TarifToutCompris).Take(5);            
+            var voyages = db.Voyages.Include("Destination").Where(x => x.DateAller > DateTime.Now).OrderBy(x => x.TarifToutCompris).Take(5);
             return View("_TopFivePrice", voyages);
         }
 
         [ChildActionOnly]
         public ActionResult TopFiveDate()
         {
-            var voyages = db.Voyages.Include("Destination").Where(x => x.DateAller>DateTime.Now).OrderBy(x => x.DateAller).Take(5);
+            var voyages = db.Voyages.Include("Destination").Where(x => x.DateAller > DateTime.Now).OrderBy(x => x.DateAller).Take(5);
             return View("_TopFiveDate", voyages);
+        }
+
+        [ChildActionOnly]
+        public ActionResult TopFiveDestination()
+        {
+            var destinations = db.Voyages.Include("Destination").GroupBy(x => x.Destination.Pays)
+                                                                .OrderByDescending(y => y.Count())
+                                                                .Take(5).ToList();
+
+
+            return View("_TopFiveDate", destinations);
         }
     }
 }
