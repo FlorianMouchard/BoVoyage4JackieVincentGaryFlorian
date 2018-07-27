@@ -31,6 +31,7 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             IQueryable < Voyage > voyages = db.Voyages.Include(x => x.Destination);
             if (destination != null)
                 voyages = voyages.Where(x => x.Destination.Region == destination);
+            
             if (dateMin.HasValue)
                 voyages = voyages.Where(x => x.DateAller >= dateMin.Value);
             if (dateMax.HasValue)

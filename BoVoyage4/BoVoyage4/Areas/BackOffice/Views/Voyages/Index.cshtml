@@ -43,7 +43,10 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Destination.Continent)
+            @Html.DisplayNameFor(model => model.AgenceVoyage.ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Destination.Region)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.DateAller)
@@ -62,9 +65,11 @@
 
     @foreach (var item in Model)
     {
-        <tr>
+        <tr><td>
+                @Html.DisplayFor(modelItem => item.AgenceVoyage.ID)
+            </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Destination.Continent)
+                @Html.DisplayFor(modelItem => item.Destination.Region)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DateAller)
