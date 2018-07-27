@@ -15,7 +15,12 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
 {
     public class ClientsController : BaseBoController
     {       
-      
+  
+        /// <summary>
+        /// Retourne la liste des clients en base
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         //GET: BackOffice/Clients
         public ActionResult Index(RechercheClientViewModel model)
         {
@@ -32,7 +37,11 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             model.Clients = clients.ToList();
             return View(model);
         }
-
+        /// <summary>
+        /// Permet l'affichage des données concernant les clients
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: BackOffice/Clients/Details/5
         public ActionResult Details(int? id)
         {
@@ -49,7 +58,11 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
         }
 
         
-
+        /// <summary>
+        /// Permet d'afficher la page de modification d'un client (données)
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: BackOffice/Clients/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -65,7 +78,11 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             ViewBag.CiviliteID = new SelectList(db.Civilites, "ID", "Libelle", client.CiviliteID);
             return View(client);
         }
-
+        /// <summary>
+        /// Permet de modifier un client et de sauvegarder les données en base
+        /// </summary>
+        /// <param name="client"></param>
+        /// <returns></returns>
         // POST: BackOffice/Clients/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -93,7 +110,11 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             DisplayMessage("Une erreur est apparue", MessageType.ERROR);
             return View(client);
         }
-
+        /// <summary>
+        /// Permet d'afficher la page de suppression d'un client
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: BackOffice/Clients/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -108,7 +129,11 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             }
             return View(client);
         }
-
+        /// <summary>
+        /// Permet de supprimer un client de la base de données
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // POST: BackOffice/Clients/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

@@ -14,16 +14,22 @@ namespace BoVoyage4.Controllers
     public class AuthentificationClientsController : Controller
     {
         protected BoVoyage4DbContext db = new BoVoyage4DbContext();
-
+        /// <summary>
+        /// Permet l'affichage de la page de connexion côté client
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Login()
         {
             return View();
         }
 
-        
+        /// <summary>
+        /// Permet de se connecter en tant que client à l'application
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [ValidateAntiForgeryToken]
         [HttpPost]
-
         public ActionResult Login(AuthentificationClientViewModels model)
 
         {
@@ -47,7 +53,10 @@ namespace BoVoyage4.Controllers
             return View(model);
 
         }
-      
+      /// <summary>
+      /// Permet de se déconnecter de l'application en tant que client et de revenir à l'accueil
+      /// </summary>
+      /// <returns></returns>
         [AuthentificationFilter]
         public ActionResult Logout()
         {
