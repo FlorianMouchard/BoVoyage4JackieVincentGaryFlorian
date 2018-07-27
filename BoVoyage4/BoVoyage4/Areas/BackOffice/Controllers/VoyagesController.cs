@@ -20,6 +20,8 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
         {          
 
             IEnumerable<Voyage> voyages = db.Voyages.Include(x => x.Destination).Include(x => x.AgenceVoyage);
+            if (!string.IsNullOrWhiteSpace(model.Destination))
+                voyages = db.Voyages.Include(x => x.Destination).Include(x => x.AgenceVoyage).Where(x => x.Destination.Pays.Contains(model.Destination));
             if (model.DateMin.HasValue)
                 voyages = db.Voyages.Include(x=> x.Destination).Include(x => x.AgenceVoyage).Where(x => x.DateAller <= model.DateMin);
             if (model.DateMax.HasValue)
