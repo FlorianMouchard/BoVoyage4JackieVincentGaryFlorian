@@ -391,6 +391,10 @@
     <Compile Include="Migrations\201807261344508_DestinationFile.Designer.cs">
       <DependentUpon>201807261344508_DestinationFile.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807270821593_modifdbvoyage.cs" />
+    <Compile Include="Migrations\201807270821593_modifdbvoyage.Designer.cs">
+      <DependentUpon>201807270821593_modifdbvoyage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AgenceVoyage.cs" />
     <Compile Include="Models\Assurance.cs" />
@@ -454,6 +458,7 @@
     <Content Include="Views\Shared\_DisplayMessage.cshtml" />
     <Content Include="Views\Shared\_TopFivePrIce.cshtml" />
     <Content Include="Views\Shared\_TopFiveDate.cshtml" />
+    <Content Include="Views\Home\Help.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -475,6 +480,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807261344508_DestinationFile.resx">
       <DependentUpon>201807261344508_DestinationFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807270821593_modifdbvoyage.resx">
+      <DependentUpon>201807270821593_modifdbvoyage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

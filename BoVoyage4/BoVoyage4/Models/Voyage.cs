@@ -35,5 +35,11 @@ namespace BoVoyage4.Models
         public int DestinationID { get; set; }
         [ForeignKey("DestinationID")]
         public Destination Destination { get; set; }
+
+      
+        [Display(Name = "Agences de voyage")]
+        public int AgenceVoyageID { get; set; }
+        [ForeignKey("AgenceVoyageID")]
+        public AgenceVoyage AgenceVoyage { get; set; }
     }
 }

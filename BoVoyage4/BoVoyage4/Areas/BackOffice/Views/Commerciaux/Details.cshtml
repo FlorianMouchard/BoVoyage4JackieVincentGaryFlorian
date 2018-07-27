@@ -16,7 +16,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Civilite)
+            @Html.DisplayFor(model => model.Civilite.Libelle)
         </dd>
 
         <dt>
@@ -66,10 +66,12 @@
         <dd>
             @Html.DisplayFor(model => model.Email)
         </dd>
-       
+
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Modifier", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Revenir à la liste des commerciaux", "Index")
+    <a href="@Url.Action("Edit", new { id=Model.ID})" class="btn btn-primary">Modifier</a>
+</p>
+<p>
+    <a href="@Url.Action("Index")" class="btn btn-outline-info btn-sm">Revenir à la liste des commerciaux</a>
 </p>

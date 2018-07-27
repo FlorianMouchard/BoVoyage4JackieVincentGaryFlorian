@@ -12,28 +12,13 @@
     <h4></h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Password)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Password)
-        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.Civilite)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Civilite)
+            @Html.DisplayFor(model => model.Civilite.Libelle)
         </dd>
 
         <dt>
@@ -76,14 +61,28 @@
             @Html.DisplayFor(model => model.DateNaissance)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Supprimer" onclick="return confirm('Confirmer ?');"class="btn btn-default" /> |
-            @Html.ActionLink("Revenir à la liste des commerciaux", "Index")
+            <input type="submit" value="Supprimer" onclick="return confirm('Confirmer ?');" class="btn btn-primary" />
         </div>
     }
 </div>
+<br />
+<div>
+    <a href="@Url.Action("Index")" class="btn btn-outline-info btn-sm">Revenir à la liste des clients</a>
+</div>
+<br />
+

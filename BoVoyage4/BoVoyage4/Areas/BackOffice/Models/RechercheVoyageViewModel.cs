@@ -9,7 +9,7 @@ namespace BoVoyage4.Areas.BackOffice.Models
 {
     public class RechercheVoyageViewModel
     {
-        public ICollection<Destination> Destination { get; set; }
+        //public IEnumerable<Destination> Destination { get; set; }
 
 
         [Display(Name ="Prix minimum")]
@@ -20,11 +20,11 @@ namespace BoVoyage4.Areas.BackOffice.Models
         [RegularExpression("\\d+", ErrorMessage = "N'entrez que des chiffres")]
         public decimal? PrixMax { get; set; }
 
-        [Display(Name ="Partir avant le")]
+        [Display(Name ="Partir après le")]
         [DataType(DataType.Date)]
         public DateTime? DateMin { get; set; }
 
-        [Display(Name = "Partir après le")]
+        [Display(Name = "Partir avant le")]
         [DataType(DataType.Date)]
         public DateTime? DateMax { get; set; }
 
