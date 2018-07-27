@@ -28,7 +28,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="btn btn-dark" style="color:white" href="@Url.Action("Index", new { area = "BackOffice" })">ACCUEIL<span class="sr-only">(current)</span></a>
+                        <a class="btn btn-dark" style="color:white" href="@Url.Action("Index","Dashboard", new { area = "BackOffice" })">ACCUEIL</a>
                     </li>
 
                     <li class="nav-item dropdown">
@@ -89,7 +89,7 @@
 
                 </ul>
                 <span class="navbar-text">
-                    Bonjour @commercial.Prenom @commercial.Nom <a href="@Url.Action("Logout","AuthentificationCommerciaux")" class="btn btn-danger"><i class="fa fa-power-off"></i></a>
+                    Bonjour@*@commercial.Prenom @commercial.Nom*@  <a href="@Url.Action("Logout","AuthentificationCommerciaux")" class="btn btn-danger"><i class="fa fa-power-off"></i></a>
                 </span>
             </div>
         </nav>

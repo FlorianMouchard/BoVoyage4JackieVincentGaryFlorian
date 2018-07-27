@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using BoVoyage4.Areas.BackOffice.Models;
 using BoVoyage4.Data;
 using BoVoyage4.Models;
 
@@ -13,18 +14,31 @@ namespace BoVoyage4.Controllers
 {
     public class OffresController : BaseController
     {
-        
+
 
         // GET: Offres
-        public ActionResult Index()
+        public ActionResult Index(RechercheVoyageViewModel model)
         {
-            var voyages = db.Voyages.Include(v => v.Destination);
-            return View(voyages.ToList());
+
+            IEnumerable<Voyage> voyages = db.Voyages.Include(x => x.Destination).Include(x => x.AgenceVoyage);
+            if (!string.IsNullOrWhiteSpace(model.Destination))
+                voyages = db.Voyages.Include(x => x.Destination).Include(x => x.AgenceVoyage).Where(x => x.Destination.Pays.Contains(model.Destination));
+            if (model.DateMin.HasValue)
+                voyages = db.Voyages.Include(x => x.Destination).Include(x => x.AgenceVoyage).Where(x => x.DateAller <= model.DateMin);
+            if (model.DateMax.HasValue)
+                voyages = db.Voyages.Include(x => x.Destination).Include(x => x.AgenceVoyage).Where(x => x.DateAller >= model.DateMax);
+            if (model.PrixMin != null)
+                voyages = db.Voyages.Include(x => x.Destination).Include(x => x.AgenceVoyage).Where(x => x.TarifToutCompris >= model.PrixMin);
+            if (model.PrixMax != null)
+                voyages = db.Voyages.Include(x => x.Destination).Include(x => x.AgenceVoyage).Where(x => x.TarifToutCompris <= model.PrixMax);
+
+            model.Voyages = voyages.ToList();
+            return View(model);
         }
 
 
-        // GET: Offres/Details/5
-        public ActionResult Details(int? id)
+            // GET: Offres/Details/5
+            public ActionResult Details(int? id)
         {
             if (id == null)
             {
