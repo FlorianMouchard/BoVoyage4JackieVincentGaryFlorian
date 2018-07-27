@@ -39,7 +39,7 @@
             <div class="container">
                 <div class="carousel-caption text-right">
                     <h1>BOVOYAGE: les safaris incroyables</h1>
-                    <p>le meilleur des safaris chez Boyage</p>
+                    <p>le meilleur des safaris chez Boyage</p>                   
                     <p><a class="btn btn-lg btn-primary" href="#" role="button">voir les offres de safaris</a></p>
                 </div>
             </div>
@@ -62,13 +62,47 @@
         <img class="rounded-circle" src="~/images/rond1.jpg" alt="Generic placeholder image" width="140" height="140">
         <h2>les 5 destinations les moins chères</h2>
         <p>découvrez nos meilleurs bon plans!!!!</p>
-        <p><a class="btn btn-secondary" href="#" role="button">Consultez ici!!</a></p>
+        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#topFivePrice">
+            Consulter ici!!
+        </button>
+        <div class="modal fade" id="topFivePrice" tabindex="-1" role="dialog" aria-labelledby="rechercheClientCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Top 5 des destinations les moins chères</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        @Html.Action("TopFivePrice", "Shared")
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="col-lg-4">
         <img class="rounded-circle" src="~/images/rond2.jpg" alt="Generic placeholder image" width="140" height="140">
         <h2>les 5 prochains départs</h2>
         <p>vous partez demain? choisissez votre destination!!!</p>
-        <p><a class="btn btn-secondary" href="#" role="button">Consultez ici!!</a></p>
+        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#topFiveDate">
+            Consulter ici!!
+        </button>
+        <div class="modal fade" id="topFiveDate" tabindex="-1" role="dialog" aria-labelledby="rechercheClientCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Top 5 des prochains départs</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        @Html.Action("TopFiveDate", "Shared")
+                    </div>                    
+                </div>
+            </div>
+        </div>        
     </div>
     <div class="col-lg-4">
         <img class="rounded-circle" src="~/images/rond3.jpg" alt="Generic placeholder image" width="140" height="140">
