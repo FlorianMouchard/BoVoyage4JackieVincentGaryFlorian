@@ -23,7 +23,7 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             if (!string.IsNullOrWhiteSpace(model.Nom))
                 clients = db.Clients.Where(x => x.Nom.Contains(model.Nom));
             if (!string.IsNullOrWhiteSpace(model.Prenom))
-                clients = db.Clients.Where(x => x.Nom.Contains(model.Prenom));
+                clients = db.Clients.Where(x => x.Prenom.Contains(model.Prenom));
             if (model.NeAvantLe.HasValue)
                 clients = db.Clients.Where(x => x.DateNaissance <= model.NeAvantLe);
             if (model.NeApresLe.HasValue)
