@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using BoVoyage4.Areas.BackOffice.Models;
 using BoVoyage4.Data;
 using BoVoyage4.Models;
 
@@ -14,31 +15,21 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
     public class VoyagesController : BaseBoController
     {
         // GET: BackOffice/Voyages
-        public ActionResult Index()
-        {
-            var voyages = db.Voyages.Include(v => v.Destination);
-            return View(voyages.ToList());
-        }
+      
 
         [HttpGet]
-        public ActionResult Index(string destination, DateTime? dateMin, DateTime? dateMax, decimal prixMin, decimal prixMax)
-        {
-            ViewBag.dateMin = dateMin;
-            ViewBag.dateMax = dateMax;
-            ViewBag.prixMin = prixMin;
-            ViewBag.prixMax = prixMax;
+        public ActionResult Index(RechercheVoyageViewModel model)
+        {          
 
-            IQueryable < Voyage > voyages = db.Voyages.Include(x => x.Destination);
-            if (destination != null)
-                voyages = voyages.Where(x => x.Destination.Region == destination);
-            if (dateMin.HasValue)
-                voyages = voyages.Where(x => x.DateAller >= dateMin.Value);
-            if (dateMax.HasValue)
-                voyages = voyages.Where(x => x.DateAller <= dateMax.Value);
-            if (prixMin != 0)
-                voyages = voyages.Where(x => x.TarifToutCompris >= prixMin);
-            if (prixMax != 0)
-                voyages = voyages.Where(x => x.TarifToutCompris <= prixMax);
+            IEnumerable<Voyage> voyages = db.Voyages.Include(x => x.Destination).Include(a=>a.AgenceVoyage);
+            if (model.DateMin.HasValue)
+                voyages = db.Voyages.Where(x => x.DateAller >= model.DateMin);
+            if (model.DateMax.HasValue)
+                voyages = db.Voyages.Where(x => x.DateAller <= model.DateMax);
+            if (model.PrixMin != 0)
+                voyages = db.Voyages.Where(x => x.TarifToutCompris >= model.PrixMin);
+            if (model.PrixMax != 0)
+                voyages = voyages.Where(x => x.TarifToutCompris <= model.PrixMax);
             return View(voyages.ToList());
         }
 
@@ -61,6 +52,7 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
         public ActionResult Create()
         {
             ViewBag.DestinationID = new SelectList(db.Destinations, "ID", "Region");
+            ViewBag.AgenceVoyageID = new SelectList(db.AgenceVoyages, "ID", "Nom");
             return View();
         }
 
@@ -69,17 +61,19 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,DateAller,DateRetour,PlacesDisponibles,TarifToutCompris,DestinationID")] Voyage voyage)
+        public ActionResult Create([Bind(Include = "ID,DateAller,DateRetour,PlacesDisponibles,TarifToutCompris,DestinationID,AgenceVoyageID")] Voyage voyage)
         {
             if (ModelState.IsValid)
             {
                 db.Voyages.Add(voyage);
+                var destination = db.Destinations.Find(voyage.DestinationID);
                 db.SaveChanges();
-                DisplayMessage($"Le voyage {voyage.Destination} à {voyage.TarifToutCompris} a été créé.", MessageType.SUCCESS);
+                DisplayMessage($"Le voyage à destination de {destination.Region} à {voyage.TarifToutCompris}€ a été créé.", MessageType.SUCCESS);
                 return RedirectToAction("Index");
             }
 
             ViewBag.DestinationID = new SelectList(db.Destinations, "ID", "Region", voyage.DestinationID);
+            ViewBag.AgenceVoyageID = new SelectList(db.AgenceVoyages, "ID", "Nom", voyage.AgenceVoyageID);
             DisplayMessage("Une erreur est apparue", MessageType.ERROR);
             return View(voyage);
         }
@@ -97,6 +91,7 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
                 return HttpNotFound();
             }
             ViewBag.DestinationID = new SelectList(db.Destinations, "ID", "Continent", voyage.DestinationID);
+            ViewBag.AgenceVoyageID = new SelectList(db.AgenceVoyages, "ID", "Nom", voyage.AgenceVoyageID);
             return View(voyage);
         }
 
@@ -105,16 +100,20 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,DateAller,DateRetour,PlacesDisponibles,TarifToutCompris,DestinationID")] Voyage voyage)
+        public ActionResult Edit([Bind(Include = "ID,DateAller,DateRetour,PlacesDisponibles,TarifToutCompris,DestinationID,AgenceVoyageID")] Voyage voyage)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(voyage).State = EntityState.Modified;
                 db.SaveChanges();
-                DisplayMessage($"Le voyage {voyage.Destination} a été modifié.", MessageType.SUCCESS);
+                var destination = db.Destinations.Find(voyage.DestinationID);
+
+                DisplayMessage($"Le voyage à destination de {destination.Region} a été modifié.", MessageType.SUCCESS);
                 return RedirectToAction("Index");
             }
             ViewBag.DestinationID = new SelectList(db.Destinations, "ID", "Continent", voyage.DestinationID);
+            ViewBag.AgenceVoyageID = new SelectList(db.AgenceVoyages, "ID", "Nom", voyage.AgenceVoyageID);
+
             DisplayMessage("Une erreur est apparue", MessageType.ERROR);
             return View(voyage);
         }
@@ -142,7 +141,7 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             Voyage voyage = db.Voyages.Find(id);
             db.Voyages.Remove(voyage);
             db.SaveChanges();
-            DisplayMessage($"Le voyage {voyage.Destination} a été supprimé.", MessageType.SUCCESS);
+            DisplayMessage($"Le voyage à destination de {voyage.Destination.Region} a été supprimé.", MessageType.SUCCESS);
             return RedirectToAction("Index");
         }
        
