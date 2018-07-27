@@ -18,7 +18,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Civilite)
+            @Html.DisplayFor(model => model.Civilite.Libelle)
         </dd>
 
         <dt>
@@ -76,10 +76,13 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Supprimer" onclick="return confirm('Confirmer ?');" class="btn btn-primary" />            
+            <input type="submit" value="Supprimer" onclick="return confirm('Confirmer ?');" class="btn btn-primary" />
         </div>
     }
 </div>
+<br />
 <div>
-    <a href="@Url.Action("Index")" class="btn btn-outline-info btn-sm">Revenir à la liste des commerciaux</a>
+    <a href="@Url.Action("Index")" class="btn btn-outline-info btn-sm">Revenir à la liste des clients</a>
 </div>
+<br />
+

@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Areas/BackOffice/Views/Shared/_LayoutBO.cshtml";
 }
 
 <h2>Index</h2>
@@ -9,11 +10,6 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-    Filtrer
-</button>
 
 <!-- Modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#rechercheVoyage">
@@ -67,7 +63,7 @@
 
                         <div class="form-group">
                             <div class="col-md-offset-2 col-md-10">
-                                <input type="submit" value="Rchercher" ;" class="btn btn-default" />
+                                <input type="submit" value="Rechercher" ;" class="btn btn-default" />
                             </div>
                         </div>
                     </div>
@@ -79,56 +75,60 @@
         </div>
     </div>
 </div>
-@if(Model.Voyages != null)
+
+@if (Model.Voyages != null)
 {
 
-<table class="table">
-    <tr>
-        <th>
-            Continent
-        </th>
-        <th>
-            Date de Départ
-        </th>
-        <th>
-            Date de Retour
-        </th>
-        <th>
-           Places Disponibles
-        </th>
-        <th>
-            Tarif Tout Compris
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model.Voyages)
-    {
-        <tr><td>
-                @Html.DisplayFor(modelItem => item.AgenceVoyage.ID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Destination.Region)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateAller)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateRetour)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PlacesDisponibles)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TarifToutCompris)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-            </td>
+    <table class="table">
+        <tr>
+            <th>
+                Région
+            </th>
+            <th>
+                Date de Départ
+            </th>
+            <th>
+                Date de Retour
+            </th>
+            <th>
+                Places Disponibles
+            </th>
+            <th>
+                Tarif Tout Compris
+            </th>
+            <th>
+                Agence de Voyage
+            </th>
         </tr>
-    }
 
-</table>
+        @foreach (var item in Model.Voyages)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Destination.Region)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateAller)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateRetour)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PlacesDisponibles)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TarifToutCompris)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AgenceVoyage.Nom)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>
+            </tr>
+        }
+
+    </table>
 }

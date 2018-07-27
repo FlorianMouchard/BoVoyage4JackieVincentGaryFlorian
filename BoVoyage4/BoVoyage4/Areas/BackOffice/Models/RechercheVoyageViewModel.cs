@@ -9,7 +9,7 @@ namespace BoVoyage4.Areas.BackOffice.Models
 {
     public class RechercheVoyageViewModel
     {
-        public IEnumerable<Destination> Destination { get; set; }
+        //public IEnumerable<Destination> Destination { get; set; }
 
 
         [Display(Name ="Prix minimum")]
