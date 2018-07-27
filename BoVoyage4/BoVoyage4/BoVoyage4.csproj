@@ -136,6 +136,7 @@
     <Content Include="images\rond2.jpg" />
     <Content Include="images\rond3.jpg" />
     <Content Include="images\sable.jpg" />
+    <Content Include="images\timthumb.php.jpg" />
     <Content Include="images\web.jpg" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
