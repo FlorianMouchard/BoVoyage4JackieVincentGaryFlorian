@@ -97,3 +97,9 @@ $(document).ready(function () {
             });
 });
 </script>
+@section SectionScripts{
+    <script src="~/Scripts/tinymce/tinymce.min.js"></script>
+    <script>
+        tinymce.init({ selector: '#Description' })
+    </script>
+}

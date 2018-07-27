@@ -7,10 +7,10 @@
 
 <h2>Création d'une destination</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Destination</h4>
         <hr />
@@ -58,3 +58,9 @@
 <div>
     @Html.ActionLink("Revenir à la liste des destinations", "Index")
 </div>
+@section SectionScripts{
+    <script src="~/Scripts/tinymce/tinymce.min.js"></script>
+    <script>
+        tinymce.init({ selector: '#Description' })
+    </script>
+}
