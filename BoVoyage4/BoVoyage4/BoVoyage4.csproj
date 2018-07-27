@@ -445,6 +445,7 @@
     <Content Include="Views\Shared\_DisplayMessage.cshtml" />
     <Content Include="Views\Shared\_TopFivePrIce.cshtml" />
     <Content Include="Views\Shared\_TopFiveDate.cshtml" />
+    <Content Include="Views\Home\Help.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
