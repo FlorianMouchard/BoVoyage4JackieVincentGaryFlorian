@@ -14,9 +14,8 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
 {
     public class VoyagesController : BaseBoController
     {
-        // GET: BackOffice/Voyages
-      
-        [HttpGet]
+        // GET: BackOffice/Voyages      
+       
         public ActionResult Index(RechercheVoyageViewModel model)
         {          
 
