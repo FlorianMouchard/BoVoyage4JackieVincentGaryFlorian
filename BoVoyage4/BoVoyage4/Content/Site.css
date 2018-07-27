@@ -1,11 +1,22 @@
 ﻿
 .image-fond {
-   
-    background-image: url('../images/NavBarFrontSable.jpeg');
+    background-image: url('../images/panorama-de-ciel-33340922.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 .image-footer {
-   background-image: url('../images/NavBarFrontSable.jpeg');
+    background-image: url('../images/timthumb.php.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 .image-fond-back {
-    background-image: url('../images/poisson.jpeg');
+    background-image: url('../images/images2.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
