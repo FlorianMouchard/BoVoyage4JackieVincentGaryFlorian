@@ -108,7 +108,24 @@
         <img class="rounded-circle" src="~/images/rond3.jpg" alt="Generic placeholder image" width="140" height="140">
         <h2>les 5 destinations préférées</h2>
         <p>Les destinations préférées!!!</p>
-        <p><a class="btn btn-secondary" href="#" role="button">Consultez ici!!</a></p>
+        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#topFiveDestination">
+            Consulter ici!!
+        </button>
+        <div class="modal fade" id="topFiveDestination" tabindex="-1" role="dialog" aria-labelledby="rechercheClientCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Top 5 des destinations préférées</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        @Html.Action("TopFiveDestination", "Shared")
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
