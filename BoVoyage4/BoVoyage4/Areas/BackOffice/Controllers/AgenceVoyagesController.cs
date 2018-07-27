@@ -13,13 +13,22 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
 {
     public class AgenceVoyagesController : BaseBoController
     {
- 
+        /// <summary>
+        /// Retourne la liste des Agences
+        /// </summary>
+        /// <returns></returns>
         // GET: BackOffice/AgenceVoyages
         public ActionResult Index()
         {
             return View(db.AgenceVoyages.ToList());
         }
 
+
+        /// <summary>
+        /// Permet d'afficher les informations liées aux Agences de voyages
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: BackOffice/AgenceVoyages/Details/5
         public ActionResult Details(int? id)
         {
@@ -35,12 +44,22 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             return View(agenceVoyage);
         }
 
+
+        /// <summary>
+        /// Permet d'afficher la page créer une Agence de voyage
+        /// </summary>
+        /// <returns></returns>
         // GET: BackOffice/AgenceVoyages/Create
         public ActionResult Create()
         {
             return View();
         }
 
+        /// <summary>
+        /// Permet l'envoi de données en base avec un formulaire "création Agence de Voyages" (création d'une agence)
+        /// </summary>
+        /// <param name="agenceVoyage"></param>
+        /// <returns></returns>
         // POST: BackOffice/AgenceVoyages/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -58,7 +77,11 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             DisplayMessage("Une erreur est apparue", MessageType.ERROR);
             return View(agenceVoyage);
         }
-
+        /// <summary>
+        /// Permet d'afficher la page modifier une agence de voyage
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: BackOffice/AgenceVoyages/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -73,7 +96,11 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             }
             return View(agenceVoyage);
         }
-
+        /// <summary>
+        /// permet l'envoi de données en base et de modifier une agence de voyage
+        /// </summary>
+        /// <param name="agenceVoyage"></param>
+        /// <returns></returns>
         // POST: BackOffice/AgenceVoyages/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -91,7 +118,11 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             DisplayMessage("Une erreur est apparue", MessageType.ERROR);
             return View(agenceVoyage);
         }
-
+        /// <summary>
+        /// Permet d'afficher la page supprimer une agence de voyage
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: BackOffice/AgenceVoyages/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -107,7 +138,11 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             return View(agenceVoyage);
         }
         
-
+        /// <summary>
+        /// Permet l'envoi de données en base et de supprimer une agence de voyage
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // POST: BackOffice/AgenceVoyages/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

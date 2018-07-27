@@ -8,6 +8,10 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
 {
     public class DashboardController : Controller
     {
+        /// <summary>
+        /// Permet l'affichage de l'accueil du backoffice
+        /// </summary>
+        /// <returns></returns>
         // GET: BackOffice/Dashboard
         public ActionResult Index()
         {

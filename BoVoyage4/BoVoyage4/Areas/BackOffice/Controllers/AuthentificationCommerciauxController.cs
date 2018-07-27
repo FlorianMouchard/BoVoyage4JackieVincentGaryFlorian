@@ -14,12 +14,20 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
     public class AuthentificationCommerciauxController : Controller
     {
         protected BoVoyage4DbContext db = new BoVoyage4DbContext();
+        /// <summary>
+        /// Permet d'afficher la page de connexion pour un commercial
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Login()
         {
             return View();
         }
 
-        
+        /// <summary>
+        /// Permet de se connecter au backoffice en tant que commercial
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [ValidateAntiForgeryToken]
         [HttpPost]
 
@@ -49,7 +57,10 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
 
         }
 
-        
+        /// <summary>
+        /// Permet de se deconnecter du backoffice
+        /// </summary>
+        /// <returns></returns>
         [AuthentificationFilter]
         public ActionResult Logout()
         {

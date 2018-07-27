@@ -15,14 +15,21 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
 {
     public class CommerciauxController : BaseBoController
     {        
-
+        /// <summary>
+        /// Retourne la liste des commerciaux
+        /// </summary>
+        /// <returns></returns>
         // GET: BackOffice/Commerciaux
         public ActionResult Index()
         {
             ViewBag.Civilites = db.Civilites.ToList();
             return View(db.Commerciaux.ToList());
         }
-
+        /// <summary>
+        /// Permet d'afficher les informations liées à un commercial
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: BackOffice/Commerciaux/Details/5
         public ActionResult Details(int? id)
         {
@@ -37,14 +44,21 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             }
             return View(commercial);
         }
-
+        /// <summary>
+        /// Permet d'afficher la page créer un commercial
+        /// </summary>
+        /// <returns></returns>
         // GET: BackOffice/Commerciaux/Create
         public ActionResult Create()
         {
             ViewBag.Civilites = db.Civilites.ToList();
             return View();
         }
-
+        /// <summary>
+        /// Permet de créer un commercial en base de données
+        /// </summary>
+        /// <param name="commercial"></param>
+        /// <returns></returns>
         // POST: BackOffice/Commerciaux/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -65,7 +79,11 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             DisplayMessage("Une erreur est apparue", MessageType.ERROR);
             return View(commercial);
         }
-
+        /// <summary>
+        /// Permet d'afficher la page modifier un commercial
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: BackOffice/Commerciaux/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -81,7 +99,11 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             ViewBag.Civilites = db.Civilites.ToList();
             return View(commercial);
         }
-
+        /// <summary>
+        /// Permet de modifier les informations liées à un commercial en base de données
+        /// </summary>
+        /// <param name="commercial"></param>
+        /// <returns></returns>
         // POST: BackOffice/Commerciaux/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -109,7 +131,11 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             DisplayMessage("Une erreur est apparue", MessageType.ERROR);
             return View(commercial);
         }
-
+        /// <summary>
+        /// Permet d'afficher la page supprimer un commercial
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: BackOffice/Commerciaux/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -124,7 +150,11 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             }
             return View(commercial);
         }
-
+        /// <summary>
+        /// Permet de supprimer un commercial de la base de données
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // POST: BackOffice/Commerciaux/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

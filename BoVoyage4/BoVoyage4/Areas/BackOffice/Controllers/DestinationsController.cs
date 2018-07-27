@@ -13,13 +13,22 @@ using BoVoyage4.Models;
 namespace BoVoyage4.Areas.BackOffice.Controllers
 {    
     public class DestinationsController : BaseBoController
-    {       
+    {   
+        /// <summary>
+        /// Permet de retourner la liste des destinations
+        /// </summary>
+        /// <returns></returns>
         // GET: BackOffice/Destinations
         public ActionResult Index()
         {
             return View(db.Destinations.ToList());
         }
 
+        /// <summary>
+        /// Permet l'affichage des données concernant une destination
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: BackOffice/Destinations/Details/5
         public ActionResult Details(int? id)
         {
@@ -34,13 +43,20 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             }
             return View(destination);
         }
-
+        /// <summary>
+        /// Permet d'afficher la page créer une destination
+        /// </summary>
+        /// <returns></returns>
         // GET: BackOffice/Destinations/Create
         public ActionResult Create()
         {
             return View();
         }
-
+        /// <summary>
+        /// Permet de créer une destination en base de données
+        /// </summary>
+        /// <param name="destination"></param>
+        /// <returns></returns>
         // POST: BackOffice/Destinations/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -58,7 +74,11 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             DisplayMessage("Une erreur est apparue", MessageType.ERROR);
             return View(destination);
         }
-
+        /// <summary>
+        /// Permet d'afficher la page modifier une destination
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: BackOffice/Destinations/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -75,7 +95,11 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             }
             return View(destination);
         }
-
+        /// <summary>
+        /// Permet de modifier une destination en base de données
+        /// </summary>
+        /// <param name="destination"></param>
+        /// <returns></returns>
         // POST: BackOffice/Destinations/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -93,7 +117,13 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             DisplayMessage("Une erreur est apparue", MessageType.ERROR);
             return View(destination);
         }
-        [HttpPost]
+        /// <summary>
+        /// Permet d'ajouter un fichier (image etc) à une destination
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="upload"></param>
+        /// <returns></returns>
+        [HttpPost]    
         public ActionResult AddFile(int id, HttpPostedFileBase upload)
         {
             if (upload.ContentLength > 0)
@@ -118,7 +148,11 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             else
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         }
-
+        /// <summary>
+        /// Permet de supprimer un fichier (image etc) lié à une destination
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult DeleteFile(int id)
         {

@@ -14,8 +14,11 @@ namespace BoVoyage4.Controllers
 {
     public class CompteClientsController : BaseController
     {
-        
- 
+        /// <summary>
+        /// Permet l'affichage des informations liées aux comptes clients dans la base de données
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: Clients/Details/5
         public ActionResult Details(int? id)
         {
@@ -30,14 +33,21 @@ namespace BoVoyage4.Controllers
             }
             return View(client);
         }
-
+        /// <summary>
+        /// Permet d'afficher la page de création d'un compte client
+        /// </summary>
+        /// <returns></returns>
         // GET: Clients/Create
         public ActionResult Create()
         {
             ViewBag.Civilites = db.Civilites.ToList();
             return View();
         }
-
+        /// <summary>
+        /// Permet de créer un compte client en base de données
+        /// </summary>
+        /// <param name="client"></param>
+        /// <returns></returns>
         // POST: Clients/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -58,7 +68,11 @@ namespace BoVoyage4.Controllers
             ViewBag.Civilites = db.Civilites.ToList();
             return View(client);
         }
-
+        /// <summary>
+        /// Permet d'afficher la page modifier un compte client
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: Clients/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -73,7 +87,11 @@ namespace BoVoyage4.Controllers
             }
             return View(client);
         }
-
+        /// <summary>
+        /// Permet de modifier un compte client
+        /// </summary>
+        /// <param name="client"></param>
+        /// <returns></returns>
         // POST: Clients/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.

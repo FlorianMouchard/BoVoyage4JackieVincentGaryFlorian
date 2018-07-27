@@ -8,11 +8,17 @@ using System.Web.Mvc;
 
 namespace BoVoyage4.Areas.BackOffice.Controllers
 {
+
     //[AuthentificationFilter]
+
     public class BaseBoController : Controller
     {
         protected BoVoyage4DbContext db = new BoVoyage4DbContext();
-
+        /// <summary>
+        /// Il s'agit du modele type nous permettant l'affichage des DisplayMessage
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="type"></param>
         protected void DisplayMessage(string message, MessageType type)
         {
             TempData["Message"] = message;
