@@ -24,9 +24,9 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
                 voyages = db.Voyages.Include(x=> x.Destination).Include(x => x.AgenceVoyage).Where(x => x.DateAller >= model.DateMin);
             if (model.DateMax.HasValue)
                 voyages = db.Voyages.Include(x => x.Destination).Include(x => x.AgenceVoyage).Where(x => x.DateAller <= model.DateMax);
-            if (model.PrixMin != 0)
+            if (model.PrixMin != null)
                 voyages = db.Voyages.Include(x => x.Destination).Include(x => x.AgenceVoyage).Where(x => x.TarifToutCompris >= model.PrixMin);
-            if (model.PrixMax != 0)
+            if (model.PrixMax != null)
                 voyages = db.Voyages.Include(x => x.Destination).Include(x => x.AgenceVoyage).Where(x => x.TarifToutCompris <= model.PrixMax);
 
             model.Voyages = voyages.ToList();
