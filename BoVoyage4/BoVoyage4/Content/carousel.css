@@ -3,9 +3,13 @@
 /* Padding below the footer and lighter body text */
 
 body {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-  color: #5a5a5a;
+    background-image: url('../images/images2.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    color: #5a5a5a;
 }
 
 
