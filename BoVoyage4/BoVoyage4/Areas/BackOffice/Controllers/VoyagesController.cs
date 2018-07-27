@@ -16,21 +16,22 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
     {
         // GET: BackOffice/Voyages
       
-
         [HttpGet]
         public ActionResult Index(RechercheVoyageViewModel model)
         {          
 
-            IEnumerable<Voyage> voyages = db.Voyages.Include(x => x.Destination);
+            IEnumerable<Voyage> voyages = db.Voyages.Include(x => x.Destination).Include(x => x.AgenceVoyage);
             if (model.DateMin.HasValue)
-                voyages = db.Voyages.Where(x => x.DateAller >= model.DateMin);
+                voyages = db.Voyages.Include(x=> x.Destination).Include(x => x.AgenceVoyage).Where(x => x.DateAller >= model.DateMin);
             if (model.DateMax.HasValue)
-                voyages = db.Voyages.Where(x => x.DateAller <= model.DateMax);
+                voyages = db.Voyages.Include(x => x.Destination).Include(x => x.AgenceVoyage).Where(x => x.DateAller <= model.DateMax);
             if (model.PrixMin != 0)
-                voyages = db.Voyages.Where(x => x.TarifToutCompris >= model.PrixMin);
+                voyages = db.Voyages.Include(x => x.Destination).Include(x => x.AgenceVoyage).Where(x => x.TarifToutCompris >= model.PrixMin);
             if (model.PrixMax != 0)
-                voyages = voyages.Where(x => x.TarifToutCompris <= model.PrixMax);
-            return View(voyages.ToList());
+                voyages = db.Voyages.Include(x => x.Destination).Include(x => x.AgenceVoyage).Where(x => x.TarifToutCompris <= model.PrixMax);
+
+            model.Voyages = voyages.ToList();
+            return View(model);
         }
 
         // GET: BackOffice/Voyages/Details/5
