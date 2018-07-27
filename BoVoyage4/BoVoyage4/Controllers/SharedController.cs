@@ -31,9 +31,10 @@ namespace BoVoyage4.Controllers
             var destinations = db.Voyages.Include("Destination").GroupBy(x => x.Destination.Pays)
                                                                 .OrderByDescending(y => y.Count())
                                                                 .Take(5).ToList();
+                                                                
 
 
-            return View("_TopFiveDate", destinations);
+            return View("_TopFiveDestination", destinations);
         }
     }
 }
