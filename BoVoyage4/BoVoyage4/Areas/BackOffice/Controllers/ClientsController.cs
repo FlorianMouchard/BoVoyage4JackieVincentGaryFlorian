@@ -21,13 +21,13 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
         {
             IEnumerable<Client> clients = db.Clients.Include(x => x.Civilite);
             if (!string.IsNullOrWhiteSpace(model.Nom))
-                clients = db.Clients.Where(x => x.Nom.Contains(model.Nom));
+                clients = db.Clients.Include(x => x.Civilite).Where(x => x.Nom.Contains(model.Nom));
             if (!string.IsNullOrWhiteSpace(model.Prenom))
-                clients = db.Clients.Where(x => x.Prenom.Contains(model.Prenom));
+                clients = db.Clients.Include(x => x.Civilite).Where(x => x.Prenom.Contains(model.Prenom));
             if (model.NeAvantLe.HasValue)
-                clients = db.Clients.Where(x => x.DateNaissance <= model.NeAvantLe);
+                clients = db.Clients.Include(x => x.Civilite).Where(x => x.DateNaissance <= model.NeAvantLe);
             if (model.NeApresLe.HasValue)
-                clients = db.Clients.Where(x => x.DateNaissance >= model.NeApresLe);
+                clients = db.Clients.Include(x => x.Civilite).Where(x => x.DateNaissance >= model.NeApresLe);
 
             model.Clients = clients.ToList();
             return View(model);

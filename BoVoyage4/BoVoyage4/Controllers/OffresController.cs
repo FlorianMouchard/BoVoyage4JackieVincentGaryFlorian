@@ -22,7 +22,6 @@ namespace BoVoyage4.Controllers
             return View(voyages.ToList());
         }
 
-       
 
         // GET: Offres/Details/5
         public ActionResult Details(int? id)
