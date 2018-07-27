@@ -102,7 +102,9 @@
 
     @foreach (var item in Model.Voyages)
     {
-        <tr>
+        <tr><td>
+                @Html.DisplayFor(modelItem => item.AgenceVoyage.ID)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Destination.Region)
             </td>

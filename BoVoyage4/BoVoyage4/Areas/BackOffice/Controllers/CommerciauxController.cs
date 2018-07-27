@@ -30,7 +30,7 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Commercial commercial = db.Commerciaux.Find(id);
+            Commercial commercial = db.Commerciaux.Include(x => x.Civilite).SingleOrDefault(x => x.ID == id); 
             if (commercial == null)
             {
                 return HttpNotFound();
@@ -117,7 +117,7 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Commercial commercial = db.Commerciaux.Find(id);
+            Commercial commercial = db.Commerciaux.Include(x => x.Civilite).SingleOrDefault(x => x.ID == id);
             if (commercial == null)
             {
                 return HttpNotFound();

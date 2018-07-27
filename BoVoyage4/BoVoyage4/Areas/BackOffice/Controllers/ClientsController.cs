@@ -39,8 +39,8 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Client client = db.Clients.Find(id);
+            }            
+            Client client = db.Clients.Include(x => x.Civilite).SingleOrDefault(x => x.ID == id);
             if (client == null)
             {
                 return HttpNotFound();
@@ -101,7 +101,7 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Client client = db.Clients.Find(id);
+            Client client = db.Clients.Include(x => x.Civilite).SingleOrDefault(x => x.ID == id);
             if (client == null)
             {
                 return HttpNotFound();
