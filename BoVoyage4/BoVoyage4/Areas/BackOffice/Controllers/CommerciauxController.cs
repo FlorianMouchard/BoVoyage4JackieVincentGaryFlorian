@@ -102,7 +102,7 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
                 db.Entry(commercial).State = EntityState.Modified;
                 db.Configuration.ValidateOnSaveEnabled = false;
                 db.SaveChanges();
-                DisplayMessage($"Les données du commercial {commercial.Nom} {commercial.Prenom} onr été modifiééq.", MessageType.SUCCESS);
+                DisplayMessage($"Les données du commercial {commercial.Nom} {commercial.Prenom} ont été modifiéés.", MessageType.SUCCESS);
                 return RedirectToAction("Index");
             }
             ViewBag.Civilites = db.Civilites.ToList();
