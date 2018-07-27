@@ -5,14 +5,18 @@
     Layout = null;
 }
 <div class="row">
-    <div class="col-md-3">
-        @foreach (var item in Model)
-        {
 
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4" style="border-style:double">
+            <h6 style="background-color:lavender">Choix</h6>
             <p>@item.Key</p>
+            <h6 style="background-color:lavender">Date de départ</h6>
             <p>@item.ToList()[0].DateAller</p>
-            <p>@item.ToList()[0].TarifToutCompris</p>
-
-        }
-    </div>
+            <h6 style="background-color:lavender">Tarif</h6>
+            <p>@item.ToList()[0].TarifToutCompris €</p>
+        </div>
+    }
 </div>
+
+

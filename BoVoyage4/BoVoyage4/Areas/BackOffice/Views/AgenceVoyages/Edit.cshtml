@@ -11,8 +11,7 @@
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
-        <h4>Agence de voyage</h4>
+    <div class="form-horizontal">        
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.ID)
@@ -27,12 +26,13 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Enregistrer" onclick="return confirm('Confirmer ?');" class="btn btn-default" />
+                <input type="submit" value="Enregistrer les modifications" onclick="return confirm('Confirmer ?');" class="btn btn-primary" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Revenir à la liste des agences de voyage", "Index")
+    <a href="@Url.Action("Index")" class="btn btn-outline-info btn-sm">Revenir à la liste des agences de voyage</a>
 </div>
+<br />

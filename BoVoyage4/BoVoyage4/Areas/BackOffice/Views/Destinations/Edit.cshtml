@@ -5,14 +5,13 @@
     Layout = "~/Areas/BackOffice/Views/Shared/_LayoutBO.cshtml";
 }
 
-<h2>Modification d'une destination</h2>
+<h2>Modifier une destination</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <h4>Destination</h4>
+    <div class="form-horizontal">        
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.ID)
@@ -51,7 +50,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Enregistrer les modifications" onclick="return confirm('Confirmer ?');" class="btn btn-default" />
+                <input type="submit" value="Enregistrer les modifications" onclick="return confirm('Confirmer ?');" class="btn btn-primary" />
             </div>
         </div>
     </div>
@@ -73,13 +72,13 @@
         <label>Fichier</label>
         <input type="file" name="upload" class="form-control" />
     </div>
-    <button type="submit" onclick="return confirm('Confirmer ?');" class="btn btn-warning">Ajouter</button>
+    <button type="submit" onclick="return confirm('Confirmer ?');" class="btn btn-primary">Ajouter</button>
 </form>
-
+<br />
 <div>
-    @Html.ActionLink("Revenir à la liste des destinations", "Index")
+    <a href="@Url.Action("Index")" class="btn btn-outline-info btn-sm">Revenir à la liste des destinations</a>    
 </div>
-
+<br />
 <script>
 $(document).ready(function () {
             $("a.suppr").click(function () {
@@ -97,6 +96,7 @@ $(document).ready(function () {
             });
 });
 </script>
+
 @section SectionScripts{
     <script src="~/Scripts/tinymce/tinymce.min.js"></script>
     <script>

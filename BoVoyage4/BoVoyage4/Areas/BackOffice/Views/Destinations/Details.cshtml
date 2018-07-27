@@ -8,7 +8,6 @@
 <h2>Details de la destination</h2>
 
 <div>
-    <h4>Destination</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -46,6 +45,8 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Modifier cette destination", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Revenir à la liste des destinations", "Index")
+    <a href="@Url.Action("Edit", new { id=Model.ID})" class="btn btn-primary">Modifier</a>
+</p>
+<p>
+    <a href="@Url.Action("Index")" class="btn btn-outline-info btn-sm">Revenir à la liste des destinations</a>
 </p>

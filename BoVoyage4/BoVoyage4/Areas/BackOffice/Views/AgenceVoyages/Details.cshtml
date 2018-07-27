@@ -22,6 +22,8 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Revenir à la liste des agences de voyage", "Index")
+    <a href="@Url.Action("Edit", new { id=Model.ID})" class="btn btn-primary">Modifier</a>
+</p>
+<p>
+    <a href="@Url.Action("Index")" class="btn btn-outline-info btn-sm">Revenir à la liste des agences de voyage</a>
 </p>

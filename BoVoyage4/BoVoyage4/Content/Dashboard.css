@@ -1,0 +1,9 @@
+﻿/*.ban {
+    width: 100%;
+    max-width: 100%;
+}*/
+
+    .ban img {
+        width: 3000px;
+        max-width: 100%;
+    }

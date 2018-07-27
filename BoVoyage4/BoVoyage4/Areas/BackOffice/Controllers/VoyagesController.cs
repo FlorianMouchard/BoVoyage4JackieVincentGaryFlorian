@@ -51,7 +51,7 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Voyage voyage = db.Voyages.Find(id);
+            Voyage voyage = db.Voyages.Include(x => x.AgenceVoyage).Include(y => y.Destination).SingleOrDefault(x => x.ID == id);
             if (voyage == null)
             {
                 return HttpNotFound();
@@ -107,7 +107,7 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Voyage voyage = db.Voyages.Find(id);
+            Voyage voyage = db.Voyages.Include(x => x.AgenceVoyage).Include(y => y.Destination).SingleOrDefault(x => x.ID == id);
             if (voyage == null)
             {
                 return HttpNotFound();
@@ -154,8 +154,8 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Voyage voyage = db.Voyages.Find(id);
+            }            
+            Voyage voyage = db.Voyages.Include(x => x.AgenceVoyage).Include(y=>y.Destination).SingleOrDefault(x => x.ID == id);
             if (voyage == null)
             {
                 return HttpNotFound();

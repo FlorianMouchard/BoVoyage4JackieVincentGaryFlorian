@@ -99,7 +99,7 @@
             </th>
             <th></th>
         </tr>
-
+        
         @foreach (var item in Model.Clients)
         {
             <tr>
@@ -126,8 +126,8 @@
                 </td>
 
                 <td>
-                    <a href="@Url.Action("Edit", new { id = item.ID })"><i class="fa fa-edit"></i>|</a>
-                    <a href="@Url.Action("Details", new { id=item.ID })"><i class="fa fa-eye"></i>|</a>
+                    <a href="@Url.Action("Edit", new { id = item.ID })"><i class="fa fa-edit"></i></a>
+                    <a href="@Url.Action("Details", new { id=item.ID })"><i class="fa fa-eye"></i></a>
                     <a href="@Url.Action("Delete", new { id=item.ID })"><i class="fa fa-trash"></i></a>
                 </td>
             </tr>

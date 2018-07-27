@@ -4,20 +4,19 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<h2>Supprimer un voyage</h2>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Voyage</h4>
+
+<div>    
     <hr />
     <dl class="dl-horizontal">
 
         <dt>
-            @Html.DisplayNameFor(model => model.AgenceVoyage.ID)
+            @Html.DisplayNameFor(model => model.AgenceVoyage)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.AgenceVoyage.ID)
+            @Html.DisplayFor(model => model.AgenceVoyage.Nom)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Destination.Region)
@@ -61,12 +60,17 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Supprimer" class="btn btn-default" /> |
-            @Html.ActionLink("Revenir à la liste des Voyages", "Index")
+            <input type="submit" value="Supprimer" class="btn btn-primary" />           
         </div>
     }
 </div>
+<br />
+<div>
+    <a href="@Url.Action("Index")" class="btn btn-outline-info btn-sm">Revenir à la liste des voyages</a>
+</div>
+<br />
