@@ -14,10 +14,14 @@ namespace BoVoyage4
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "HelpRoute",
+                url:"conseil",
+                defaults: new { Controller = "Home", action = "Help" });
+
+            routes.MapRoute(
                 name: "AboutRoute",
                 url: "a-propos",
                 defaults: new { Controller = "Home", action = "About" });
-
 
 
             routes.MapRoute(
@@ -25,6 +29,8 @@ namespace BoVoyage4
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            
         }
     }
 }
