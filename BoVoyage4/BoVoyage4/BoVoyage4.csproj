@@ -97,6 +97,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\style.css" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -110,15 +111,23 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
+    <Content Include="images\bois.jpg" />
+    <Content Include="images\bois2.jpg" />
     <Content Include="images\carrouselCircuit.jpg" />
     <Content Include="images\carrouselSafari.jpg" />
     <Content Include="images\carrousselClubVacances.jpg" />
     <Content Include="images\club-vacances-ski-famille.jpg" />
     <Content Include="images\clubVacances.jpeg" />
+    <Content Include="images\fond-d-ecran-sable.jpg" />
+    <Content Include="images\fond.jpg" />
     <Content Include="images\imageFooter.jpeg" />
+    <Content Include="images\images2.jpg" />
+    <Content Include="images\index.jpg" />
+    <Content Include="images\maxresdefault.jpg" />
     <Content Include="images\NavBarFront.jpeg" />
     <Content Include="images\NavBarFrontSable.jpeg" />
     <Content Include="images\poisson.jpeg" />
+    <Content Include="images\promenade-de-la-plage-cagnes-1-1920x1080.jpg" />
     <Content Include="images\rond1.jpg" />
     <Content Include="images\rond2.jpg" />
     <Content Include="images\rond3.jpg" />
