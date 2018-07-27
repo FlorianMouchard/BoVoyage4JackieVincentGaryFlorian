@@ -51,7 +51,7 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
         // GET: BackOffice/Voyages/Create
         public ActionResult Create()
         {
-            ViewBag.DestinationID = new SelectList(db.Destinations, "ID", "Continent");
+            ViewBag.DestinationID = new SelectList(db.Destinations, "ID", "Region");
             return View();
         }
 
@@ -70,7 +70,7 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.DestinationID = new SelectList(db.Destinations, "ID", "Continent", voyage.DestinationID);
+            ViewBag.DestinationID = new SelectList(db.Destinations, "ID", "Region", voyage.DestinationID);
             DisplayMessage("Une erreur est apparue", MessageType.ERROR);
             return View(voyage);
         }
