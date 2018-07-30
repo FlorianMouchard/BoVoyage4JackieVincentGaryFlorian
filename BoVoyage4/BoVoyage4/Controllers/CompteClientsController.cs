@@ -26,7 +26,7 @@ namespace BoVoyage4.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Client client = db.Clients.Find(id);
+            Client client = db.Clients.Include(x => x.Civilite).SingleOrDefault(x => x.ID == id);
             if (client == null)
             {
                 return HttpNotFound();
@@ -80,11 +80,12 @@ namespace BoVoyage4.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Client client = db.Clients.Find(id);
+            Client client = db.Clients.Include(x => x.Civilite).SingleOrDefault(x => x.ID == id);
             if (client == null)
             {
                 return HttpNotFound();
             }
+            ViewBag.CiviliteID = new SelectList(db.Civilites, "ID", "Libelle", client.CiviliteID);
             return View(client);
         }
         /// <summary>
@@ -97,8 +98,15 @@ namespace BoVoyage4.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Email,Historique,Password,PasswordConfirmation,CiviliteID,Nom,Prenom,Adresse,Telephone,DateNaissance")] Client client)
+        public ActionResult Edit([Bind(Include = "ID,Email,Historique,CiviliteID,Nom,Prenom,Adresse,Telephone,DateNaissance")] Client client)
         {
+            ModelState.Remove("Password");
+            ModelState.Remove("PasswordConfirmation");
+            ModelState.Remove("Email");
+            var old = db.Clients.SingleOrDefault(x => x.ID == client.ID);
+            client.Password = old.Password;
+            client.PasswordConfirmation = old.Password;
+            client.Email = old.Email;
             if (ModelState.IsValid)
             {
                 db.Entry(client).State = EntityState.Modified;
@@ -106,6 +114,7 @@ namespace BoVoyage4.Controllers
                 DisplayMessage($"Les données du client {client.Prenom} {client.Nom} ont été modifiées.", MessageType.SUCCESS);
                 return RedirectToAction("Index");
             }
+            ViewBag.CiviliteID = new SelectList(db.Civilites, "ID", "Libelle", client.CiviliteID);
             DisplayMessage("Une erreur est apparue", MessageType.ERROR);
             return View(client);
         }            

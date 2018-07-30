@@ -121,7 +121,7 @@
                     @Html.DisplayFor(modelItem => item.TarifToutCompris)
                 </td>
                 <td>             
-                    <a href="@Url.Action("Details", new { id=item.ID})"><i class="fa fa-eye"></i></a>                                      
+                    <a href="@Url.Action("Details", new { id=item.ID})" data-toggle="tooltip" title="Détails"><i class="fa fa-eye"></i></a>                                      
                 </td>
             </tr>
         }

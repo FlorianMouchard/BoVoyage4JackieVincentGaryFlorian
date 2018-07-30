@@ -9,7 +9,7 @@ using System.Web.Mvc;
 namespace BoVoyage4.Areas.BackOffice.Controllers
 {
 
-    //[AuthentificationFilter]
+    [AuthentificationFilter]
 
     public class BaseBoController : Controller
     {
