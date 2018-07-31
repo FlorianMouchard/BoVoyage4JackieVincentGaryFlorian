@@ -26,15 +26,15 @@ namespace BoVoyage4.Areas.BackOffice.Controllers
 
             IEnumerable<Voyage> voyages = db.Voyages.Include(x => x.Destination).Include(x => x.AgenceVoyage);
             if (!string.IsNullOrWhiteSpace(model.Destination))
-                voyages = db.Voyages.Include(x => x.Destination).Include(x => x.AgenceVoyage).Where(x => x.Destination.Pays.Contains(model.Destination));
+                voyages = voyages.Where(x => x.Destination.Pays.Contains(model.Destination));
             if (model.DateMin.HasValue)
-                voyages = db.Voyages.Include(x=> x.Destination).Include(x => x.AgenceVoyage).Where(x => x.DateAller <= model.DateMin);
+                voyages = voyages.Where(x => x.DateAller >= model.DateMin);
             if (model.DateMax.HasValue)
-                voyages = db.Voyages.Include(x => x.Destination).Include(x => x.AgenceVoyage).Where(x => x.DateAller >= model.DateMax);
+                voyages = voyages.Where(x => x.DateAller <= model.DateMax);
             if (model.PrixMin != null)
-                voyages = db.Voyages.Include(x => x.Destination).Include(x => x.AgenceVoyage).Where(x => x.TarifToutCompris >= model.PrixMin);
+                voyages = voyages.Where(x => x.TarifToutCompris >= model.PrixMin);
             if (model.PrixMax != null)
-                voyages = db.Voyages.Include(x => x.Destination).Include(x => x.AgenceVoyage).Where(x => x.TarifToutCompris <= model.PrixMax);
+                voyages = voyages.Where(x => x.TarifToutCompris <= model.PrixMax);
 
             model.Voyages = voyages.ToList();
             return View(model);
