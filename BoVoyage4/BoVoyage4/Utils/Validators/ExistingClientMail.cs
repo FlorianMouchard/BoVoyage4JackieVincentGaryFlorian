@@ -12,7 +12,7 @@ namespace BoVoyage4.Utils.Validators
         public override bool IsValid(object value)
         {
             using (BoVoyage4DbContext db = new BoVoyage4DbContext())
-                return !db.Commerciaux.Any(x => x.Email == value.ToString());
+                return !db.Clients.Any(x => x.Email == value.ToString());
         }
     }
 }
